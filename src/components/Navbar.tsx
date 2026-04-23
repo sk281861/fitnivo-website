@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
@@ -46,7 +47,14 @@ const Navbar = () => {
       >
         <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <Link href="/" style={{ textDecoration: "none", color: "white", display: "flex", alignItems: "center", gap: "10px", cursor: "pointer", zIndex: 1001 }}>
-            <img src="/favicon.png" alt="Fitnivo Logo" style={{ width: scrolled ? "40px" : "50px", height: scrolled ? "40px" : "50px", transition: "0.5s", objectFit: "contain" }} />
+            <Image 
+              src="/favicon.png" 
+              alt="Fitnivo Logo" 
+              width={scrolled ? 40 : 50} 
+              height={scrolled ? 40 : 50} 
+              priority
+              style={{ transition: "0.5s", objectFit: "contain" }} 
+            />
             <span style={{ fontSize: scrolled ? "20px" : "24px", fontWeight: "800", letterSpacing: "-0.03em", transition: "0.5s" }}>Fitnivo</span>
           </Link>
 

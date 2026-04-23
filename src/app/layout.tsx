@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
+import { Outfit } from "next/font/google";
 import "./globals.css";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-outfit",
+});
 
 export const metadata: Metadata = {
   title: "Fitnivo | AI-Powered Fitness, Nutrition & Mindfulness System",
@@ -74,7 +82,7 @@ export default function RootLayout({
         />
         <link rel="canonical" href="https://fitnivo.com" />
       </head>
-      <body>{children}</body>
+      <body className={`${outfit.variable} font-sans`}>{children}</body>
     </html>
   );
 }

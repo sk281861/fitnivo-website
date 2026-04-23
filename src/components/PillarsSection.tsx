@@ -115,8 +115,8 @@ const Pillar = ({ title, subtitle, color, rejected, accepted, image, index }: Pi
             }}
           />
 
-          {/* Status Overlay */}
-          <div style={{
+          {/* Status Overlay - Desktop version */}
+          <div className="desktop-only" style={{
             position: "absolute",
             bottom: "clamp(16px, 4vw, 32px)",
             left: "clamp(16px, 4vw, 32px)",
@@ -141,6 +141,22 @@ const Pillar = ({ title, subtitle, color, rejected, accepted, image, index }: Pi
             zIndex: 5 
           }} />
         </motion.div>
+
+        {/* Status Overlay - Mobile specific version (Below image) */}
+        <div className="mobile-only" style={{
+          marginTop: "20px",
+          width: "100%",
+          padding: "16px",
+          background: "rgba(255,255,255,0.03)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          borderRadius: "20px",
+          border: "1px solid rgba(255,255,255,0.08)",
+          textAlign: "center"
+        }}>
+          <div style={{ color: color, fontWeight: "800", fontSize: "11px", letterSpacing: "0.1em", marginBottom: "4px" }}>SYSTEM ANALYSIS</div>
+          <div style={{ color: "rgba(255,255,255,0.9)", fontSize: "12px" }}>Protocol Active</div>
+        </div>
       </motion.div>
 
       <style jsx>{`
@@ -157,6 +173,20 @@ const Pillar = ({ title, subtitle, color, rejected, accepted, image, index }: Pi
           .pillar-image-wrapper {
             max-width: 400px;
             margin: 0 auto;
+          }
+          .desktop-only {
+            display: none !important;
+          }
+          .mobile-only {
+            display: block !important;
+          }
+        }
+        @media (min-width: 969px) {
+          .mobile-only {
+            display: none !important;
+          }
+          .desktop-only {
+            display: block !important;
           }
         }
       `}</style>

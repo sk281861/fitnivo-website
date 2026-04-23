@@ -25,70 +25,90 @@ const ImageSequenceScrub: React.FC<ImageSequenceScrubProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [loaded, setLoaded] = useState(false);
+  const [firstFrameLoaded, setFirstFrameLoaded] = useState(false);
 
   // Preload images
   useEffect(() => {
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const skipAmount = isMobile ? 3 : 1; 
+    
     let loadedCount = 0;
     const tempImages: HTMLImageElement[] = [];
 
-    for (let i = 1; i <= frameCount; i++) {
+    // Preload FIRST frame separately and immediately to fix LCP
+    const firstImg = new Image();
+    firstImg.src = `${directory}ezgif-frame-001.${extension}`;
+    firstImg.onload = () => {
+      setFirstFrameLoaded(true);
+      if (tempImages.length > 0) {
+        tempImages[0] = firstImg;
+      }
+    };
+    
+    const framesToLoad = [];
+    for (let i = 1; i <= frameCount; i += skipAmount) {
+      framesToLoad.push(i);
+    }
+
+    framesToLoad.forEach((frameIdx, index) => {
       const img = new Image();
-      // Files are named ezgif-frame-001.jpg, ezgif-frame-002.jpg, etc.
-      const frameNum = i.toString().padStart(3, '0');
+      const frameNum = frameIdx.toString().padStart(3, '0');
       img.src = `${directory}ezgif-frame-${frameNum}.${extension}`;
+      
       img.onload = () => {
         loadedCount++;
-        if (loadedCount === frameCount) {
+        if (loadedCount === framesToLoad.length) {
           setLoaded(true);
         }
       };
-      tempImages.push(img);
-    }
+      
+      tempImages[index] = img;
+    });
+
     setImages(tempImages);
   }, [directory, frameCount, extension]);
 
   useEffect(() => {
-    if (!loaded || !canvasRef.current || !containerRef.current) return;
+    if (!firstFrameLoaded || !canvasRef.current) return;
 
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     if (!context) return;
 
-    // Initial render
     const renderFrame = (index: number) => {
       const img = images[Math.floor(index)];
-      if (img) {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // Draw image covering the canvas (object-fit: cover logic)
-        const canvasAspect = canvas.width / canvas.height;
-        const imgAspect = img.width / img.height;
-        let drawWidth, drawHeight, offsetX, offsetY;
+      if (!img || !img.complete) return;
+      
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      const canvasAspect = canvas.width / canvas.height;
+      const imgAspect = img.width / img.height;
+      let drawWidth, drawHeight, offsetX, offsetY;
 
-        if (canvasAspect > imgAspect) {
-          // Canvas is wider than image (e.g. wide desktop)
-          drawWidth = canvas.width;
-          drawHeight = canvas.width / imgAspect;
-          offsetX = 0;
-          offsetY = (canvas.height - drawHeight) / 2;
-        } else {
-          // Canvas is taller than image (e.g. mobile portrait)
-          drawWidth = canvas.height * imgAspect;
-          drawHeight = canvas.height;
-          offsetX = (canvas.width - drawWidth) / 2;
-          offsetY = 0;
-        }
-
-        context.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+      if (canvasAspect > imgAspect) {
+        drawWidth = canvas.width;
+        drawHeight = canvas.width / imgAspect;
+        offsetX = 0;
+        offsetY = (canvas.height - drawHeight) / 2;
+      } else {
+        drawWidth = canvas.height * imgAspect;
+        drawHeight = canvas.height;
+        offsetX = (canvas.width - drawWidth) / 2;
+        offsetY = 0;
       }
+      context.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
     };
 
+    // Render initial frame immediately once first image is ready
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     renderFrame(0);
+
+    if (!loaded || !containerRef.current) return;
 
     const sequence = { frame: 0 };
     const ctx = gsap.context(() => {
       gsap.to(sequence, {
-        frame: frameCount - 1,
+        frame: images.length - 1,
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
@@ -108,13 +128,12 @@ const ImageSequenceScrub: React.FC<ImageSequenceScrubProps> = ({
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Initial call
-
+    
     return () => {
       ctx.revert();
       window.removeEventListener("resize", handleResize);
     };
-  }, [loaded, images, frameCount, scrollLength]);
+  }, [firstFrameLoaded, loaded, images, scrollLength]);
 
   return (
     <div ref={containerRef} style={{ position: "relative", width: "100%" }}>
@@ -135,18 +154,21 @@ const ImageSequenceScrub: React.FC<ImageSequenceScrubProps> = ({
           }}
         />
         {children}
-        {!loaded && (
+        {!loaded && !firstFrameLoaded && (
           <div style={{
             position: "absolute",
             inset: 0,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            color: "white",
+            color: "rgba(255,255,255,0.2)",
             background: "black",
-            zIndex: 10
+            zIndex: 10,
+            fontSize: "12px",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase"
           }}>
-            Loading Cinematic Scene...
+            Initializing...
           </div>
         )}
       </div>
