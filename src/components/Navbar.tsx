@@ -38,24 +38,25 @@ const Navbar = () => {
           left: 0,
           right: 0,
           zIndex: 1000,
-          padding: scrolled ? "12px 0" : "24px 0",
+          padding: scrolled ? "16px 0" : "24px 0",
           transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
           background: scrolled || mobileMenuOpen ? "rgba(11, 11, 15, 0.95)" : "transparent",
           backdropFilter: scrolled || mobileMenuOpen ? "blur(30px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none"
+          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none",
+          overflow: "visible"
         }}
       >
-        <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <Link href="/" style={{ textDecoration: "none", color: "white", display: "flex", alignItems: "center", gap: "10px", cursor: "pointer", zIndex: 1001 }}>
+        <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", overflow: "visible" }}>
+          <Link href="/" style={{ textDecoration: "none", color: "white", display: "flex", alignItems: "center", gap: "12px", cursor: "pointer", zIndex: 1001, overflow: "visible" }}>
             <Image 
               src="/favicon.png" 
               alt="Fitnivo Logo" 
-              width={scrolled ? 40 : 50} 
-              height={scrolled ? 40 : 50} 
+              width={scrolled ? 36 : 48} 
+              height={scrolled ? 36 : 48} 
               priority
-              style={{ transition: "0.5s", objectFit: "contain" }} 
+              style={{ transition: "0.5s", objectFit: "contain", flexShrink: 0 }} 
             />
-            <span style={{ fontSize: scrolled ? "20px" : "24px", fontWeight: "800", letterSpacing: "-0.03em", transition: "0.5s" }}>Fitnivo</span>
+            <span style={{ fontSize: scrolled ? "22px" : "26px", fontWeight: "800", letterSpacing: "-0.03em", transition: "0.5s", lineHeight: "1.2", paddingBottom: "2px" }}>Fitnivo</span>
           </Link>
 
           {/* Desktop Links */}

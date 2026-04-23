@@ -100,7 +100,7 @@ const ImageSequenceScrub: React.FC<ImageSequenceScrubProps> = ({
 
     // Render initial frame immediately once first image is ready
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = window.innerWidth < 768 ? window.innerHeight * 0.7 : window.innerHeight;
     renderFrame(0);
 
     if (!loaded || !containerRef.current) return;
@@ -123,7 +123,7 @@ const ImageSequenceScrub: React.FC<ImageSequenceScrubProps> = ({
 
     const handleResize = () => {
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.height = window.innerWidth < 768 ? window.innerHeight * 0.7 : window.innerHeight;
       renderFrame(sequence.frame);
     };
 
@@ -137,13 +137,22 @@ const ImageSequenceScrub: React.FC<ImageSequenceScrubProps> = ({
 
   return (
     <div ref={containerRef} style={{ position: "relative", width: "100%" }}>
-      <div className="image-sequence-inner" style={{ 
+      <div className="image-sequence-inner responsive-hero-container" style={{ 
         position: "relative",
         width: "100%", 
-        height: "100vh",
         backgroundColor: "black",
         overflow: "hidden"
       }}>
+        <style jsx>{`
+          .responsive-hero-container {
+            height: 100vh;
+          }
+          @media (max-width: 768px) {
+            .responsive-hero-container {
+              height: 70vh;
+            }
+          }
+        `}</style>
         <canvas
           ref={canvasRef}
           style={{

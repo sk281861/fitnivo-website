@@ -13,12 +13,20 @@ const Hero = () => {
 
   const bgBlur = useTransform(scrollY, [0, 1200], ["blur(10px)", "blur(0px)"]);
 
+  const [scrollLen, setScrollLen] = React.useState(1500);
+
+  React.useEffect(() => {
+    if (window.innerWidth < 768) {
+      setScrollLen(800); // Shorter scroll duration on mobile
+    }
+  }, []);
+
   return (
     <section style={{ position: "relative", zIndex: 1, backgroundColor: "black" }}>
       <ImageSequenceScrub 
         directory="/frames/hero/" 
         frameCount={150} 
-        scrollLength={1500} 
+        scrollLength={scrollLen} 
       >
         {/* Dynamic Background Blur Overlay - Complete fade-out to ensure clarity */}
         <motion.div style={{ 
