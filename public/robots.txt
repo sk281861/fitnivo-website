@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fitnivo.com/sitemap.xml
+Sitemap: https://fitnivo.in/sitemap.xml

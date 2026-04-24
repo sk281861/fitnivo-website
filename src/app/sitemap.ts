@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://fitnivo.com';
+  const baseUrl = 'https://fitnivo.in';
 
   return [
     {

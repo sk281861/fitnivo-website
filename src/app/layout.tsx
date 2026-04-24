@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fitnivo | The Future of Integrated Wellness",
     description: "Synchronize your physiology with AI-driven protocols for peak human performance.",
-    url: "https://fitnivo.com",
+    url: "https://fitnivo.in",
     siteName: "Fitnivo",
     images: [
       {
@@ -80,7 +80,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <link rel="canonical" href="https://fitnivo.com" />
+        <link rel="canonical" href="https://fitnivo.in" />
       </head>
       <body className={`${outfit.variable} font-sans`}>{children}</body>
     </html>
