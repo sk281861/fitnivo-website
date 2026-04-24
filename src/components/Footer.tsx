@@ -30,7 +30,7 @@ const Footer = () => {
                 The intersection of elite human performance and advanced artificial intelligence. Built for those who refuse to settle.
               </p>
               <div style={{ display: "flex", gap: "16px" }}>
-                <a href="#" style={{ color: "rgba(255,255,255,0.4)", transition: "0.3s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "white")} onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
+                <a href="https://www.instagram.com/fitnivo.app/" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.4)", transition: "0.3s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "white")} onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
                   <Instagram size={24} />
                 </a>
               </div>
