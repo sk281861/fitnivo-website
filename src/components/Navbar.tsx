@@ -21,8 +21,7 @@ const Navbar = () => {
   const downloadUrl = "https://play.google.com/store/apps/details?id=com.fitnivo.app&pcampaignid=web_share";
 
   const navLinks = [
-    { name: "Features", href: "/#features" },
-    { name: "AI Coach", href: "/ai-features" },
+    { name: "Features", href: "/features" },
     { name: "About Us", href: "/about" },
   ];
 
