@@ -138,7 +138,21 @@ section {
   padding-right: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (481px) and (max-width: 768px) {
+  section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+@media (min-width: 769px) {
   section {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -150,6 +164,13 @@ section {
   margin: 0 auto;
   padding: 0 24px;
 }
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
 .transformation-grid {
   display: flex;
   flex-direction: column;
@@ -192,4 +213,27 @@ section {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+}
+
+/* Enhanced Touch Targets for Mobile */
+@media (hover: none) and (pointer: coarse) {
+  button, a, [role="button"] {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* Safe Area Padding for notched devices */
+@supports (padding: max(0px)) {
+  .container {
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding-left: max(16px, env(safe-area-inset-left));
+      padding-right: max(16px, env(safe-area-inset-right));
+    }
+  }
 }
