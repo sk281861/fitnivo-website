@@ -1,5 +1,8 @@
 import { MetadataRoute } from 'next';
 
+// Force static generation so the sitemap is always instantly available to crawlers
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://fitnivo.in';
   const currentDate = new Date();
