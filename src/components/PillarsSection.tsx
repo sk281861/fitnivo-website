@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Check, X } from "lucide-react";
+import Image from "next/image";
 
 interface PillarProps {
   title: string;
@@ -68,6 +69,37 @@ const Pillar = ({ title, subtitle, color, rejected, accepted, image, index }: Pi
             <span style={{ fontSize: "18px" }}>{accepted}</span>
           </div>
         </div>
+
+        <div style={{ marginTop: "24px" }}>
+          <a href={index === 0 ? "/ai-fitness-coach" : index === 1 ? "/nutrition-intelligence" : "/mindfulness-wellness"} style={{ textDecoration: "none" }}>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              style={{
+                background: "transparent",
+                border: `2px solid ${color}`,
+                color: "white",
+                padding: "12px 28px",
+                borderRadius: "999px",
+                fontSize: "14px",
+                fontWeight: "700",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                boxShadow: `0 0 20px ${color}20`
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = color;
+                e.currentTarget.style.color = "black";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+                e.currentTarget.style.color = "white";
+              }}
+            >
+              Explore {index === 0 ? "AI Fitness" : index === 1 ? "Molecular Nutrition" : "Mindfulness"}
+            </motion.button>
+          </a>
+        </div>
       </motion.div>
 
       <motion.div className="pillar-image-wrapper" style={{ flex: 1, position: "relative", width: "100%" }}>
@@ -87,18 +119,28 @@ const Pillar = ({ title, subtitle, color, rejected, accepted, image, index }: Pi
           }}
         >
           {/* Main Visual Image */}
-          <motion.img 
-            src={image}
-            alt={title}
+          <motion.div 
             animate={{ scale: [1, 1.1, 1] }}
             transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
             style={{ 
               width: "100%", 
               height: "100%", 
-              objectFit: "cover",
-              opacity: 0.95 // Increased for better visibility
+              position: "relative"
             }} 
-          />
+          >
+            <Image
+              src={image}
+              alt={title}
+              width={600}
+              height={600}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                opacity: 0.95
+              }}
+            />
+          </motion.div>
 
           {/* AI Scanner Effect */}
           <motion.div
@@ -202,7 +244,7 @@ const PillarsSection = () => {
       color: "#00F2FF",
       rejected: ["Static Workout Plans", "Plateau-Prone Routines", "Volume Overtraining"],
       accepted: "Neural Load Optimization",
-      image: "/images/pillar_fitness.png",
+      image: "/images/pillar_fitness.webp",
       index: 0
     },
     {
@@ -211,7 +253,7 @@ const PillarsSection = () => {
       color: "#FF2D55",
       rejected: ["Genetic Meal Plans", "Restrictive Diet Logic", "Micronutrient Gaps"],
       accepted: "Bio-Adaptive Fuel Sync",
-      image: "/images/pillar_nutrition.png",
+      image: "/images/pillar_nutrition.webp",
       index: 1
     },
     {
@@ -220,13 +262,13 @@ const PillarsSection = () => {
       color: "#00FF85",
       rejected: ["Chronic Stress Cycles", "Fragmented Sleep Sync", "Cognitive Burnout"],
       accepted: "Autonomous Nervous Reset",
-      image: "/images/pillar_mind.png",
+      image: "/images/pillar_mind.webp",
       index: 2
     }
   ];
 
   return (
-    <div style={{ position: "relative", backgroundColor: "var(--background)" }} id="features">
+    <div style={{ position: "relative", backgroundColor: "var(--background)" }} id="features" data-section="features">
       {pillars.map((pillar, i) => (
         <Pillar key={i} {...pillar} />
       ))}

@@ -18,11 +18,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const downloadUrl = "https://play.google.com/store/apps/details?id=com.fitnivo.app&pcampaignid=web_share";
+  const downloadUrl = "https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en";
 
   const navLinks = [
-    { name: "Features", href: "/features" },
-    { name: "About Us", href: "/about" },
+    { name: "AI Coach", href: "/ai-fitness-coach" },
+    { name: "Nutrition", href: "/nutrition-intelligence" },
+    { name: "Mindfulness", href: "/mindfulness-wellness" },
+    { name: "Biometric Sync", href: "/biometric-sync" },
   ];
 
   return (
@@ -47,7 +49,7 @@ const Navbar = () => {
         <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <Link href="/" style={{ textDecoration: "none", color: "white", display: "flex", alignItems: "center", gap: "10px", cursor: "pointer", zIndex: 1001 }}>
             <Image 
-              src="/favicon.png" 
+              src="/favicon.webp" 
               alt="Fitnivo Logo" 
               width={scrolled ? 40 : 50} 
               height={scrolled ? 40 : 50} 

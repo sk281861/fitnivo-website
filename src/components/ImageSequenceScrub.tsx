@@ -17,7 +17,7 @@ interface ImageSequenceScrubProps {
 const ImageSequenceScrub: React.FC<ImageSequenceScrubProps> = ({ 
   directory, 
   frameCount, 
-  extension = "jpg",
+  extension = "webp",
   scrollLength = 3000,
   children
 }) => {

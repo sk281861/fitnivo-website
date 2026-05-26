@@ -22,7 +22,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section style={{ position: "relative", zIndex: 1, backgroundColor: "black" }}>
+    <section style={{ position: "relative", zIndex: 1, backgroundColor: "black" }} data-section="hero">
       <ImageSequenceScrub 
         directory="/frames/hero/" 
         frameCount={150} 
@@ -65,10 +65,11 @@ const Hero = () => {
         {/* Floating Content */}
         <div style={{
           position: "absolute",
-          top: "60px", // Shifting down to match the artwork offset
+          top: 0, 
           left: 0,
           width: "100%",
-          height: "100vh",
+          height: "100%",
+          paddingTop: "60px", // Shifting down to match the artwork offset
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -141,7 +142,7 @@ const Hero = () => {
                 style={{ display: "flex", gap: "24px", justifyContent: "center" }}
               >
                 <a 
-                  href="https://play.google.com/store/apps/details?id=com.fitnivo.app&pcampaignid=web_share" 
+                  href="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   style={{ textDecoration: "none", width: "100%", maxWidth: "300px" }}

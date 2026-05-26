@@ -9,6 +9,7 @@ import {
   Smartphone, Activity, ShieldCheck, Repeat, TrendingUp, 
   ChevronRight, ArrowRight 
 } from "lucide-react";
+import Image from "next/image";
 
 export default function AIFeaturesPage() {
   const containerVariants = {
@@ -156,7 +157,13 @@ export default function AIFeaturesPage() {
                     boxShadow: "0 30px 60px rgba(0,242,255,0.1)"
                   }}
                  >
-                   <img src="/ai_workout.png" alt="AI Workout" style={{ width: "100%", aspectRatio: "4/5", objectFit: "cover" }} />
+                   <Image 
+                     src="/ai_workout.webp" 
+                     alt="AI Workout" 
+                     width={400} 
+                     height={500} 
+                     style={{ width: "100%", aspectRatio: "4/5", objectFit: "cover" }} 
+                   />
                  </motion.div>
               </div>
             </div>
@@ -213,7 +220,13 @@ export default function AIFeaturesPage() {
                     boxShadow: "0 30px 60px rgba(191,0,255,0.1)"
                   }}
                 >
-                   <img src="/ai_nutrition.png" alt="AI Nutrition" style={{ width: "100%", aspectRatio: "4/5", objectFit: "cover" }} />
+                   <Image 
+                     src="/ai_nutrition.webp" 
+                     alt="AI Nutrition" 
+                     width={400} 
+                     height={500} 
+                     style={{ width: "100%", aspectRatio: "4/5", objectFit: "cover" }} 
+                   />
                 </motion.div>
               </div>
             </div>
@@ -270,7 +283,13 @@ export default function AIFeaturesPage() {
                     boxShadow: "0 30px 60px rgba(0,255,133,0.1)"
                   }}
                 >
-                   <img src="/ai_mindfulness.png" alt="AI Mindfulness" style={{ width: "100%", aspectRatio: "4/5", objectFit: "cover" }} />
+                   <Image 
+                     src="/ai_mindfulness.webp" 
+                     alt="AI Mindfulness" 
+                     width={400} 
+                     height={500} 
+                     style={{ width: "100%", aspectRatio: "4/5", objectFit: "cover" }} 
+                   />
                 </motion.div>
               </div>
             </div>
@@ -364,7 +383,13 @@ export default function AIFeaturesPage() {
                  whileInView={{ opacity: 1, rotate: 0 }}
                  viewport={{ once: true }}
                >
-                 <img src="/fitbuu_coach.png" alt="Fitbuu AI Coach" style={{ width: "100%", borderRadius: "clamp(32px, 5vw, 48px)", boxShadow: "0 0 100px rgba(0,242,255,0.2)" }} />
+                 <Image 
+                   src="/fitbuu_coach.webp" 
+                   alt="Fitbuu AI Coach" 
+                   width={600} 
+                   height={600} 
+                   style={{ width: "100%", height: "auto", borderRadius: "clamp(32px, 5vw, 48px)", boxShadow: "0 0 100px rgba(0,242,255,0.2)" }} 
+                 />
                </motion.div>
             </div>
             <div style={{ flex: 1.5, width: "100%" }}>
@@ -451,7 +476,13 @@ export default function AIFeaturesPage() {
             </div>
             <div style={{ flex: 1, width: "100%", position: "relative" }}>
               <div style={{ width: "100%", height: "clamp(250px, 50vw, 400px)", borderRadius: "48px", overflow: "hidden", position: "relative" }}>
-                <img src="/habit_mock.png" alt="Habit Tracking" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.3 }} />
+                 <Image 
+                   src="/habit_mock.webp" 
+                   alt="Habit Tracking" 
+                   width={600} 
+                   height={400} 
+                   style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.3 }} 
+                 />
                 <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <div style={{ fontSize: "clamp(40px, 10vw, 80px)", fontWeight: "900", color: "#FF9500" }}>14</div>
                     <div style={{ fontSize: "clamp(12px, 3vw, 20px)", fontWeight: "700", marginLeft: "10px", marginTop: "clamp(15px, 4vw, 30px)" }}>DAY STREAK</div>

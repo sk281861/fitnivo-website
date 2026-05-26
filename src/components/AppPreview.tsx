@@ -7,11 +7,11 @@ import { Activity, Wind, Zap, Smartphone, Target } from "lucide-react";
 const AppPreview = () => {
     return (
         <section id="app" style={{ 
-          padding: "128px 0", 
+          padding: "clamp(80px, 12vw, 160px) 0", 
           backgroundColor: "#0B0B0F", 
           position: "relative", 
           overflow: "hidden" 
-        }}>
+        }} data-section="faq">
             {/* Decorative UI elements - Abstract Glows */}
             <div style={{ 
               position: "absolute", top: 0, right: 0, width: "50vh", height: "50vh", 

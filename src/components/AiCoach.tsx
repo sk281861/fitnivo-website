@@ -3,10 +3,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { MessageSquare, Sparkles, ShieldCheck } from "lucide-react";
+import Image from "next/image";
 
 const AiCoach = () => {
   return (
-    <section style={{ padding: "clamp(60px, 10vw, 120px) 0", background: "rgba(0,0,0,0.2)" }}>
+    <section style={{ padding: "clamp(60px, 10vw, 120px) 0", background: "rgba(0,0,0,0.2)" }} data-section="widget">
       <div className="container stack-on-mobile" style={{ alignItems: "center", gap: "clamp(40px, 8vw, 80px)" }}>
         <div style={{ flex: "1 1 0%", width: "100%", position: "relative" }}>
           <motion.div
@@ -22,7 +23,13 @@ const AiCoach = () => {
               borderRadius: "40px"
             }}
           >
-            <img src="/images/fitbuu.png" alt="Fitbuu AI Coach" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <Image 
+              src="/images/fitbuu.webp" 
+              alt="Fitbuu AI Coach" 
+              width={400} 
+              height={500} 
+              style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+            />
             
             <div style={{
               position: "absolute",

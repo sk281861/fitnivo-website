@@ -4,10 +4,22 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Brain, Target, Compass, Sparkles, Activity } from "lucide-react";
+import Image from "next/image";
+import { generateBreadcrumbSchema } from "@/lib/seo/generateSchema";
 
 export default function AboutPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://fitnivo.in" },
+    { name: "About Us", url: "https://fitnivo.in/about" },
+  ]);
+  const schemaJson = JSON.stringify(breadcrumbSchema);
+
   return (
     <main style={{ background: "#050505", minHeight: "100vh", color: "white" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: schemaJson }}
+      />
       <Navbar />
 
       {/* Hero Section */}
@@ -87,9 +99,11 @@ export default function AboutPage() {
                 overflow: "hidden",
                 border: "1px solid rgba(255,255,255,0.1)"
               }}>
-                <img 
-                  src="/elite_performance_png_1776977986303.png" 
+                <Image 
+                  src="/elite_performance_png_1776977986303.webp" 
                   alt="Elite Performance" 
+                  width={600}
+                  height={600}
                   style={{ width: "100%", height: "100%", objectFit: "cover" }} 
                 />
                 <div style={{ 
@@ -123,9 +137,11 @@ export default function AboutPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: "clamp(60px, 10vw, 100px)" }}>
             <div className="stack-on-mobile" style={{ gap: "clamp(40px, 8vw, 80px)", alignItems: "center" }}>
               <div style={{ flex: 1, height: "400px", borderRadius: "32px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.05)", width: "100%" }}>
-                <img 
-                  src="/ai_system_core_png_1776977971209.png" 
+                <Image 
+                  src="/ai_system_core_png_1776977971209.webp" 
                   alt="AI Intelligent Core" 
+                  width={600}
+                  height={400}
                   style={{ width: "100%", height: "100%", objectFit: "cover" }} 
                 />
               </div>
@@ -166,9 +182,11 @@ export default function AboutPage() {
               position: "relative",
               width: "100%"
             }}>
-              <img 
-                src="/mindfulness_zen_png_1776977999197.png" 
+              <Image 
+                src="/mindfulness_zen_png_1776977999197.webp" 
                 alt="Mindfulness Zen" 
+                width={600}
+                height={600}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }} 
               />
               <div style={{ 

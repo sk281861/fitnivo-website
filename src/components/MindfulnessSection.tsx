@@ -16,10 +16,10 @@ const MindfulnessSection = () => {
 
   return (
     <section style={{ 
-      padding: "160px 0", 
+      padding: "clamp(80px, 12vw, 160px) 0", 
       background: "radial-gradient(circle at 70% 50%, rgba(0, 255, 133, 0.05) 0%, transparent 60%)",
       overflow: "hidden"
-    }}>
+    }} data-section="testimonials">
       <div className="container" style={{ display: "flex", flexDirection: "column", gap: "clamp(60px, 10vw, 80px)" }}>
         <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
           <h2 style={{ fontSize: "clamp(36px, 8vw, 56px)", marginBottom: "24px", lineHeight: "1.1" }}>

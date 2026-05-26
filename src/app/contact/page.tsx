@@ -4,8 +4,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Mail, MessageSquare, Heart, ShieldAlert, Smartphone, Send } from "lucide-react";
+import { generateBreadcrumbSchema } from "@/lib/seo/generateSchema";
 
 export default function ContactPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://fitnivo.in" },
+    { name: "Contact", url: "https://fitnivo.in/contact" },
+  ]);
+  const schemaJson = JSON.stringify(breadcrumbSchema);
+
   const helpCategories = [
     { icon: <Smartphone size={20} />, text: "App support & technical issues" },
     { icon: <ShieldAlert size={20} />, text: "Account or subscription queries" },
@@ -15,6 +22,10 @@ export default function ContactPage() {
 
   return (
     <main style={{ background: "#050505", minHeight: "100vh", color: "white" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: schemaJson }}
+      />
       <Navbar />
 
       <section style={{ paddingTop: "clamp(120px, 15vw, 180px)", paddingBottom: "clamp(60px, 8vw, 120px)" }}>
@@ -69,7 +80,11 @@ export default function ContactPage() {
                   fontWeight: "700", 
                   color: "white", 
                   textDecoration: "none",
-                  wordBreak: "break-all"
+                  wordBreak: "break-all",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  padding: "12px 0",
+                  minHeight: "48px"
                 }}>support@fitnivo.in</a>
                 <p style={{ marginTop: "12px", color: "rgba(255,255,255,0.4)", fontSize: "13px" }}>
                   We aim to respond within 24–48 hours.

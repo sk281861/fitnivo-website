@@ -3,6 +3,7 @@
 import React from "react";
 import { Instagram } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -16,7 +17,13 @@ const Footer = () => {
             {/* Brand Column */}
             <div className="footer-brand">
               <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px" }}>
-                <img src="/favicon.png" alt="Fitnivo Logo" style={{ width: "40px", height: "40px", objectFit: "contain" }} />
+                <Image 
+                  src="/favicon.webp" 
+                  alt="Fitnivo Logo" 
+                  width={40} 
+                  height={40} 
+                  style={{ objectFit: "contain" }} 
+                />
                 <div style={{ fontSize: "28px", fontWeight: "800", letterSpacing: "-0.03em" }}>Fitnivo</div>
               </div>
               <p style={{

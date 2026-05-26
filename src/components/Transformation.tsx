@@ -3,10 +3,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import Image from "next/image";
 
 const Transformation = () => {
   return (
-    <section style={{ padding: "clamp(80px, 15vw, 160px) 0", backgroundColor: "var(--background)" }}>
+    <section style={{ padding: "clamp(80px, 15vw, 160px) 0", backgroundColor: "var(--background)" }} data-section="cta">
       <div className="container">
         <div className="transformation-grid" style={{ gap: "clamp(60px, 10vw, 100px)" }}>
           
@@ -19,9 +20,11 @@ const Transformation = () => {
             style={{ flex: 1, width: "100%" }}
           >
             <div className="transformation-card" style={{ borderRadius: "clamp(24px, 5vw, 48px)" }}>
-              <img 
+              <Image 
                 src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=1200&q=80" 
                 alt="Transformation" 
+                width={800}
+                height={600}
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
               <div style={{ 
@@ -142,7 +145,7 @@ const Transformation = () => {
           style={{ 
             marginTop: "160px", 
             textAlign: "center",
-            padding: "120px 40px",
+            padding: "clamp(60px, 10vw, 120px) clamp(20px, 5vw, 40px)",
             borderRadius: "60px",
             position: "relative",
             overflow: "hidden",
@@ -155,7 +158,7 @@ const Transformation = () => {
           <div style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url('/images/cta_bg.png')",
+            backgroundImage: "url('/images/cta_bg.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.4,
@@ -202,7 +205,7 @@ const Transformation = () => {
               <div style={{ display: "flex", justifyContent: "center", gap: "32px", flexWrap: "wrap" }}>
                 {/* Play Store Button */}
                 <a 
-                  href="https://play.google.com/store/apps/details?id=com.fitnivo.app&pcampaignid=web_share" 
+                  href="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   style={{ textDecoration: "none" }}
@@ -223,7 +226,13 @@ const Transformation = () => {
                       boxShadow: "0 30px 60px rgba(0,0,0,0.5)"
                     }}
                   >
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" style={{ height: "32px" }} />
+                    <Image 
+                      src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+                      alt="Google Play" 
+                      width={135} 
+                      height={40} 
+                      style={{ height: "32px", width: "auto" }} 
+                    />
                     <div style={{ textAlign: "left" }}>
                       <div style={{ fontSize: "11px", fontWeight: "700", opacity: 0.6 }}>IMMEDIATE ACCESS</div>
                       <div style={{ fontSize: "22px", fontWeight: "900" }}>Google Play</div>
@@ -248,7 +257,13 @@ const Transformation = () => {
                       WebkitBackdropFilter: "blur(10px)"
                     }}
                   >
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" style={{ height: "32px", filter: "grayscale(1) opacity(0.3)" }} />
+                    <Image 
+                      src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
+                      alt="App Store" 
+                      width={135} 
+                      height={40} 
+                      style={{ height: "32px", width: "auto", filter: "grayscale(1) opacity(0.3)" }} 
+                    />
                     <div style={{ textAlign: "left" }}>
                       <div style={{ fontSize: "11px", fontWeight: "700", opacity: 0.3 }}>APP STORE RELEASE</div>
                       <div style={{ fontSize: "22px", fontWeight: "900" }}>Coming Soon</div>
