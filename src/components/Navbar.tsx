@@ -25,6 +25,7 @@ const Navbar = () => {
     { name: "Nutrition", href: "/nutrition-intelligence" },
     { name: "Mindfulness", href: "/mindfulness-wellness" },
     { name: "Biometric Sync", href: "/biometric-sync" },
+    { name: "Blog", href: "/blog" },
   ];
 
   return (

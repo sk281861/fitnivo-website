@@ -65,3 +65,46 @@ export function generateOrganizationSchema() {
     ]
   };
 }
+
+export interface ArticleSchemaProps {
+  headline: string;
+  description: string;
+  image: string;
+  url: string;
+  datePublished: string;
+  dateModified: string;
+  authorName: string;
+  authorUrl?: string;
+  wordCount?: number;
+}
+
+export function generateArticleSchema(props: ArticleSchemaProps) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: props.headline,
+    description: props.description,
+    image: props.image,
+    url: props.url,
+    datePublished: props.datePublished,
+    dateModified: props.dateModified,
+    ...(props.wordCount && { wordCount: props.wordCount }),
+    author: {
+      '@type': 'Person',
+      name: props.authorName,
+      ...(props.authorUrl && { url: props.authorUrl }),
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Fitnivo',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://fitnivo.in/favicon.webp',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': props.url,
+    },
+  };
+}

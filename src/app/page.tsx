@@ -4,6 +4,7 @@ import PillarsSection from "@/components/PillarsSection";
 import Footer from "@/components/Footer";
 import dynamic from "next/dynamic";
 import { generateOrganizationSchema } from "@/lib/seo/generateSchema";
+import BlogPreviewSection from "@/components/BlogPreviewSection";
 
 // Dynamically import client-side interactive widgets to enable code-splitting
 const AiCoach = dynamic(() => import("@/components/AiCoach"));
@@ -28,6 +29,7 @@ export default function Home() {
       <MindfulnessSection />
       <AppPreview />
       <Transformation />
+      <BlogPreviewSection />
       <Footer />
     </main>
   );

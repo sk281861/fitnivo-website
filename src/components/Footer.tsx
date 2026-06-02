@@ -68,16 +68,27 @@ const Footer = () => {
                 <li><Link href="/terms" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: "15px", transition: "0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "white")} onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}>Terms of Service</Link></li>
               </ul>
             </div>
+
+            {/* Blog Column */}
+            <div className="footer-col">
+              <h4 style={{ fontSize: "12px", fontWeight: "800", color: "var(--text-muted)", letterSpacing: "0.2em", marginBottom: "32px", textTransform: "uppercase" }}>Blog</h4>
+              <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
+                <li><Link href="/blog" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: "15px", transition: "0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "white")} onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}>All Articles</Link></li>
+                <li><Link href="/blog/nutrition-science-personalization" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: "15px", transition: "0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "white")} onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}>Nutrition Science</Link></li>
+                <li><Link href="/blog/biometric-optimization-science" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: "15px", transition: "0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "white")} onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}>Biometric Science</Link></li>
+                <li><Link href="/blog/ai-vs-traditional-coaching" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: "15px", transition: "0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "white")} onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}>AI vs. Traditional</Link></li>
+              </ul>
+            </div>
           </div>
 
           <style jsx>{`
             .footer-grid {
               display: grid;
-              grid-template-columns: repeat(4, 1fr);
+              grid-template-columns: 2fr 1fr 1fr 1fr;
               gap: 60px;
               margin-bottom: 80px;
             }
-            .footer-brand { grid-column: span 2; }
+            .footer-brand { grid-column: span 1; }
             .footer-col { grid-column: span 1; }
 
             @media (max-width: 992px) {

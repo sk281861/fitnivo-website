@@ -267,7 +267,7 @@ This document specifies comprehensive requirements for implementing SEO infrastr
 13. THE Blog_Post SHALL include at least 2 data visualizations or infographics (WebP format)
 14. THE page SHALL achieve Core Web Vitals targets: LCP < 2.5s, FID < 100ms, CLS < 0.1
 
-### Requirement 3.2: Blog Post - "AI vs. Traditional Fitness Coaching: A Comprehensive Comparison"
+### Requirement 3.2: Blog Post - "AI vs. Traditional Fitness Coaching: A Comprehensive Comparison" [COMPLETED]
 
 **User Story:** As a potential user, I want to understand how AI coaching compares to traditional methods, so that I can decide if Fitnivo is right for me.
 
@@ -291,7 +291,7 @@ This document specifies comprehensive requirements for implementing SEO infrastr
 
 
 
-### Requirement 3.3: Blog Post - "Nutrition Science: Macros, Micros, and Personalization"
+### Requirement 3.3: Blog Post - "Nutrition Science: Macros, Micros, and Personalization" [COMPLETED]
 
 **User Story:** As a health-conscious user, I want to understand nutrition science, so that I can optimize my diet for my goals.
 

@@ -59,6 +59,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
+    // Blog Posts (0.6, monthly)
+    {
+      url: `${baseUrl}/blog/nutrition-science-personalization`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/ai-vs-traditional-coaching`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
     // Legal Pages (0.3, monthly)
     {
       url: `${baseUrl}/privacy`,
