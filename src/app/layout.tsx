@@ -42,6 +42,9 @@ export const metadata: Metadata = {
     shortcut: "/favicon.webp?v=3",
     apple: "/favicon.webp?v=3",
   },
+  alternates: {
+    canonical: "https://fitnivo.in",
+  },
 };
 
 export const viewport = {
@@ -80,7 +83,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <link rel="canonical" href="https://fitnivo.in" />
       </head>
       <body className={`${outfit.variable} font-sans`}>{children}</body>
     </html>
