@@ -31,6 +31,25 @@ export function generateProductSchema(props: ProductSchemaProps) {
       price: '0',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingRate: {
+          '@type': 'MonetaryAmount',
+          value: '0',
+          currency: 'USD',
+        },
+        shippingDestination: {
+          '@type': 'DefinedRegion',
+          addressCountry: 'US',
+        },
+      },
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        applicableCountry: 'US',
+        returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+        merchantReturnDays: 0,
+        returnFees: 'https://schema.org/FreeReturn',
+      },
     },
   };
 }

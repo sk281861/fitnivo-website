@@ -1,16 +1,18 @@
+export const dynamic = 'force-dynamic';
+
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import PillarsSection from "@/components/PillarsSection";
 import Footer from "@/components/Footer";
-import dynamic from "next/dynamic";
+import nextDynamic from "next/dynamic";
 import { generateOrganizationSchema } from "@/lib/seo/generateSchema";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
 
 // Dynamically import client-side interactive widgets to enable code-splitting
-const AiCoach = dynamic(() => import("@/components/AiCoach"));
-const MindfulnessSection = dynamic(() => import("@/components/MindfulnessSection"));
-const AppPreview = dynamic(() => import("@/components/AppPreview"));
-const Transformation = dynamic(() => import("@/components/Transformation"));
+const AiCoach = nextDynamic(() => import("@/components/AiCoach"));
+const MindfulnessSection = nextDynamic(() => import("@/components/MindfulnessSection"));
+const AppPreview = nextDynamic(() => import("@/components/AppPreview"));
+const Transformation = nextDynamic(() => import("@/components/Transformation"));
 
 export default function Home() {
   const organizationSchema = generateOrganizationSchema();

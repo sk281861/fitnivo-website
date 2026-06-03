@@ -1,15 +1,17 @@
+export const dynamic = 'force-dynamic';
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/landing/HeroSection';
 import FeatureGrid from '@/components/landing/FeatureGrid';
-import dynamic from 'next/dynamic';
+import nextDynamic from 'next/dynamic';
 import TestimonialCarousel from '@/components/landing/TestimonialCarousel';
 import FAQAccordion from '@/components/landing/FAQAccordion';
 import CTASection from '@/components/landing/CTASection';
 import RelatedContent from '@/components/landing/RelatedContent';
 import { generateProductSchema, generateBreadcrumbSchema } from '@/lib/seo/generateSchema';
 
-const DeviceCompatibility = dynamic(() => import('@/components/landing/DeviceCompatibility'));
+const DeviceCompatibility = nextDynamic(() => import('@/components/landing/DeviceCompatibility'));
 
 const features = [
   {
