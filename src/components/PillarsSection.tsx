@@ -268,7 +268,7 @@ const PillarsSection = () => {
   ];
 
   return (
-    <div style={{ position: "relative", backgroundColor: "var(--background)" }} id="features" data-section="features">
+    <div style={{ position: "relative", backgroundColor: "var(--background)", minHeight: "600px", contentVisibility: "auto" }} id="features" data-section="features">
       {pillars.map((pillar, i) => (
         <Pillar key={i} {...pillar} />
       ))}

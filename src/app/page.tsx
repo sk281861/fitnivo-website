@@ -9,10 +9,10 @@ import { generateOrganizationSchema } from "@/lib/seo/generateSchema";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
 
 // Dynamically import client-side interactive widgets to enable code-splitting
-const AiCoach = nextDynamic(() => import("@/components/AiCoach"));
-const MindfulnessSection = nextDynamic(() => import("@/components/MindfulnessSection"));
-const AppPreview = nextDynamic(() => import("@/components/AppPreview"));
-const Transformation = nextDynamic(() => import("@/components/Transformation"));
+const AiCoach = nextDynamic(() => import("@/components/AiCoach"), { ssr: true });
+const MindfulnessSection = nextDynamic(() => import("@/components/MindfulnessSection"), { ssr: true });
+const AppPreview = nextDynamic(() => import("@/components/AppPreview"), { ssr: true });
+const Transformation = nextDynamic(() => import("@/components/Transformation"), { ssr: true });
 
 export default function Home() {
   const organizationSchema = generateOrganizationSchema();

@@ -11,7 +11,7 @@ import CTASection from '@/components/landing/CTASection';
 import RelatedContent from '@/components/landing/RelatedContent';
 import { generateProductSchema, generateBreadcrumbSchema } from '@/lib/seo/generateSchema';
 
-const WellnessAssessment = nextDynamic(() => import('@/components/landing/WellnessAssessment'));
+const WellnessAssessment = nextDynamic(() => import('@/components/landing/WellnessAssessment'), { ssr: true });
 
 const features = [
   {
