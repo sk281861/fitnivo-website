@@ -54,11 +54,11 @@ const AppPreview = () => {
                     <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "48px" }} className="app-features-left">
                         <div style={{ textAlign: "right", borderRight: "1px solid rgba(255,255,255,0.05)", paddingRight: "24px", paddingTop: "8px", paddingBottom: "8px" }}>
                             <h3 style={{ fontSize: "24px", fontWeight: "700", marginBottom: "8px", letterSpacing: "-0.02em" }}>Live Progress Rings</h3>
-                            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.15em" }}>Full biometric synchronization.</p>
+                            <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.15em" }}>Full biometric synchronization.</p>
                         </div>
                         <div style={{ textAlign: "right", borderRight: "1px solid rgba(255,255,255,0.05)", paddingRight: "24px", paddingTop: "8px", paddingBottom: "8px" }}>
                             <h3 style={{ fontSize: "24px", fontWeight: "700", marginBottom: "8px", letterSpacing: "-0.02em" }}>Smart Logging</h3>
-                            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.15em" }}>Automated set recognition.</p>
+                            <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.15em" }}>Automated set recognition.</p>
                         </div>
                     </div>
                     
@@ -93,7 +93,7 @@ const AppPreview = () => {
                                 <div style={{ padding: "32px", paddingTop: "56px", display: "flex", flexDirection: "column", gap: "32px" }}>
                                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", color: "white" }}>
                                         <div>
-                                            <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.1em" }}>Thursday, April 23</div>
+                                            <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.7)", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.1em" }}>Thursday, April 23</div>
                                             <div style={{ fontSize: "24px", fontWeight: "800" }}>Hello, Alex</div>
                                         </div>
                                         <div style={{ width: "40px", height: "40px", borderRadius: "50%", backgroundColor: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.05)" }} />
@@ -131,7 +131,7 @@ const AppPreview = () => {
                                                 />
                                             </svg>
                                             <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                                                <span style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)", fontWeight: "800" }}>TOTAL SCORE</span>
+                                                <span style={{ fontSize: "10px", color: "rgba(255,255,255,0.7)", fontWeight: "800" }}>TOTAL SCORE</span>
                                                 <span style={{ fontSize: "36px", fontWeight: "800", color: "white" }}>942</span>
                                             </div>
                                         </div>
@@ -179,11 +179,11 @@ const AppPreview = () => {
                     <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "48px" }} className="app-features-right">
                         <div style={{ textAlign: "left", borderLeft: "1px solid rgba(255,255,255,0.05)", paddingLeft: "24px", paddingTop: "8px", paddingBottom: "8px" }}>
                             <h3 style={{ fontSize: "24px", fontWeight: "700", marginBottom: "8px", letterSpacing: "-0.02em" }}>Social Challenges</h3>
-                            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.15em" }}>Verified by neural check.</p>
+                            <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.15em" }}>Verified by neural check.</p>
                         </div>
                         <div style={{ textAlign: "left", borderLeft: "1px solid rgba(255,255,255,0.05)", paddingLeft: "24px", paddingTop: "8px", paddingBottom: "8px" }}>
                             <h3 style={{ fontSize: "24px", fontWeight: "700", marginBottom: "8px", letterSpacing: "-0.02em" }}>Real-time Form Feedback</h3>
-                            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.15em" }}>Sub-millisecond latency.</p>
+                            <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.15em" }}>Sub-millisecond latency.</p>
                         </div>
                     </div>
                 </div>

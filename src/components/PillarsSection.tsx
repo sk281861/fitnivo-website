@@ -45,20 +45,20 @@ const Pillar = ({ title, subtitle, color, rejected, accepted, image, index }: Pi
       className="container pillar-container"
     >
       <motion.div className="pillar-content" style={{ flex: 1.2 }}>
-        <div style={{ color: color, fontSize: "12px", fontWeight: "800", marginBottom: "16px", textTransform: "uppercase", letterSpacing: "3px" }}>
+        <div className="pillar-tag" style={{ color: color, fontSize: "12px", fontWeight: "800", marginBottom: "16px", textTransform: "uppercase", letterSpacing: "3px" }}>
           Pillar 0{index + 1}
         </div>
         <h2 style={{ fontSize: "clamp(36px, 6vw, 84px)", lineHeight: "0.95", marginBottom: "24px", fontWeight: "900", letterSpacing: "-0.04em" }}>
           {title.split(':')[1].trim()}
         </h2>
-        <p style={{ fontSize: "clamp(16px, 3vw, 18px)", color: "rgba(255,255,255,0.6)", marginBottom: "32px", lineHeight: "1.6", maxWidth: "540px" }}>
+        <p className="description-text" style={{ fontSize: "clamp(16px, 3vw, 18px)", color: "rgba(255,255,255,0.85)", marginBottom: "32px", lineHeight: "1.6", maxWidth: "540px" }}>
           {subtitle}
         </p>
         
         <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginBottom: "32px" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
             {rejected.map((item, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", color: "rgba(255,255,255,0.3)", textDecoration: "line-through" }}>
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", color: "rgba(255,255,255,0.7)", textDecoration: "line-through" }}>
                 <X size={16} />
                 <span style={{ fontSize: "16px" }}>{item}</span>
               </div>
@@ -133,6 +133,8 @@ const Pillar = ({ title, subtitle, color, rejected, accepted, image, index }: Pi
               alt={title}
               width={600}
               height={600}
+              sizes="(max-width: 768px) 250px, 600px"
+              loading="lazy"
               style={{
                 width: "100%",
                 height: "100%",
@@ -172,7 +174,7 @@ const Pillar = ({ title, subtitle, color, rejected, accepted, image, index }: Pi
             textAlign: "center",
             zIndex: 15
           }}>
-            <div style={{ color: color, fontWeight: "800", fontSize: "11px", letterSpacing: "0.1em", marginBottom: "4px" }}>SYSTEM ANALYSIS</div>
+            <div className="system-analysis-tag" style={{ color: color, fontWeight: "800", fontSize: "11px", letterSpacing: "0.1em", marginBottom: "4px" }}>SYSTEM ANALYSIS</div>
             <div style={{ color: "rgba(255,255,255,0.9)", fontSize: "12px" }}>Protocol Active</div>
           </div>
           
@@ -196,7 +198,7 @@ const Pillar = ({ title, subtitle, color, rejected, accepted, image, index }: Pi
           border: "1px solid rgba(255,255,255,0.08)",
           textAlign: "center"
         }}>
-          <div style={{ color: color, fontWeight: "800", fontSize: "11px", letterSpacing: "0.1em", marginBottom: "4px" }}>SYSTEM ANALYSIS</div>
+          <div className="system-analysis-tag" style={{ color: color, fontWeight: "800", fontSize: "11px", letterSpacing: "0.1em", marginBottom: "4px" }}>SYSTEM ANALYSIS</div>
           <div style={{ color: "rgba(255,255,255,0.9)", fontSize: "12px" }}>Protocol Active</div>
         </div>
       </motion.div>

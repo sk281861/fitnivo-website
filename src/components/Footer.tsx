@@ -27,7 +27,7 @@ const Footer = () => {
                 <div style={{ fontSize: "28px", fontWeight: "800", letterSpacing: "-0.03em" }}>Fitnivo</div>
               </div>
               <p style={{
-                color: "rgba(255,255,255,0.4)",
+                color: "rgba(255,255,255,0.7)",
                 lineHeight: "1.8",
                 fontSize: "16px",
                 maxWidth: "380px",
@@ -37,7 +37,7 @@ const Footer = () => {
                 The intersection of elite human performance and advanced artificial intelligence. Built for those who refuse to settle.
               </p>
               <div style={{ display: "flex", gap: "16px" }}>
-                <a href="https://www.instagram.com/fitnivo.app/" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.4)", transition: "0.3s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "white")} onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
+                <a href="https://www.instagram.com/fitnivo.app/" target="_blank" rel="noopener noreferrer" aria-label="Follow Fitnivo on Instagram" style={{ color: "rgba(255,255,255,0.7)", transition: "0.3s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "white")} onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.7)")}>
                   <Instagram size={24} />
                 </a>
               </div>
@@ -48,11 +48,11 @@ const Footer = () => {
               <h4 style={{ fontSize: "12px", fontWeight: "800", color: "var(--text-muted)", letterSpacing: "0.2em", marginBottom: "32px", textTransform: "uppercase" }}>Contact</h4>
               <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
                 <li><Link href="/contact" style={{ color: "#00F2FF", textDecoration: "none", fontSize: "15px", fontWeight: "700" }}>Contact Fitnivo</Link></li>
-                <li style={{ color: "rgba(255,255,255,0.4)", fontSize: "14px", lineHeight: "1.6" }}>
+                <li style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px", lineHeight: "1.6" }}>
                   Have a question or need support?<br />
                   <a href="mailto:support@fitnivo.in" style={{ color: "white", textDecoration: "none", fontWeight: "600" }}>support@fitnivo.in</a>
                 </li>
-                <li style={{ color: "rgba(255,255,255,0.3)", fontSize: "12px", fontStyle: "italic" }}>
+                <li className="response-time" style={{ color: "rgba(255,255,255,0.6)", fontSize: "12px", fontStyle: "italic" }}>
                   Response: 24–48 hours
                 </li>
               </ul>
@@ -113,7 +113,7 @@ const Footer = () => {
           justifyContent: "center",
           alignItems: "center"
         }}>
-          <p style={{ color: "rgba(255,255,255,0.3)", fontSize: "12px", fontWeight: "500", textAlign: "center" }}>
+          <p className="copyright" style={{ color: "rgba(255,255,255,0.6)", fontSize: "12px", fontWeight: "500", textAlign: "center" }}>
             © {new Date().getFullYear()} Fitnivo AI Ecosystem. All rights reserved.
           </p>
         </div>

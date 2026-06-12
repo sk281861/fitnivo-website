@@ -69,7 +69,7 @@ const AiCoach = () => {
                 <MessageSquare size={24} />
               </div>
               <div>
-                <h4 style={{ marginBottom: "4px" }}>Real-time Adjustments</h4>
+                <h3 style={{ marginBottom: "4px" }}>Real-time Adjustments</h3>
                 <p style={{ color: "var(--text-muted)", fontSize: "14px" }}>Dynamic protocol updates as you go about your day.</p>
               </div>
             </div>

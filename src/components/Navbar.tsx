@@ -55,6 +55,7 @@ const Navbar = () => {
               width={scrolled ? 40 : 50} 
               height={scrolled ? 40 : 50} 
               priority
+              fetchPriority="high"
               style={{ transition: "0.5s", objectFit: "contain" }} 
             />
             <span style={{ fontSize: scrolled ? "20px" : "24px", fontWeight: "800", letterSpacing: "-0.03em", transition: "0.5s" }}>Fitnivo</span>
@@ -103,6 +104,7 @@ const Navbar = () => {
           {/* Mobile Toggle */}
           <button 
             className="mobile-only"
+            aria-label="Open Menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             style={{ 
               background: "none", 

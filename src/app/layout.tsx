@@ -54,14 +54,15 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={outfit.variable}>
       <head>
+        <link rel="preload" href="/frames/hero/ezgif-frame-001.webp" as="image" fetchPriority="high" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${outfit.variable} font-sans`}>{children}</body>
+      <body className="font-sans">{children}</body>
     </html>
   );
 }

@@ -197,3 +197,32 @@ section {
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
+
+/* 1. Prevent Layout Shift on the Features section */
+#features {
+  position: relative;
+  background-color: var(--background);
+  min-height: 600px;
+  content-visibility: auto; /* Helps the browser pre-render layout space */
+  contain-intrinsic-size: 600px;
+}
+
+/* 2. Fix Text Color Contrast against pure black/dark backgrounds */
+.pillar-tag, .system-analysis-tag {
+  color: #00f2ff; /* Ensure this cyan remains highly vibrant, or use #33F4FF if bolding */
+  font-weight: 800;
+}
+
+/* 3. Bump up faint white text opacities so they are legible */
+p.description-text {
+  color: rgba(255, 255, 255, 0.85); /* Changed from 0.6 for better contrast */
+}
+
+footer p, footer li {
+  color: rgba(255, 255, 255, 0.7) !important; /* Changed from 0.4 */
+}
+
+footer .response-time, footer .copyright {
+  color: rgba(255, 255, 255, 0.6) !important; /* Changed from 0.3 */
+}
+

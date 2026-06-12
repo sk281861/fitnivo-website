@@ -33,12 +33,12 @@ const MindfulnessSection = () => {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "24px" }}>
             <div className="glass" style={{ padding: "32px", textAlign: "left" }}>
               <Wind style={{ color: "var(--accent-mind)", marginBottom: "20px" }} size={32} />
-              <h4 style={{ marginBottom: "12px", fontSize: "20px" }}>Guided Breathing</h4>
+              <h3 style={{ marginBottom: "12px", fontSize: "20px" }}>Guided Breathing</h3>
               <p style={{ fontSize: "14px", color: "var(--text-muted)", lineHeight: "1.6" }}>Adaptive sessions based on heart rate variability protocols.</p>
             </div>
             <div className="glass" style={{ padding: "32px", textAlign: "left" }}>
               <Moon style={{ color: "var(--accent-mind)", marginBottom: "20px" }} size={32} />
-              <h4 style={{ marginBottom: "12px", fontSize: "20px" }}>Sleep Recovery</h4>
+              <h3 style={{ marginBottom: "12px", fontSize: "20px" }}>Sleep Recovery</h3>
               <p style={{ fontSize: "14px", color: "var(--text-muted)", lineHeight: "1.6" }}>AI-driven wind-down protocols designed for deep restorative REM.</p>
             </div>
           </div>
