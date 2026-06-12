@@ -22,7 +22,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section style={{ position: "relative", zIndex: 1, backgroundColor: "black" }} data-section="hero">
+    <section className="hero-section-wrapper" style={{ position: "relative", zIndex: 1, backgroundColor: "black" }} data-section="hero">
       <ImageSequenceScrub 
         directory="/frames/hero/" 
         frameCount={150} 

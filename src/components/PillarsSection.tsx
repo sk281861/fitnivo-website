@@ -58,7 +58,7 @@ const Pillar = ({ title, subtitle, color, rejected, accepted, image, index }: Pi
         <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginBottom: "32px" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
             {rejected.map((item, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", color: "rgba(255,255,255,0.7)", textDecoration: "line-through" }}>
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", color: "rgba(255,255,255,0.95)", textDecoration: "line-through" }}>
                 <X size={16} />
                 <span style={{ fontSize: "16px" }}>{item}</span>
               </div>
@@ -243,7 +243,7 @@ const PillarsSection = () => {
     {
       title: "Body: Precision Fitness",
       subtitle: "Move with morphological intent. Fitnivo's AI analyzes biomechanics in real-time to prescribe exact loading protocols and recovery windows.",
-      color: "#00F2FF",
+      color: "#33F4FF",
       rejected: ["Static Workout Plans", "Plateau-Prone Routines", "Volume Overtraining"],
       accepted: "Neural Load Optimization",
       image: "/images/pillar_fitness.webp",

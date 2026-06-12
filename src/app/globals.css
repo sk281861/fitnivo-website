@@ -9,7 +9,7 @@
   --background: #0B0B0F;
   --foreground: #FFFFFF;
   
-  --accent-fitness: #00F2FF;
+  --accent-fitness: #33F4FF;
   --accent-nutrition: #BF00FF;
   --accent-mind: #00FF85;
   
@@ -209,7 +209,7 @@ section {
 
 /* 2. Fix Text Color Contrast against pure black/dark backgrounds */
 .pillar-tag, .system-analysis-tag {
-  color: #00f2ff; /* Ensure this cyan remains highly vibrant, or use #33F4FF if bolding */
+  color: #33f4ff; /* Ensure this cyan remains highly vibrant, or use #33F4FF if bolding */
   font-weight: 800;
 }
 
@@ -224,5 +224,14 @@ footer p, footer li {
 
 footer .response-time, footer .copyright {
   color: rgba(255, 255, 255, 0.6) !important; /* Changed from 0.3 */
+}
+
+.hero-section-wrapper {
+  min-height: 100vh;
+}
+@media (max-width: 768px) {
+  .hero-section-wrapper {
+    min-height: 70vh;
+  }
 }
 

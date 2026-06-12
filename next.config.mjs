@@ -10,7 +10,7 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'], // Forces modern high-compression image formats
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384], // Generates a tight 256px option for mobile
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840], // Supports both mobile breakpoints and full desktop resolutions
+    deviceSizes: [320, 512, 640, 750, 828, 1080, 1200, 1920, 2048, 3840], // Supports finer mobile scaling and full desktop resolutions
     remotePatterns: [
       {
         protocol: 'https',
