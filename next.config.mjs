@@ -9,6 +9,8 @@ const nextConfig = {
   compress: true,        // Performance fix: compresses assets automatically
   images: {
     formats: ['image/avif', 'image/webp'], // Forces modern high-compression image formats
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384], // Generates a tight 256px option for mobile
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840], // Supports both mobile breakpoints and full desktop resolutions
     remotePatterns: [
       {
         protocol: 'https',
@@ -19,6 +21,19 @@ const nextConfig = {
         hostname: 'upload.wikimedia.org',
       },
     ],
+  },
+  async headers() {
+    return [
+      {
+        source: '/images/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
   },
   turbopack: {
     root: path.resolve(__dirname),
