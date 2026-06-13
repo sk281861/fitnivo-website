@@ -32,7 +32,6 @@ const ImageSequenceScrub: React.FC<ImageSequenceScrubProps> = ({
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
     const skipAmount = isMobile ? 3 : 1; 
     
-    let loadedCount = 0;
     const tempImages: HTMLImageElement[] = [];
 
     // Preload FIRST frame separately and immediately to fix LCP
@@ -42,15 +41,20 @@ const ImageSequenceScrub: React.FC<ImageSequenceScrubProps> = ({
       setFirstFrameLoaded(true);
     };
     tempImages[0] = firstImg;
+    setImages(tempImages);
     
-    const framesToLoad = [];
+    const framesToLoad: number[] = [];
     for (let i = 1 + skipAmount; i <= frameCount; i += skipAmount) {
       framesToLoad.push(i);
     }
 
     if (framesToLoad.length === 0) {
       setLoaded(true);
-    } else {
+      return;
+    }
+
+    const preloadRemaining = () => {
+      let loadedCount = 0;
       framesToLoad.forEach((frameIdx, index) => {
         const img = new Image();
         const frameNum = frameIdx.toString().padStart(3, '0');
@@ -65,9 +69,32 @@ const ImageSequenceScrub: React.FC<ImageSequenceScrubProps> = ({
         
         tempImages[index + 1] = img;
       });
-    }
+      setImages([...tempImages]);
+    };
 
-    setImages(tempImages);
+    // Delay remaining frames until page has fully loaded
+    if (document.readyState === 'complete') {
+      const idleId = window.requestIdleCallback 
+        ? window.requestIdleCallback(() => preloadRemaining()) 
+        : setTimeout(preloadRemaining, 1000);
+      return () => {
+        if (!window.requestIdleCallback) {
+          clearTimeout(idleId as any);
+        }
+      };
+    } else {
+      const handleLoad = () => {
+        if (window.requestIdleCallback) {
+          window.requestIdleCallback(() => preloadRemaining());
+        } else {
+          setTimeout(preloadRemaining, 500);
+        }
+      };
+      window.addEventListener('load', handleLoad);
+      return () => {
+        window.removeEventListener('load', handleLoad);
+      };
+    }
   }, [directory, frameCount, extension]);
 
   useEffect(() => {
@@ -138,30 +165,20 @@ const ImageSequenceScrub: React.FC<ImageSequenceScrubProps> = ({
   }, [firstFrameLoaded, loaded, images, scrollLength]);
 
   return (
-    <div ref={containerRef} style={{ position: "relative", width: "100%" }}>
-      <div className="image-sequence-inner responsive-hero-container" style={{ 
+    <div ref={containerRef} className="w-full relative" style={{ minHeight: "100vh" }}>
+      <div className="image-sequence-inner w-full h-[70vh] md:h-screen" style={{ 
         position: "relative",
-        width: "100%", 
         backgroundColor: "black",
         overflow: "hidden"
       }}>
-        <style jsx>{`
-          .responsive-hero-container {
-            height: 100vh;
-          }
-          @media (max-width: 768px) {
-            .responsive-hero-container {
-              height: 70vh;
-            }
-          }
-        `}</style>
         <canvas
           ref={canvasRef}
           style={{
             display: "block",
             width: "100%",
             height: "100%",
-            backgroundColor: "black"
+            backgroundColor: "black",
+            aspectRatio: "16 / 9"
           }}
         />
         {children}

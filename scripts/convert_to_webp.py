@@ -24,8 +24,10 @@ def convert_to_webp(src_dir, dest_dir, quality=80):
         
         try:
             with Image.open(filepath) as img:
-                # Save as WebP with method=6 (maximum compression effort), quality=80
-                img.save(dest_filepath, "WEBP", quality=quality, method=6)
+                # Resize to 1024x576 using LANCZOS interpolation
+                img_resized = img.resize((1024, 576), Image.Resampling.LANCZOS)
+                # Save as WebP with method=6 (maximum compression effort), quality=quality
+                img_resized.save(dest_filepath, "WEBP", quality=quality, method=6)
             
             # Print progress every 10 frames
             if (idx + 1) % 10 == 0 or idx + 1 == len(src_files):
@@ -38,4 +40,4 @@ def convert_to_webp(src_dir, dest_dir, quality=80):
 if __name__ == "__main__":
     src = "c:/Users/sandeep.k/OneDrive/Desktop/website - Copy/public/frames/hero"
     dest = "c:/Users/sandeep.k/OneDrive/Desktop/website/public/frames/hero"
-    convert_to_webp(src, dest, quality=80)
+    convert_to_webp(src, dest, quality=25)
