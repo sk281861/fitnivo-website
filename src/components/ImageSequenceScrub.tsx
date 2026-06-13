@@ -40,30 +40,32 @@ const ImageSequenceScrub: React.FC<ImageSequenceScrubProps> = ({
     firstImg.src = `${directory}ezgif-frame-001.${extension}`;
     firstImg.onload = () => {
       setFirstFrameLoaded(true);
-      if (tempImages.length > 0) {
-        tempImages[0] = firstImg;
-      }
     };
+    tempImages[0] = firstImg;
     
     const framesToLoad = [];
-    for (let i = 1; i <= frameCount; i += skipAmount) {
+    for (let i = 1 + skipAmount; i <= frameCount; i += skipAmount) {
       framesToLoad.push(i);
     }
 
-    framesToLoad.forEach((frameIdx, index) => {
-      const img = new Image();
-      const frameNum = frameIdx.toString().padStart(3, '0');
-      img.src = `${directory}ezgif-frame-${frameNum}.${extension}`;
-      
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === framesToLoad.length) {
-          setLoaded(true);
-        }
-      };
-      
-      tempImages[index] = img;
-    });
+    if (framesToLoad.length === 0) {
+      setLoaded(true);
+    } else {
+      framesToLoad.forEach((frameIdx, index) => {
+        const img = new Image();
+        const frameNum = frameIdx.toString().padStart(3, '0');
+        img.src = `${directory}ezgif-frame-${frameNum}.${extension}`;
+        
+        img.onload = () => {
+          loadedCount++;
+          if (loadedCount === framesToLoad.length) {
+            setLoaded(true);
+          }
+        };
+        
+        tempImages[index + 1] = img;
+      });
+    }
 
     setImages(tempImages);
   }, [directory, frameCount, extension]);
