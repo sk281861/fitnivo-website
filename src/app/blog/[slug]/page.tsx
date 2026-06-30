@@ -253,10 +253,11 @@ export default async function UpcomingArticlePage({ params }: PageProps) {
               <div
                 style={{
                   position: "relative",
-                  height: "380px",
+                  height: "300px",
                   borderRadius: "24px",
                   overflow: "hidden",
-                  border: "1px solid rgba(255,255,255,0.06)",
+                  border: "1px solid #262626",
+                  boxShadow: "0 0 40px rgba(0, 242, 254, 0.15)",
                   marginBottom: "48px",
                 }}
               >
@@ -265,7 +266,7 @@ export default async function UpcomingArticlePage({ params }: PageProps) {
                   alt={article.title}
                   fill
                   priority
-                  sizes="(max-width: 768px) 100vw, 800px"
+                  sizes="(max-width: 768px) 100vw, 768px"
                   style={{ objectFit: "cover", filter: "grayscale(0.3) brightness(0.6)" }}
                 />
                 <div

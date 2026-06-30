@@ -141,16 +141,15 @@ export default function NutritionSciencePersonalizationPage() {
         </div>
 
         {/* Hero Image */}
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl"
-            style={{ border: '1px solid rgba(99,102,241,0.2)' }}>
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="relative rounded-2xl overflow-hidden border border-[#262626] shadow-[0_0_40px_rgba(0,242,254,0.15)]" style={{ height: '300px' }}>
             <Image
               src="/images/blog/nutrition/nutrition_science_hero.webp"
               alt="Holographic display of macronutrient molecules with personalized nutrition AI dashboard"
-              width={1200}
-              height={630}
+              fill
               priority
-              className="w-full object-cover"
+              style={{ objectFit: 'cover' }}
+              sizes="(max-width: 768px) 100vw, 768px"
             />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,10,26,0.6) 0%, transparent 60%)' }} />
           </div>
