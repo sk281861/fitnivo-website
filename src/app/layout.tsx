@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://fitnivo.in/',
     languages: {
+      'en-US': 'https://fitnivo.in/',
       'en': 'https://fitnivo.in/',
       'x-default': 'https://fitnivo.in/',
     },
@@ -54,7 +55,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={outfit.variable}>
+    <html lang="en-US" className={outfit.variable}>
       <head>
         <link rel="preload" href="/frames/hero/ezgif-frame-001.webp" as="image" fetchPriority="high" />
         <script

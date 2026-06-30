@@ -18,7 +18,7 @@ const features = [
     icon: '❤️',
     headline: 'Heart Rate Integration',
     description: 'Real-time heart rate monitoring for optimal training zones and recovery tracking',
-    image: '/images/biometric_sync_wearable.webp',
+    image: '/images/wearable-biometric-recovery-sync.webp',
     imageAlt: 'Heart rate monitoring',
   },
   {

@@ -93,22 +93,6 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <div className="glass-pill" style={{ 
-                display: "inline-flex", 
-                alignItems: "center", 
-                gap: "8px", 
-                marginBottom: "24px",
-                fontSize: "clamp(10px, 2vw, 14px)",
-                fontWeight: "600",
-                color: "var(--accent-fitness)",
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
-                background: "rgba(0,0,0,0.5)"
-              }}>
-                <Sparkles size={14} />
-                <span>Bio-Link Initialized</span>
-              </div>
-
               <h1 className="hero-title" style={{ 
                 fontSize: "clamp(48px, 15vw, 130px)", 
                 fontWeight: "900",

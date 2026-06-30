@@ -5,6 +5,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const nextConfig = {
   reactStrictMode: true,
+  allowedDevOrigins: ['192.168.1.11', 'localhost', '127.0.0.1'],
   poweredByHeader: false, // Security fix: hides that you are using Next.js
   compress: true,        // Performance fix: compresses assets automatically
   images: {

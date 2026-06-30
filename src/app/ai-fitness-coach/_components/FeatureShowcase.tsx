@@ -9,8 +9,9 @@ const features = [
     icon: ScanEye,
     title: 'Computer-Vision Form Correction & Rep Tracker',
     description:
-      'No more second-guessing your technique. By utilizing your device\u2019s webcam or camera, our advanced motion-tracking AI automatically counts your reps, tracks your set tempos, and provides instant audio-visual feedback to correct your form in real-time.',
+      'No more second-guessing your technique. By utilizing your device’s webcam or camera, our advanced motion-tracking AI automatically counts your reps, tracks your set tempos, and provides instant audio-visual feedback to correct your form in real-time.',
     image: '/images/fitness_coach_feature.webp',
+    alt: 'Fitnivo computer vision AI analyzing exercise form and tracking reps via device camera',
     gradient: 'from-[#00F2FF] to-[#007AFF]',
   },
   {
@@ -19,6 +20,7 @@ const features = [
     description:
       'The Fitnivo algorithm continuously learns from your training history. If a set was too easy or an old injury flares up, the AI instantly recalibrates your difficulty, adjusts your targeted weights, and updates your upcoming circuit to keep you progressing safely.',
     image: '/ai_workout.webp',
+    alt: 'Fitnivo AI fitness coach dashboard displaying progressive overload and adaptive workout difficulty metrics',
     gradient: 'from-[#00FF85] to-[#38ef7d]',
   },
   {
@@ -27,6 +29,7 @@ const features = [
     description:
       'True fitness happens inside and outside the gym. Fitnivo provides turnkey meal-planning support and automated nutrition advice, serving as a comprehensive health coach that aligns your daily caloric intake and macros with your training load.',
     image: '/images/nutrition_intelligence_feature.webp',
+    alt: 'Fitnivo AI nutrition coach interface showing customized diet, meal plans, and macro tracking',
     gradient: 'from-[#BF00FF] to-[#ee0979]',
   },
   {
@@ -34,7 +37,8 @@ const features = [
     title: 'Biometric Wearable Synchronization',
     description:
       'Sync seamlessly with Apple Health, Google Fit, and top wearables (including Fitbit and Garmin). By pulling your heart rate variability (HRV), sleep data, and daily activity levels, the AI calculates precise recovery optimization protocols.',
-    image: '/images/biometric_sync_wearable.webp',
+    image: '/images/wearable-biometric-recovery-sync.webp',
+    alt: 'Biometric wearable sync showing heart rate variability and sleep recovery data in Fitnivo',
     gradient: 'from-[#00F2FF] to-[#007AFF]',
   },
   {
@@ -43,6 +47,7 @@ const features = [
     description:
       'Imagine having a certified coach available every minute of the day. Use our intelligent companion chat to ask for immediate exercise modifications, quick healthy recipes, or a burst of motivation right before your workout.',
     image: '/ai_coach_avatar.webp',
+    alt: 'Fitnivo AI virtual gym coach chat interface for instant exercise modifications and motivation',
     gradient: 'from-[#00FF85] to-[#38ef7d]',
   },
 ];
@@ -66,7 +71,7 @@ export default function FeatureShowcase() {
           <p className="text-lg text-[#A1A1A6] max-w-2xl mx-auto">
             Built on millions of real training data points and empirical fitness
             methodologies, Fitnivo acts as an all-in-one health, strength, and
-                            nutrition companion.
+            nutrition companion.
           </p>
         </div>
 
@@ -83,7 +88,7 @@ export default function FeatureShowcase() {
               <div className="absolute inset-0 w-full h-full">
                 <Image
                   src={feature.image}
-                  alt={feature.title}
+                  alt={feature.alt}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

@@ -27,7 +27,38 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   },
 ]);
 
-const schemaJson = JSON.stringify([articleSchema, breadcrumbSchema]);
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can AI replace a human personal trainer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For workout programming, data tracking, and progressive overload, AI can replace a human trainer at a fraction of the cost. However, human trainers are still superior for live form correction, emotional support, and spotting heavy lifts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the cost difference between AI and a real trainer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traditional personal training averages $300–$600 / £240–£480 per month (for 3 sessions/week). AI coaching costs $10–$30 / £8–£25 per month for unlimited, 24/7 workout generation and tracking, making it roughly 20x cheaper."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does AI track progressive overload better than a human?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, AI possesses perfect memory recall. Unlike human trainers who rely on handwritten notes or memory, an AI coach instantly calculates total volume, CNS load, and exact weight adjustments across thousands of data points from your workout history."
+      }
+    }
+  ]
+};
+
+const schemaJson = JSON.stringify([articleSchema, breadcrumbSchema, faqSchema]);
 
 // ── Table of Contents ─────────────────────────────────────────────────────────
 const tableOfContents = [
@@ -35,12 +66,12 @@ const tableOfContents = [
   { id: 'what-ai-coaching-actually-does', label: 'What AI Coaching Actually Does' },
   { id: 'what-traditional-coaching-actually-does', label: 'What Traditional Coaching Does' },
   { id: 'head-to-head-comparison', label: 'Head-to-Head: 10-Point Comparison' },
-  { id: 'where-ai-wins', label: 'Where AI Coaching Wins' },
-  { id: 'where-human-coaches-still-win', label: 'Where Human Coaches Still Win' },
-  { id: 'cost-and-accessibility', label: 'Cost & Accessibility Analysis' },
+  { id: 'where-ai-wins', label: 'AI Coach vs. Movement Investigation: Data vs. Biomechanics' },
+  { id: 'where-human-coaches-still-win', label: 'Where Human Coaches and Movement Investigation Excel' },
+  { id: 'cost-and-accessibility', label: 'What is the Cost Difference Between AI and a Real Trainer?' },
   { id: 'the-hybrid-future', label: 'The Hybrid Future of Coaching' },
   { id: 'who-should-choose-what', label: 'Who Should Choose What?' },
-  { id: 'key-takeaways', label: 'Key Takeaways' },
+  { id: 'key-takeaways', label: 'Can an AI App Perform True Movement Investigation?' },
 ];
 
 // ── Comparison Table Data ─────────────────────────────────────────────────────
@@ -57,8 +88,8 @@ const comparisonRows = [
   },
   {
     dimension: 'Cost',
-    ai: { rating: 5, note: '$10–30/month' },
-    traditional: { rating: 1, note: '$300–600/month for 3x/week' },
+    ai: { rating: 5, note: '$10–$30 / £8–£25 per month' },
+    traditional: { rating: 1, note: '$300–$600 / £240–£480 per month (for 3 sessions/week)' },
   },
   {
     dimension: 'Real-time Form Feedback',
@@ -111,7 +142,7 @@ const relatedPosts = [
     title: 'The Science of Biometric Optimization',
     description: 'How wearables and AI convert biometric data into precision performance protocols.',
     href: '/blog/biometric-optimization-science',
-    image: '/images/biometric_sync_wearable.webp',
+    image: '/images/wearable-biometric-recovery-sync.webp',
     readTime: '8 min read',
     category: 'Science',
   },
@@ -204,6 +235,10 @@ export default function AIvsTraditionalCoachingPage() {
             <br />A Comprehensive Comparison
           </h1>
 
+          <p className="font-bold text-lg mb-6">
+            Quick Answer: While "movement investigation" focuses on biomechanical awareness, joint mobility, and spatial exploration (often requiring a live human coach's eye), an AI fitness coach excels at quantitative data tracking and progressive overload. If your goal is to correct deep habitual movement patterns, you need human movement investigation. If your goal is to build strength, track volume, and manage a $10–$30/month budget, an AI coach is the superior choice.
+          </p>
+
           <p className="text-xl text-white/70 max-w-3xl leading-relaxed mb-8">
             The question is no longer whether AI can coach. It already does — for millions of users, more consistently than most human trainers.{' '}
             <strong className="text-white">The real question is: which approach produces better results for your specific situation?</strong>{' '}
@@ -294,7 +329,7 @@ export default function AIvsTraditionalCoachingPage() {
               </h2>
 
               <p className="text-white/75 leading-relaxed mb-4">
-                Traditional personal training is a $40 billion global industry built on a simple premise: a qualified human watches you exercise, corrects your mistakes, and pushes you to your limit. It has worked for decades. But AI coaching has now entered this space with a radically different value proposition — one that <strong className="text-white">scales personalization beyond what any single human can deliver.</strong>
+                Traditional personal training is a $40 billion (£32 billion) global industry built on a simple premise: a qualified human watches you exercise, corrects your mistakes, and pushes you to your limit. It has worked for decades. But AI coaching has now entered this space with a radically different value proposition — one that <strong className="text-white">scales personalization beyond what any single human can deliver.</strong>
               </p>
 
               <p className="text-white/75 leading-relaxed mb-6">
@@ -522,7 +557,7 @@ export default function AIvsTraditionalCoachingPage() {
                 className="text-3xl font-bold text-white mb-6"
                 style={{ borderLeft: '3px solid #818cf8', paddingLeft: '1rem' }}
               >
-                Where AI Coaching Wins
+                AI Coach vs. Movement Investigation: Data vs. Biomechanics
               </h2>
 
               <p className="text-white/75 leading-relaxed mb-6">
@@ -545,7 +580,7 @@ export default function AIvsTraditionalCoachingPage() {
                     color: 'rgba(52,211,153,0.07)',
                     border: 'rgba(52,211,153,0.2)',
                     accent: '#34d399',
-                    body: 'Quality AI coaching costs $10–30/month versus $300–600/month for 3 sessions/week with a personal trainer. This 20x cost reduction democratizes access to elite-level periodization for people who could never afford a full-time trainer.',
+                    body: 'Quality AI coaching costs $10–$30 / £8–£25 per month versus $300–$600 / £240–£480 per month (for 3 sessions/week) with a personal trainer. This 20x cost reduction democratizes access to elite-level periodization for people who could never afford a full-time trainer.',
                   },
                   {
                     icon: '📡',
@@ -583,7 +618,7 @@ export default function AIvsTraditionalCoachingPage() {
                 className="text-3xl font-bold text-white mb-6"
                 style={{ borderLeft: '3px solid #818cf8', paddingLeft: '1rem' }}
               >
-                Where Human Coaches Still Win
+                Where Human Coaches and Movement Investigation Excel
               </h2>
 
               <p className="text-white/75 leading-relaxed mb-4">
@@ -600,7 +635,7 @@ export default function AIvsTraditionalCoachingPage() {
                   {
                     n: '02',
                     title: 'Complex Injury Navigation',
-                    body: 'An experienced coach can feel a compensatory movement pattern through physical touch, watch how you load your knee on a single-leg squat, and intuit when pain is protective versus adaptive. AI form analysis is excellent but still cannot match the clinical nuance of a skilled hands-on assessment.',
+                    body: 'An experienced coach can feel a compensatory movement pattern through physical touch, watch how you load your knee on a single-leg squat, and intuit when pain is protective versus adaptive. True movement investigation requires analyzing the body\'s dynamic kinematics in real-time, which is currently a limitation for AI and the domain of highly skilled physical therapists and movement coaches. AI form analysis is excellent but still cannot match the clinical nuance of a skilled hands-on assessment.',
                   },
                   {
                     n: '03',
@@ -639,12 +674,46 @@ export default function AIvsTraditionalCoachingPage() {
                 className="text-3xl font-bold text-white mb-6"
                 style={{ borderLeft: '3px solid #818cf8', paddingLeft: '1rem' }}
               >
-                Cost & Accessibility Analysis
+                What is the Cost Difference Between AI and a Real Trainer?
               </h2>
 
               <p className="text-white/75 leading-relaxed mb-6">
                 The economics of coaching are being disrupted. At scale, AI makes elite-quality programming accessible to anyone with a smartphone — a democratization of fitness that traditional training simply cannot match structurally.
               </p>
+
+              <div className="overflow-x-auto my-8 border border-[#262626] rounded-lg">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-[#0a0a0a] border-b border-[#262626]">
+                      <th className="p-4 font-semibold text-white">Core Focus</th>
+                      <th className="p-4 font-semibold text-cyan-400">AI Fitness Coach (Fitnivo)</th>
+                      <th className="p-4 font-semibold text-gray-400">Movement Investigation</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-sm md:text-base">
+                    <tr className="border-b border-[#1f1f1f]">
+                      <td className="p-4 font-medium text-gray-300">Primary Goal</td>
+                      <td className="p-4 text-white">Progressive overload, strength, and hypertrophy</td>
+                      <td className="p-4 text-gray-400">Joint mobility, spatial awareness, and rehabilitation</td>
+                    </tr>
+                    <tr className="border-b border-[#1f1f1f]">
+                      <td className="p-4 font-medium text-gray-300">Tracking Method</td>
+                      <td className="p-4 text-white">Exact volume, reps, and dynamic rest times</td>
+                      <td className="p-4 text-gray-400">Qualitative observation of biomechanics and play</td>
+                    </tr>
+                    <tr className="border-b border-[#1f1f1f]">
+                      <td className="p-4 font-medium text-gray-300">Cost Efficiency</td>
+                      <td className="p-4 text-white">$10–$30 / £8–£25 per month</td>
+                      <td className="p-4 text-gray-400">Often $150+ / £120+ per hour for specialists</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-medium text-gray-300">Adaptation</td>
+                      <td className="p-4 text-white">Algorithm recalculates sets in &lt;500ms</td>
+                      <td className="p-4 text-gray-400">Human coach adjusts based on client's daily stiffness</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
               <figure
                 className="rounded-2xl overflow-hidden mb-6"
@@ -652,7 +721,7 @@ export default function AIvsTraditionalCoachingPage() {
               >
                 <Image
                   src="/images/blog/ai-coaching/cost_comparison_infographic.webp"
-                  alt="Cost comparison infographic: AI coaching at $15 per month with unlimited access versus traditional personal training at $300-500 per month for limited sessions"
+                  alt="Cost comparison infographic: AI coaching at $15 (£12) per month with unlimited access versus traditional personal training at $300-500 (£240-400) per month for limited sessions"
                   width={700}
                   height={500}
                   className="w-full object-cover"
@@ -673,7 +742,7 @@ export default function AIvsTraditionalCoachingPage() {
                   <h3 className="text-white font-bold text-lg mb-3">AI Coaching (Fitnivo)</h3>
                   <ul className="space-y-2">
                     {[
-                      '$10–30/month all-inclusive',
+                      '$10–$30 / £8–£25 per month all-inclusive',
                       'Unlimited sessions, no scheduling',
                       '24/7 availability, global access',
                       'Continuous real-time adaptation',
@@ -689,7 +758,7 @@ export default function AIvsTraditionalCoachingPage() {
                     className="mt-4 pt-4 text-2xl font-bold"
                     style={{ borderTop: '1px solid rgba(99,102,241,0.2)', color: '#818cf8' }}
                   >
-                    ~$360/year
+                    ~$360 / £288 a year
                   </div>
                 </div>
 
@@ -701,7 +770,7 @@ export default function AIvsTraditionalCoachingPage() {
                   <h3 className="text-white font-bold text-lg mb-3">Traditional Trainer</h3>
                   <ul className="space-y-2">
                     {[
-                      '$300–600/month (3x/week)',
+                      '$300–$600 / £240–£480 per month (for 3 sessions/week)',
                       '3 hours of coaching per week',
                       'Scheduled sessions only',
                       'No off-session data visibility',
@@ -717,7 +786,7 @@ export default function AIvsTraditionalCoachingPage() {
                     className="mt-4 pt-4 text-2xl font-bold"
                     style={{ borderTop: '1px solid rgba(245,158,11,0.15)', color: '#f59e0b' }}
                   >
-                    ~$5,400/year
+                    ~$5,400 / £4,320 a year
                   </div>
                 </div>
               </div>
@@ -794,7 +863,7 @@ export default function AIvsTraditionalCoachingPage() {
                     icon: '🤖',
                     items: [
                       'Are self-motivated and data-curious',
-                      'Have a budget under $50/month for coaching',
+                      'Have a budget under $50 / £40 per month for coaching',
                       'Travel frequently or have unpredictable schedules',
                       'Want continuous tracking and objective feedback',
                       'Are intermediate or advanced in your training history',
@@ -811,7 +880,7 @@ export default function AIvsTraditionalCoachingPage() {
                       'Have chronic injuries requiring hands-on assessment',
                       'Struggle severely with adherence without in-person accountability',
                       'Are training for a sport requiring complex skill acquisition',
-                      'Have the budget and priority to invest $300+/month',
+                      'Have the budget and priority to invest $300+ / £240+ per month',
                     ],
                   },
                   {
@@ -861,13 +930,13 @@ export default function AIvsTraditionalCoachingPage() {
                 }}
               >
                 <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                  <span>🎯</span> Key Takeaways
+                  <span>🎯</span> Can an AI App Perform True Movement Investigation?
                 </h2>
                 <ul className="space-y-4">
                   {[
                     'AI coaching outscores traditional training 45/50 vs 33/50 across 10 dimensions — winning decisively on personalization, cost, availability, data integration, and adaptation speed.',
                     'Human trainers retain critical advantages in emotional accountability, injury instinct, and in-session motivational force — these gaps are real and matter for specific populations.',
-                    'The 20x cost difference ($360/year vs $5,400/year) makes AI coaching the rational default for 95% of exercisers; the human advantage rarely justifies the premium for general fitness goals.',
+                    'The 20x cost difference (~$360 / £288 a year for AI vs. ~$5,400 / £4,320 a year for a traditional trainer) makes AI coaching the rational default for 95% of exercisers; the human advantage rarely justifies the premium for general fitness goals.',
                     'Elite athletes and professionals are increasingly adopting a hybrid model: AI as continuous data infrastructure, human coaches as periodic interpretive and relational layers.',
                     'The question is not "which is better" — it is "which combination of coaching inputs produces the best adherence and outcomes for your specific physiology, goals, and psychology."',
                   ].map((point, i) => (

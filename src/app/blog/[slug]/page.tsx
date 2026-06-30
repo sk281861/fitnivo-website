@@ -24,7 +24,7 @@ const UPCOMING_ARTICLES: Record<
     title: "The Science of Biometric Optimization",
     category: "Biometrics",
     categoryColor: "#818cf8",
-    image: "/images/biometric_sync_wearable.webp",
+    image: "/images/wearable-biometric-recovery-sync.webp",
     readTime: "8 min read",
     summary:
       "A deep dive into how modern wearable devices and machine learning models parse raw physiological data to generate real-time performance adjustments.",
@@ -36,22 +36,7 @@ const UPCOMING_ARTICLES: Record<
     ],
     advisoryPanel: ["Dr. Sarah Chen, PhD (Neuroscience)", "Marcus Vance, CSCS (High-Performance Lead)"],
   },
-  "mindfulness-athletic-performance": {
-    title: "Mindfulness and Athletic Performance: The Mind-Body Connection",
-    category: "Mindfulness",
-    categoryColor: "#00FF85",
-    image: "/images/blog/nutrition/nutrition_timing_chart.webp",
-    readTime: "9 min read",
-    summary:
-      "Exploring the clinical literature on how mindfulness training alters brain structure, downregulates cortisol, and preserves focus under high-intensity physical stress.",
-    highlights: [
-      "The neurobiology of stress regulation: how parasympathetic activation accelerates lactate clearance.",
-      "Cognitive endurance protocols: preserving decision-making capability during anaerobic exhaustion.",
-      "Daily breathing cycles for heart rate stabilization and nervous system calming.",
-      "Incorporating active meditation into recovery blocks to maximize training adaptation.",
-    ],
-    advisoryPanel: ["Dr. Evelyn Thorne, MD (Cognitive Health)", "James Okafor, CSCS (AI Performance Advisor)"],
-  },
+
   "recovery-optimization-sleep-stress": {
     title: "Recovery Optimization: Sleep, Stress, and Adaptation",
     category: "Recovery",
@@ -68,22 +53,7 @@ const UPCOMING_ARTICLES: Record<
     ],
     advisoryPanel: ["Dr. Sarah Chen, PhD (Biomedical Science)", "Elena Rostova, MS (Exercise Physiology)"],
   },
-  "sustainable-fitness-habits": {
-    title: "Building Sustainable Fitness Habits: A Behavioral Science Approach",
-    category: "Behavioral",
-    categoryColor: "#00F2FF",
-    image: "/images/blog/ai-coaching/traditional_personal_trainer.webp",
-    readTime: "7 min read",
-    summary:
-      "Translating behavioral psychology research on habit loops, identity-based reinforcement, and choice architecture into practical strategies for lifetime compliance.",
-    highlights: [
-      "Analyzing the habit loop: identifying cues and designing immediate, high-dopamine rewards.",
-      "Identity-based habits: changing self-perception to align behavioral choices with long-term goals.",
-      "Choice architecture and environmental design: eliminating friction to make workouts friction-free.",
-      "The compound effect of small metrics: tracking progress to maintain motivation during plateaus.",
-    ],
-    advisoryPanel: ["Dr. Evelyn Thorne, MD (Behavioral Medicine)", "Marcus Vance, CSCS (Athletic Development)"],
-  },
+
 };
 
 // Simple list of published posts to suggest on the sidebar or bottom
@@ -115,9 +85,7 @@ interface PageProps {
 export async function generateStaticParams() {
   return [
     { slug: "biometric-optimization-science" },
-    { slug: "mindfulness-athletic-performance" },
     { slug: "recovery-optimization-sleep-stress" },
-    { slug: "sustainable-fitness-habits" },
   ];
 }
 
@@ -297,6 +265,7 @@ export default async function UpcomingArticlePage({ params }: PageProps) {
                   alt={article.title}
                   fill
                   priority
+                  sizes="(max-width: 768px) 100vw, 800px"
                   style={{ objectFit: "cover", filter: "grayscale(0.3) brightness(0.6)" }}
                 />
                 <div
@@ -471,7 +440,7 @@ export default async function UpcomingArticlePage({ params }: PageProps) {
                             border: "1px solid rgba(255,255,255,0.05)",
                           }}
                         >
-                          <Image src={pub.image} alt={pub.title} fill style={{ objectFit: "cover" }} />
+                          <Image src={pub.image} alt={pub.title} fill sizes="72px" style={{ objectFit: "cover" }} />
                         </div>
                         <div>
                           <span

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   ...generateLandingPageMetadata(pageMetadata),
   alternates: {
     canonical: 'https://fitnivo.in/ai-fitness-coach',
+    languages: {
+      'en-US': 'https://fitnivo.in/ai-fitness-coach',
+    },
   },
 };
 

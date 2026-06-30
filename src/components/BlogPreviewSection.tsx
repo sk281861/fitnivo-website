@@ -25,7 +25,7 @@ const blogPosts = [
     excerpt:
       "How wearables and AI combine to decode your body's data and convert it into precision performance protocols.",
     href: "/blog/biometric-optimization-science",
-    image: "/images/biometric_sync_wearable.webp",
+    image: "/images/wearable-biometric-recovery-sync.webp",
     readTime: "8 min read",
     date: "Jun 2, 2026",
     tag: "New",

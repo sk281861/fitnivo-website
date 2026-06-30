@@ -48,7 +48,7 @@ const relatedPosts = [
     title: 'The Science of Biometric Optimization',
     description: "How wearables and AI combine to optimize your body's performance metrics.",
     href: '/blog/biometric-optimization-science',
-    image: '/images/biometric_sync_wearable.webp',
+    image: '/images/wearable-biometric-recovery-sync.webp',
     readTime: '8 min read',
     category: 'Science',
   },

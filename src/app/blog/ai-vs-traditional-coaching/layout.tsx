@@ -43,6 +43,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://fitnivo.in/blog/ai-vs-traditional-coaching',
+    languages: {
+      'en-US': 'https://fitnivo.in/blog/ai-vs-traditional-coaching',
+    },
   },
   robots: 'index, follow',
 };

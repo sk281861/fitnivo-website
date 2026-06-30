@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, X, AlertCircle } from 'lucide-react';
 
@@ -10,10 +11,23 @@ const rows: Row[] = [
   { feature: 'Real-Time Form Feedback', fitnivo: 'Yes (Camera Vision)', badge: 'Coming Soon', traditional: 'No', trainer: 'Yes (In-person only)' },
   { feature: 'Turnkey Diet & Nutrition', fitnivo: 'Included', traditional: 'Add-on feature', trainer: 'Often separate fee' },
   { feature: 'Availability', fitnivo: '24/7 Instant Chat', traditional: 'None', trainer: 'Limited to session hours' },
-  { feature: 'Average Monthly Cost', fitnivo: 'Micro-subscription', traditional: 'Basic tracking fee', trainer: '₹3,000 – ₹8,000+ ($100-$300+)' },
+  { feature: 'Average Monthly Cost', fitnivo: 'Micro-subscription', traditional: 'Basic tracking fee', trainer: '$100–$300 / £80–£240+' },
 ];
 
 export default function ComparisonTable() {
+  const [fitnivoCost, setFitnivoCost] = useState('Micro-subscription');
+
+  useEffect(() => {
+    const lang = navigator.language || '';
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    const isUAE = lang.includes('AE') || lang.toLowerCase().startsWith('ae') || timeZone.includes('Dubai') || timeZone.includes('Abu_Dhabi');
+    const isUK = lang.includes('GB') || lang.toLowerCase().startsWith('gb') || timeZone.includes('London');
+
+    if (isUAE) setFitnivoCost('AED 39.99 / mo');
+    else if (isUK) setFitnivoCost('£8.99 / mo');
+    else setFitnivoCost('$9.99 / mo');
+  }, []);
+
   return (
     <section className="relative py-24 bg-[#0B0B0F]" data-section="comparison">
       <div className="max-w-7xl mx-auto px-6">
@@ -55,7 +69,7 @@ export default function ComparisonTable() {
                   >
                     <td className="py-5 px-6 text-white font-medium text-sm md:text-base">{row.feature}</td>
                     <td className="py-5 px-6 text-[#00F2FF] font-semibold text-sm md:text-base">
-                      {row.fitnivo}
+                      {row.feature === 'Average Monthly Cost' ? fitnivoCost : row.fitnivo}
                       {row.badge && (
                         <span className="ml-2 text-[10px] text-amber-400 font-medium">{row.badge}</span>
                       )}
