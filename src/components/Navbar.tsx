@@ -36,31 +36,38 @@ const Navbar = () => {
         transition={{ duration: 0.5 }}
         style={{
           position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
+          top: scrolled ? "12px" : "20px",
+          left: scrolled ? "24px" : "16px",
+          right: scrolled ? "24px" : "16px",
+          margin: "0 auto",
+          maxWidth: "1200px",
           zIndex: 1000,
-          padding: scrolled ? "12px 0" : "24px 0",
+          padding: scrolled ? "10px 24px" : "14px 32px",
           transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-          background: scrolled || mobileMenuOpen ? "rgba(11, 11, 15, 0.95)" : "transparent",
-          backdropFilter: scrolled || mobileMenuOpen ? "blur(30px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none"
+          background: "rgba(255, 255, 255, 0.03)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          borderRadius: "24px",
+          border: "1px solid rgba(255, 255, 255, 0.08)",
+          boxShadow: scrolled 
+            ? "0 10px 30px rgba(0, 0, 0, 0.4), 0 1px 1px rgba(255,255,255,0.05) inset" 
+            : "0 10px 25px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(255,255,255,0.05) inset"
         }}
       >
-        <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
           <Link href="/" style={{ textDecoration: "none", color: "white", display: "flex", alignItems: "center", gap: "10px", cursor: "pointer", zIndex: 1001 }}>
             <Image 
               src="/favicon.webp" 
               alt="Fitnivo Logo" 
-              width={scrolled ? 40 : 50} 
-              height={scrolled ? 40 : 50} 
+              width={scrolled ? 32 : 40} 
+              height={scrolled ? 32 : 40} 
               priority
               fetchPriority="high"
               style={{ transition: "0.5s", objectFit: "contain" }} 
             />
-            <span style={{ fontSize: scrolled ? "20px" : "24px", fontWeight: "800", letterSpacing: "-0.03em", transition: "0.5s" }}>Fitnivo</span>
+            <span style={{ fontSize: scrolled ? "18px" : "22px", fontWeight: "800", letterSpacing: "-0.03em", transition: "0.5s" }}>Fitnivo</span>
           </Link>
-
+ 
           {/* Desktop Links */}
           <div style={{ display: "flex", gap: "40px", alignItems: "center" }} className="desktop-nav">
             {navLinks.map((link) => (
@@ -86,14 +93,15 @@ const Navbar = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 style={{ 
-                  background: "white", 
-                  color: "black", 
+                  background: "black", 
+                  color: "white", 
                   fontWeight: "700", 
                   borderRadius: "100px",
                   cursor: "pointer",
-                  padding: "10px 24px",
+                  padding: scrolled ? "8px 20px" : "10px 24px",
                   fontSize: "14px",
-                  border: "none"
+                  border: "1px solid rgba(255, 255, 255, 0.15)",
+                  transition: "padding 0.5s ease"
                 }}
               >
                 Download App

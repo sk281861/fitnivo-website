@@ -37,16 +37,16 @@ const AiCoach = () => {
               left: "24px",
               right: "24px",
               padding: "20px",
-              background: "rgba(255,255,255,0.05)",
+              background: "rgba(11, 15, 23, 0.65)",
               backdropFilter: "blur(20px)",
               borderRadius: "20px",
               border: "1px solid rgba(255,255,255,0.1)"
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
                 <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#4ade80" }} />
-                <span style={{ fontWeight: "700", fontSize: "16px" }}>Fitbuu 🐻</span>
+                <span style={{ fontWeight: "700", fontSize: "16px", color: "#ffffff" }}>Fitbuu 🐻</span>
               </div>
-              <p style={{ fontSize: "14px", color: "var(--text-muted)", fontStyle: "italic", lineHeight: "1.5" }}>
+              <p style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.9)", fontStyle: "italic", lineHeight: "1.5" }}>
                 "Based on your glycemic response to the apple, I recommend shifting your workout by 20 minutes for peak insulin sensitivity."
               </p>
             </div>

@@ -1,163 +1,196 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Activity, Utensils, Zap, Sparkles } from "lucide-react";
-import ImageSequenceScrub from "./ImageSequenceScrub";
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 600], [1, 0]);
   const scale = useTransform(scrollY, [0, 600], [1, 0.95]);
-  const textY = useTransform(scrollY, [0, 600], [0, -100]); 
-
-  const bgBlur = useTransform(scrollY, [0, 1200], ["blur(10px)", "blur(0px)"]);
-
-  const [scrollLen, setScrollLen] = React.useState(1500);
-
-  React.useEffect(() => {
-    if (window.innerWidth < 768) {
-      setScrollLen(800); // Shorter scroll duration on mobile
-    }
-  }, []);
+  const textYDesktop = useTransform(scrollY, [0, 600], [0, -100]);
+  // Always call both transforms (Rules of Hooks), select at render based on isMobile
+  const textYMobile = useTransform(scrollY, [0, 1], [0, 0]);
+  const textY = isMobile ? textYMobile : textYDesktop;
 
   return (
-    <section className="hero-section-wrapper" style={{ position: "relative", zIndex: 1, backgroundColor: "black" }} data-section="hero">
-      <ImageSequenceScrub 
-        directory="/frames/hero/" 
-        frameCount={150} 
-        scrollLength={scrollLen} 
-      >
-        {/* Dynamic Background Blur Overlay - Complete fade-out to ensure clarity */}
-        <motion.div style={{ 
-          backdropFilter: bgBlur,
-          WebkitBackdropFilter: bgBlur,
-          position: "absolute",
-          inset: 0,
-          zIndex: 1,
-          pointerEvents: "none",
-          opacity: useTransform(scrollY, [0, 800], [1, 0])
-        }} />
+    <section 
+      className="hero-section-wrapper" 
+      style={{ 
+        position: "relative", 
+        zIndex: 1, 
+        backgroundColor: "black",
+        overflow: "hidden",
+      }} 
+      data-section="hero"
+    >
+      {/* Background Image with eager/priority loading */}
+      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        <Image
+          src="/images/hero/Fitnivo_hero_section.webp"
+          alt="Fitnivo Hero Section"
+          fill
+          priority
+          style={{
+            objectFit: "cover",
+            objectPosition: isMobile ? "center center" : "right center"
+          }}
+        />
+      </div>
 
+      {/* Legibility Gradients & Vignette - Deepened for better contrast */}
+      <div className="hero-gradient-overlay" />
 
-        {/* Legibility Gradients & Vignette - Deepened for better contrast */}
-        <motion.div style={{
-          position: "absolute",
-          inset: 0,
-          background: "radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%), linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 25%, transparent 75%, rgba(0,0,0,1) 100%)",
-          zIndex: 1,
-          pointerEvents: "none",
-          opacity: useTransform(scrollY, [0, 1200], [1, 0])
-        }} />
+      {/* Global Bottom Transition Mask - Ensuring no hard edge between Hero and Pillars */}
+      <div className="hero-bottom-mask" />
 
-        {/* Global Bottom Transition Mask - Ensuring no hard edge between Hero and Pillars */}
-        <div style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          width: "100%",
-          height: "250px",
-          background: "linear-gradient(to top, #0B0B0F, transparent)",
-          zIndex: 4,
-          pointerEvents: "none"
-        }} />
-
-        {/* Floating Content */}
-        <div style={{
-          position: "absolute",
-          top: 0, 
-          left: 0,
-          width: "100%",
-          height: "100%",
-          paddingTop: "60px", // Shifting down to match the artwork offset
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          pointerEvents: "none",
-          zIndex: 3
-        }}>
-          <motion.div 
-            style={{ 
-              opacity, 
-              scale, 
-              y: textY, 
-              textAlign: "center", 
-              pointerEvents: "auto",
-              padding: "0 20px"
-            }} 
-            className="container hero-content"
+      {/* Floating Content */}
+      <div className="hero-content-container">
+        <motion.div 
+          style={{ 
+            opacity, 
+            scale, 
+            y: textY, 
+          }} 
+          className="hero-text-block hero-content"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
+            <h1 className="hero-title" style={{ 
+              fontSize: "clamp(34px, 5vw, 52px)", 
+              fontWeight: "900",
+              lineHeight: "1.15", 
+              marginBottom: "20px",
+              letterSpacing: "-0.03em",
+              filter: "drop-shadow(0 0 40px rgba(0,0,0,0.9))"
+            }}>
+              Meet Your All-In-One <br className="desktop-only" />
+              <span style={{ background: "linear-gradient(90deg, #F7971E, #FFD200)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>AI Fitness Coach</span>
+            </h1>
+
+            <h2 className="hero-subtitle" style={{ 
+              fontSize: "clamp(14px, 2.2vw, 17px)", 
+              fontWeight: "300",
+              color: "rgba(255,255,255,0.7)", 
+              maxWidth: "450px", 
+              marginBottom: "32px",
+              lineHeight: "1.6",
+              letterSpacing: "0.01em"
+            }}>
+              Stop juggling four different apps. Track calories, plan custom workouts, and crush your goals with one intelligent system.
+            </h2>
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              transition={{ delay: 0.6 }}
+              className="hero-btn-container"
             >
-              <h1 className="hero-title" style={{ 
-                fontSize: "clamp(48px, 15vw, 130px)", 
-                fontWeight: "900",
-                lineHeight: "0.9", 
-                marginBottom: "32px",
-                letterSpacing: "-0.05em",
-                textTransform: "uppercase",
-                filter: "drop-shadow(0 0 50px rgba(0,0,0,0.8))"
-              }}>
-                <span className="gradient-text-fitness">Train</span><br />
-                <span className="gradient-text-nutrition">Fuel</span><br />
-                <span className="gradient-text-mind">Evolve</span>
-              </h1>
-
-              <p className="hero-subtitle" style={{ 
-                fontSize: "clamp(16px, 4vw, 24px)", 
-                fontWeight: "300",
-                color: "rgba(255,255,255,0.7)", 
-                maxWidth: "640px", 
-                margin: "0 auto 40px auto",
-                lineHeight: "1.4",
-                letterSpacing: "0.02em"
-              }}>
-                Synchronize your physiology with AI-driven protocols for local-precision wellness.
-              </p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                style={{ display: "flex", gap: "24px", justifyContent: "center" }}
+              <a 
+                href="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", display: "inline-block" }}
               >
-                <a 
-                  href="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none", width: "100%", maxWidth: "300px" }}
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{
+                    background: "#FFFFFF",
+                    color: "#0B0B0F",
+                    padding: "12px 28px",
+                    borderRadius: "100px",
+                    fontSize: "15px",
+                    fontWeight: "600",
+                    cursor: "pointer",
+                    border: "none",
+                    boxShadow: "0 10px 30px rgba(255, 255, 255, 0.15)",
+                    whiteSpace: "nowrap"
+                  }}
                 >
-                  <motion.button 
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    style={{
-                      background: "var(--accent-fitness)",
-                      color: "black",
-                      padding: "clamp(16px, 3vw, 20px) clamp(30px, 5vw, 48px)",
-                      borderRadius: "100px",
-                      fontSize: "clamp(16px, 4vw, 18px)",
-                      fontWeight: "700",
-                      cursor: "pointer",
-                      border: "none",
-                      width: "100%",
-                      boxShadow: "0 10px 40px rgba(0, 242, 255, 0.3)"
-                    }}
-                  >
-                    Access System
-                  </motion.button>
-                </a>
-              </motion.div>
+                  Download Free for Android
+                </motion.button>
+              </a>
             </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
 
-      </ImageSequenceScrub>
+        {/* Floating Stats Cards */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+          className="hero-stats-container"
+        >
+          {/* PACE CARD */}
+          <div className="stat-card">
+            <div className="stat-card-title">Pace</div>
+            <div className="stat-card-svg">
+              <svg width="100" height="55" viewBox="0 0 100 55">
+                <defs>
+                  <linearGradient id="paceGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#33F4FF" />
+                    <stop offset="50%" stopColor="#00FF85" />
+                    <stop offset="100%" stopColor="#FF007F" />
+                  </linearGradient>
+                </defs>
+                <path d="M15,50 A35,35 0 0,1 85,50" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="6" strokeLinecap="round" />
+                <path d="M15,50 A35,35 0 0,1 85,50" fill="none" stroke="url(#paceGrad)" strokeWidth="6" strokeLinecap="round" strokeDasharray="110" strokeDashoffset="22" />
+                <line x1="50" y1="50" x2="72" y2="24" stroke="rgba(255,255,255,0.9)" strokeWidth="2.5" strokeLinecap="round" />
+                <circle cx="50" cy="50" r="3" fill="rgba(255,255,255,0.9)" />
+              </svg>
+            </div>
+            <div className="stat-card-footer">
+              <span>300</span>
+              <span>288</span>
+            </div>
+          </div>
+
+          {/* HEART RATE CARD */}
+          <div className="stat-card">
+            <div className="stat-card-title">Heart Rate</div>
+            <div className="stat-card-svg">
+              <svg width="100" height="55" viewBox="0 0 100 55">
+                <defs>
+                  <linearGradient id="hrGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#FF007F" />
+                    <stop offset="50%" stopColor="#BF00FF" />
+                    <stop offset="100%" stopColor="#33F4FF" />
+                  </linearGradient>
+                  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="2" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                </defs>
+                <path d="M5,42 L20,42 L28,28 L36,45 L42,12 L48,47 L55,34 L72,34 L80,24 L95,30" fill="none" stroke="url(#hrGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="42" cy="12" r="3.5" fill="#33F4FF" filter="url(#glow)" />
+                <circle cx="42" cy="12" r="1.5" fill="#FFFFFF" />
+              </svg>
+            </div>
+            <div className="stat-card-footer" style={{ display: "flex", gap: "8px" }}>
+              <span>15M</span>
+              <span>15M</span>
+              <span>198</span>
+              <span>1800</span>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };
 
 export default Hero;
+

@@ -2,6 +2,12 @@ export const dynamic = 'force-dynamic';
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import SocialProof from "@/components/SocialProof";
+import FeaturesGrid from "@/components/FeaturesGrid";
+import ScrollStory from "@/components/ScrollStory";
+import ScrollStoryBackpain from "@/components/ScrollStoryBackpain";
+import ScrollStoryCoach from "@/components/ScrollStoryCoach";
+import ScrollStoryConsistency from "@/components/ScrollStoryConsistency";
 import nextDynamic from "next/dynamic";
 import { generateOrganizationSchema } from "@/lib/seo/generateSchema";
 
@@ -29,7 +35,15 @@ export default function Home() {
       />
       <Navbar />
       <Hero />
-      <PillarsSection />
+      <ScrollStory />
+      <ScrollStoryBackpain />
+      <ScrollStoryCoach />
+      <ScrollStoryConsistency />
+      <SocialProof />
+      <FeaturesGrid />
+      <div className="sr-only">
+        <PillarsSection />
+      </div>
       <AiCoach />
       <MindfulnessSection />
       <AppPreview />
