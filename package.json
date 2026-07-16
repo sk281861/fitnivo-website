@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "browserslist": [
-    "defaults",
-    "not ie 11",
+    "last 2 versions",
+    "not dead",
     "not op_mini all",
-    "fully supports es6-module"
+    "not safari < 14",
+    "not ios_saf < 14"
   ],
   "scripts": {
     "dev": "next dev",

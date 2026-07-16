@@ -63,7 +63,11 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Fitnivo" />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="preload" href="/frames/hero/ezgif-frame-001.webp" as="image" fetchPriority="high" />
+        <link rel="preload" href="/images/hero/Fitnivo_hero_section.webp" as="image" type="image/webp" fetchPriority="high" />
+        <style dangerouslySetInnerHTML={{ __html: `
+          body { background-color: #000; color: #fff; }
+          .hero-section-wrapper { background-color: #000; }
+        `}} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

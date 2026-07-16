@@ -2,14 +2,16 @@ export const dynamic = 'force-dynamic';
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import SocialProof from "@/components/SocialProof";
-import FeaturesGrid from "@/components/FeaturesGrid";
-import ScrollStory from "@/components/ScrollStory";
-import ScrollStoryBackpain from "@/components/ScrollStoryBackpain";
-import ScrollStoryCoach from "@/components/ScrollStoryCoach";
-import ScrollStoryConsistency from "@/components/ScrollStoryConsistency";
 import nextDynamic from "next/dynamic";
 import { generateOrganizationSchema } from "@/lib/seo/generateSchema";
+
+// Dynamically import below-the-fold components
+const SocialProof = nextDynamic(() => import("@/components/SocialProof"), { ssr: true });
+const FeaturesGrid = nextDynamic(() => import("@/components/FeaturesGrid"), { ssr: true });
+const ScrollStory = nextDynamic(() => import("@/components/ScrollStory"), { ssr: true });
+const ScrollStoryBackpain = nextDynamic(() => import("@/components/ScrollStoryBackpain"), { ssr: true });
+const ScrollStoryCoach = nextDynamic(() => import("@/components/ScrollStoryCoach"), { ssr: true });
+const ScrollStoryConsistency = nextDynamic(() => import("@/components/ScrollStoryConsistency"), { ssr: true });
 
 // Dynamically import client-side interactive widgets to enable code-splitting
 const PillarsSection = nextDynamic(() => import("@/components/PillarsSection"), {
