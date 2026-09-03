@@ -68,28 +68,28 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <h1 className="hero-title" style={{ 
-              fontSize: "clamp(34px, 5vw, 52px)", 
+            <h1 className="hero-title" style={{
+              fontSize: "clamp(34px, 5vw, 52px)",
               fontWeight: "900",
-              lineHeight: "1.15", 
+              lineHeight: "1.15",
               marginBottom: "20px",
               letterSpacing: "-0.03em",
               filter: "drop-shadow(0 0 40px rgba(0,0,0,0.9))"
             }}>
-              Meet Your All-In-One <br className="desktop-only" />
-              <span style={{ background: "linear-gradient(90deg, #F7971E, #FFD200)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>AI Fitness Coach</span>
+              Fitnivo — <br className="desktop-only" />
+              <span style={{ background: "linear-gradient(90deg, #F7971E, #FFD200)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>AI Fitness &amp; Nutrition Coach</span>
             </h1>
 
-            <h2 className="hero-subtitle" style={{ 
-              fontSize: "clamp(14px, 2.2vw, 17px)", 
+            <h2 className="hero-subtitle" style={{
+              fontSize: "clamp(14px, 2.2vw, 17px)",
               fontWeight: "300",
-              color: "rgba(255,255,255,0.7)", 
-              maxWidth: "450px", 
+              color: "rgba(255,255,255,0.7)",
+              maxWidth: "500px",
               marginBottom: "32px",
               lineHeight: "1.6",
               letterSpacing: "0.01em"
             }}>
-              Stop juggling four different apps. Track calories, plan custom workouts, and crush your goals with one intelligent system.
+              An AI personal trainer and nutrition coach that creates personalized workouts, tracks calories and macros, scans meals with AI, and helps you stay consistent.
             </h2>
 
             <motion.div

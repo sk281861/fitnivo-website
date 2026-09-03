@@ -10,10 +10,29 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'Fitnivo - AI Fitness & Nutrition Coach',
-  description: 'Optimize your health with customized biometric-driven workouts and nutritional intelligence.',
+  metadataBase: new URL('https://fitnivo.in'),
+  title: {
+    default: 'Fitnivo — AI Fitness & Nutrition Coach | Personal AI Trainer',
+    template: '%s | Fitnivo',
+  },
+  description:
+    'Fitnivo is your AI fitness and nutrition coach — personalized workouts, calorie & macro tracking, AI food scanning, and meal planning in one app.',
+  openGraph: {
+    type: 'website',
+    siteName: 'Fitnivo',
+    url: 'https://fitnivo.in',
+    title: 'Fitnivo — AI Fitness & Nutrition Coach',
+    description:
+      'Personalized AI workouts, calorie & macro tracking, AI food scanning, and meal planning in one app.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fitnivo — AI Fitness & Nutrition Coach',
+    description:
+      'Personalized AI workouts, calorie & macro tracking, AI food scanning, and meal planning in one app.',
+  },
   verification: {
-    google: 'YOUR_GOOGLE_VERIFICATION_STRING_HERE',
+    google: 'IeEXdWHYshLJYhyG80USropVWT-3gAw7dc4YtgQi7xI',
   },
   alternates: {
     canonical: 'https://fitnivo.in/',
@@ -35,24 +54,43 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Fitnivo",
-    "operatingSystem": "iOS, Android, Web",
-    "applicationCategory": "HealthApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Fitnivo",
+      "url": "https://fitnivo.in",
+      "logo": "https://fitnivo.in/favicon.webp",
+      "sameAs": [
+        "https://www.instagram.com/fitnivo.app/",
+        "https://play.google.com/store/apps/details?id=com.fitnivo.app"
+      ]
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "ratingCount": "1240"
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Fitnivo",
+      "url": "https://fitnivo.in",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://fitnivo.in/blog?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     },
-    "description": "Unified AI wellness system for advanced fitness, nutrition, and mindfulness tracking."
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Fitnivo",
+      "operatingSystem": "Android, iOS",
+      "applicationCategory": "HealthApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Fitnivo is an AI fitness and nutrition coach that combines personalized workouts, calorie and macro tracking, AI food scanning, meal planning, and fitness coaching in one app."
+    }
+  ];
 
   return (
     <html lang="en-US" className={outfit.variable}>

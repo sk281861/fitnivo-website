@@ -1,350 +1,530 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import FlatAppDemo from './_components/FlatAppDemo';
-import DeviceSlider from './_components/DeviceSlider';
-import PricingBadge from './_components/PricingBadge';
-import { generateProductSchema, generateBreadcrumbSchema } from '@/lib/seo/generateSchema';
-import { ArrowRight, Activity, Calendar, Shield, Database, Award, ArrowUpRight } from 'lucide-react';
+import { generateBreadcrumbSchema } from '@/lib/seo/generateSchema';
 
 export const metadata: Metadata = {
-  title: 'Fitnivo AI Fitness Coach | Personal Training & Nutrition Advisor',
+  title: 'AI Fitness Coach & Personal Trainer | Fitnivo',
   description:
-    'Transform your body with an intelligent digital personal trainer. PhD-level nutrition insights, real-time form correction, and 24/7 AI chat accountability.',
+    'Get a personalized AI fitness coach that creates workouts around your goals, tracks progress, plans nutrition, and adapts as you improve. Free to start.',
   keywords: [
     'AI fitness coach',
     'AI personal trainer',
-    'fitness app',
-    'nutrition advisor',
-    'AI workout plan',
-    'form correction',
-    'wearable sync',
-    'progressive overload',
+    'AI fitness trainer',
+    'AI gym trainer',
+    'AI fitness coaching',
+    'personal AI trainer',
+    'AI workout generator',
+    'AI fitness and nutrition coach',
   ],
   alternates: {
     canonical: 'https://fitnivo.in/ai-fitness-coach',
   },
+  openGraph: {
+    title: 'AI Fitness Coach & Personal Trainer | Fitnivo',
+    description:
+      'A personalized AI fitness coach that adapts your workouts, tracks calories and macros, and helps you stay consistent.',
+    url: 'https://fitnivo.in/ai-fitness-coach',
+    type: 'website',
+  },
 };
 
+const softwareAppSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Fitnivo AI Fitness Coach',
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'Android, iOS',
+  description:
+    'AI fitness coach and personal trainer that creates personalized workouts, tracks calories and macros, scans meals with AI, and adapts as you progress.',
+  url: 'https://fitnivo.in/ai-fitness-coach',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is an AI fitness coach?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'An AI fitness coach is a digital fitness assistant that uses information about your goals, training, and progress to provide personalized workout and fitness guidance. It can plan workouts, track sets and reps, and adjust your training as you progress.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Fitnivo an AI personal trainer?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Fitnivo acts as a personal AI trainer by helping you create personalized workouts, track your training, monitor progress, and get fitness guidance whenever you need it.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can an AI fitness coach create workout plans?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Fitnivo creates personalized workouts based on your goals, experience level, available equipment, and training history.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can an AI personal trainer help with nutrition?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Fitnivo combines fitness coaching with calorie, macro, and meal tracking so your nutrition is managed alongside your training in one app.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can an AI fitness coach replace a personal trainer?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'An AI coach provides convenient workout planning, tracking, and general fitness guidance. It is a strong digital alternative for people who want structured training without booking ongoing one-to-one sessions, but it is not a substitute for a qualified professional who can physically assess you in person.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is an AI fitness coach good for beginners?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. AI coaching helps beginners understand what workouts to perform, how to structure their training, and how to track progress from the very first session.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I use an AI fitness coach at the gym?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Fitnivo builds workouts around the equipment available to you and lets you log exercises, sets, reps, and weight during your gym session.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can an AI fitness coach help me lose weight?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'An AI fitness app helps you structure workouts and monitor calories, macros, and progress. Sustainable weight change also depends on nutrition consistency, activity, sleep, and other individual factors.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can an AI fitness coach help build muscle?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Fitnivo helps you follow structured resistance training, track your workouts, and monitor progression over time — the foundation of muscle growth.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What makes Fitnivo different from an AI workout generator?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A workout generator primarily creates a routine. Fitnivo combines workout generation with workout tracking, nutrition tracking, meal planning, AI food scanning, and ongoing coaching in one app.',
+      },
+    },
+  ],
+};
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://fitnivo.in' },
+  { name: 'AI Fitness Coach', url: 'https://fitnivo.in/ai-fitness-coach' },
+]);
+
+const schemaJson = JSON.stringify([softwareAppSchema, faqSchema, breadcrumbSchema]);
+
+const ecosystemFeatures = [
+  {
+    icon: '🏋️',
+    title: 'AI Workout Coach',
+    body: 'Get personalized workouts based on your goal, experience, and available equipment.',
+    href: '/ai-workout-planner',
+  },
+  {
+    icon: '📈',
+    title: 'Workout Tracking',
+    body: 'Log sets, reps, and weights while building a history of your training.',
+    href: '/ai-fitness-coach',
+  },
+  {
+    icon: '🍎',
+    title: 'AI Food Scanner',
+    body: 'Take a photo of your meal and get an estimate of calories and macronutrients.',
+    href: '/ai-food-scanner',
+  },
+  {
+    icon: '🥗',
+    title: 'AI Nutrition Coach',
+    body: 'Track your calories and macros with nutrition guidance alongside your training.',
+    href: '/ai-nutrition-coach',
+  },
+  {
+    icon: '🍽️',
+    title: 'Personalized Meal Plans',
+    body: 'Build meals around your calorie and protein targets.',
+    href: '/ai-meal-planner',
+  },
+  {
+    icon: '💬',
+    title: 'AI Fitness Coach',
+    body: 'Ask questions about workouts, nutrition, and goals whenever you need guidance.',
+    href: '/ai-fitness-coach',
+  },
+];
+
+const goals = [
+  { title: 'Build Muscle', body: 'Follow structured resistance training and track progressive overload.' },
+  { title: 'Lose Body Fat', body: 'Combine workout tracking with calorie and macro awareness.' },
+  { title: 'Get Stronger', body: 'Track your lifts and monitor progress over time.' },
+  { title: 'Improve Fitness', body: 'Build a consistent routine around your schedule and ability.' },
+  { title: 'Stay Consistent', body: 'Use your workout history and progress to stay accountable.' },
+];
+
+const steps = [
+  { n: '01', title: 'Tell Fitnivo what you’re working toward', body: 'Choose your goal, experience, available equipment, and training preferences.' },
+  { n: '02', title: 'Get a personalized workout', body: 'Fitnivo creates a workout designed around your individual goals instead of a generic routine.' },
+  { n: '03', title: 'Log your workout', body: 'Track exercises, sets, reps, weight, workout history, and personal records.' },
+  { n: '04', title: 'Keep progressing', body: 'Your workout history gives Fitnivo context so future training can be adjusted.' },
+  { n: '05', title: 'Connect training with nutrition', body: 'Track calories, protein, carbs, and fats alongside your workouts.' },
+];
+
+const faqs = [
+  { q: 'What is an AI fitness coach?', a: 'An AI fitness coach is a digital fitness assistant that uses information about your goals, training, and progress to provide personalized workout and fitness guidance.' },
+  { q: 'Is Fitnivo an AI personal trainer?', a: 'Yes. Fitnivo acts as a personal AI trainer by helping you create personalized workouts, track your training, monitor progress, and get fitness guidance.' },
+  { q: 'Can an AI fitness coach create workout plans?', a: 'Yes. Fitnivo creates personalized workouts based on factors such as your goals, experience, and available equipment.' },
+  { q: 'Can an AI personal trainer help with nutrition?', a: 'Yes. Fitnivo combines fitness coaching with calorie, macro, and meal tracking so your nutrition can be managed alongside your training.' },
+  { q: 'Can an AI fitness coach replace a personal trainer?', a: 'An AI coach can provide convenient workout planning, tracking, and general fitness guidance, but it is not a complete replacement for a qualified professional who can physically assess you and provide individualized supervision.' },
+  { q: 'Is an AI fitness coach good for beginners?', a: 'Yes. AI coaching can help beginners understand what workouts to perform, how to structure training, and how to track progress.' },
+  { q: 'Can I use an AI fitness coach at the gym?', a: 'Yes. Fitnivo can help create workouts around the equipment available to you and lets you track your exercises, sets, reps, and weight.' },
+  { q: 'Can an AI fitness coach help me lose weight?', a: 'An AI fitness app can help you structure workouts and monitor calories, macros, and progress. Sustainable weight management also depends on nutrition, activity, sleep, and other individual factors.' },
+  { q: 'Can an AI fitness coach help build muscle?', a: 'Yes. Fitnivo can help you follow structured resistance training, track your workouts, and monitor progression over time.' },
+  { q: 'What makes Fitnivo different from an AI workout generator?', a: 'An AI workout generator primarily creates a workout. Fitnivo combines workout generation with workout tracking, nutrition tracking, meal planning, and ongoing AI fitness guidance.' },
+];
+
 export default function AIFitnessCoachPage() {
-  const productSchema = generateProductSchema({
-    name: 'Fitnivo AI Fitness Coach',
-    description:
-      'AI-powered workout optimization with real-time form correction, adaptive difficulty, and PhD-level nutrition insights.',
-    image: 'https://fitnivo.in/images/ai-coach.webp',
-    url: 'https://fitnivo.in/ai-fitness-coach',
-    ratingValue: 4.9,
-    ratingCount: 1240,
-  });
-
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://fitnivo.in' },
-    { name: 'AI Fitness Coach', url: 'https://fitnivo.in/ai-fitness-coach' },
-  ]);
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is an AI fitness coach?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "An AI fitness coach is a smart algorithm that acts as a virtual personal trainer. It builds personalized workout plans, tracks your logged sets and reps, and dynamically adjusts your future workouts based on your real-time performance and recovery data."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does an AI personal trainer adjust my workouts?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "An AI personal trainer uses progressive overload logic. If you easily complete a set, the AI will automatically increase the weight or reps for your next session. If you miss a workout, it instantly recalculates your split to keep you on track."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much does an AI personal trainer cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "While traditional human trainers charge between $100 to $300 (£80 to £240) per month, a premium AI fitness coach typically costs between $10 and $30 (£8 to £25) per month for unlimited 24/7 workout programming."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is an AI workout app good for beginners?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The best AI workout apps adjust to your current fitness level, equipment availability, and goals, ensuring that beginners start with safe volumes and clear visual instructions before progressing to heavier weights."
-        }
-      }
-    ]
-  };
-
-  const schemaJson = JSON.stringify([productSchema, breadcrumbSchema, faqSchema]);
-
   return (
     <main className="bg-black text-white min-h-screen">
-      {/* Injected Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: schemaJson }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson }} />
       <Navbar />
 
-      {/* Section 1: Hero & AEO Direct Answer */}
+      {/* Hero */}
       <section className="relative pt-32 pb-20 border-b border-[#1f1f1f] bg-black">
         <div className="max-w-6xl mx-auto px-6">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm mb-8">
+            <Link href="/" className="text-cyan-400 hover:text-cyan-300">Home</Link>
+            <span className="text-white/30">/</span>
+            <span className="text-white/60">AI Fitness Coach</span>
+          </nav>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Left Column: Content */}
-            <div className="lg:col-span-7 text-left">
+            <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 border border-cyan-400 bg-cyan-950/20 px-3 py-1 mb-6 text-cyan-400 text-xs font-mono tracking-widest uppercase">
-                ⚡ Next-Gen Hypertrophy Engine
+                AI Fitness &amp; Nutrition Coach
               </div>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-white mb-6 font-mono">
-                Fitnivo: Your Personal AI Trainer & Fitness Coach.
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-white mb-6">
+                AI Fitness Coach That Adapts to You
               </h1>
 
-              <p className="text-base md:text-lg text-[#A1A1A6] mb-6 leading-relaxed font-mono">
-                The science-backed AI fitness coach that lives in your pocket. No generic templates—just real-time, equipment-aware workout generation.
+              <p className="text-lg text-[#B4B4B4] mb-6 leading-relaxed max-w-2xl">
+                Meet Fitnivo, your AI fitness coach and personal trainer in your pocket. Get personalized workouts, track your sets and progress, manage calories and macros, and get guidance that evolves with your fitness goals.
               </p>
-
-              {/* AEO Block - Optimized for AI Scrapers */}
-              <div className="bg-[#050505] border border-[#262626] p-6 mb-8 text-left rounded-none shadow-none">
-                <p className="text-sm md:text-base text-white font-semibold leading-relaxed">
-                  A personal AI trainer is a smart algorithm that acts as your 24/7 virtual gym coach. It builds personalized workout and meal plans, tracks your logged sets, and dynamically adjusts your future workouts based on real-time performance, injury history, and recovery data.
-                </p>
-              </div>
 
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
                 <a
                   href="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en"
-                  className="px-8 py-4 bg-cyan-400 text-black font-semibold uppercase tracking-wider font-mono hover:bg-cyan-300 transition-colors text-center w-full sm:w-auto"
+                  className="px-8 py-4 bg-cyan-400 text-black font-semibold uppercase tracking-wider hover:bg-cyan-300 transition-colors text-center"
                 >
-                  Start Your Free Trial
+                  Start Training Free
                 </a>
                 <a
-                  href="#adaptation"
-                  className="px-8 py-4 border border-[#262626] text-white hover:border-[#00f2fe] font-semibold uppercase tracking-wider font-mono bg-transparent transition-colors text-center w-full sm:w-auto"
+                  href="#how-it-works"
+                  className="px-8 py-4 border border-[#262626] text-white hover:border-cyan-400 font-semibold uppercase tracking-wider bg-transparent transition-colors text-center"
                 >
-                  See How the Algorithm Works
+                  See How It Works
                 </a>
               </div>
             </div>
 
-            {/* Right Column: Device Slider */}
-            <div className="lg:col-span-5 flex justify-center w-full">
-              <DeviceSlider />
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-sm">
+                <Image
+                  src="/images/mockup/ai-fitness-coach-chat-workout-planner.webp"
+                  alt="Fitnivo AI fitness coach chat interface generating a personalized workout plan"
+                  width={400}
+                  height={800}
+                  priority
+                  className="w-full h-auto rounded-2xl border border-[#262626]"
+                />
+              </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* Section 2: Data Provenance & Adaptation */}
-      <section id="adaptation" className="py-24 border-b border-[#1f1f1f] bg-black">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
-            <div className="lg:col-span-5">
-              <span className="text-xs uppercase tracking-widest text-[#00f2fe] font-mono block mb-2">DYNAMIC OVERLOAD MATH</span>
-              <h2 className="text-3xl md:text-4xl font-bold font-mono leading-tight mb-6">
-                How Does the Fitnivo AI Coach Adjust Your Workout?
-              </h2>
-              <p className="text-[#A1A1A6] text-base leading-relaxed mb-6">
-                Unlike static PDF plans or basic tracking apps, Fitnivo is built on dynamic adaptation. Our algorithm doesn't just guess; it calculates your exact progressive overload.
-              </p>
-            </div>
-            
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="border border-[#1f1f1f] bg-[#050505] p-5 rounded-none shadow-none">
-                <div className="w-10 h-10 border border-[#262626] flex items-center justify-center text-cyan-400 mb-4 font-mono text-sm font-bold bg-black">
-                  ⚡
-                </div>
-                <h4 className="text-white font-bold text-sm font-mono mb-2">Sub-500ms Recalculation</h4>
-                <p className="text-xs text-[#A1A1A6] leading-relaxed">
-                  Fitnivo processes your historical workout data to adjust rest times and target weights in under 500 milliseconds.
-                </p>
-              </div>
-
-              <div className="border border-[#1f1f1f] bg-[#050505] p-5 rounded-none shadow-none">
-                <div className="w-10 h-10 border border-[#262626] flex items-center justify-center text-cyan-400 mb-4 font-mono text-sm font-bold bg-black">
-                  📊
-                </div>
-                <h4 className="text-white font-bold text-sm font-mono mb-2">30-Day Volume Analysis</h4>
-                <p className="text-xs text-[#A1A1A6] leading-relaxed">
-                  The AI analyzes your past 30 days of logged sets, reps, and perceived exertion to safely increase workload.
-                </p>
-              </div>
-
-              <div className="border border-[#1f1f1f] bg-[#050505] p-5 rounded-none shadow-none">
-                <div className="w-10 h-10 border border-[#262626] flex items-center justify-center text-cyan-400 mb-4 font-mono text-sm font-bold bg-black">
-                  🍎
-                </div>
-                <h4 className="text-white font-bold text-sm font-mono mb-2">Meal Sync</h4>
-                <p className="text-xs text-[#A1A1A6] leading-relaxed">
-                  Workout volume directly informs calorie and macro targets in the Meal tab, matching your daily energy output.
-                </p>
-              </div>
-
-              <div className="border border-[#1f1f1f] bg-[#050505] p-5 rounded-none shadow-none">
-                <div className="w-10 h-10 border border-[#262626] flex items-center justify-center text-cyan-400 mb-4 font-mono text-sm font-bold bg-black">
-                  🏋️
-                </div>
-                <h4 className="text-white font-bold text-sm font-mono mb-2">Equipment-Aware Workouts</h4>
-                <p className="text-xs text-[#A1A1A6] leading-relaxed">
-                  Whether you are in a fully equipped commercial gym or doing a bodyweight workout in your living room, your AI fitness coach adapts instantly. Just tell the app what equipment you have, and it generates a science-backed routine to match.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Interactive Flat Telemetry Demo */}
-          <FlatAppDemo />
+      {/* What Is an AI Fitness Coach */}
+      <section className="py-20 border-b border-[#1f1f1f]">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">What Is an AI Fitness Coach?</h2>
+          <p className="text-[#B4B4B4] text-lg leading-relaxed mb-6">
+            An AI fitness coach is a digital personal trainer that uses information about your goals, fitness level, workouts, preferences, and progress to provide personalized fitness guidance. Instead of following the same workout plan every week, an AI fitness coach helps you decide:
+          </p>
+          <ul className="space-y-3 text-[#B4B4B4] mb-6">
+            {[
+              'What workout should I do today?',
+              'Which exercises fit my goal?',
+              'How many sets and reps should I perform?',
+              'What should I do if I miss a workout?',
+              'How should I progress over time?',
+              'How should my nutrition support my goal?',
+              'Am I staying on track?',
+            ].map((item) => (
+              <li key={item} className="flex gap-3">
+                <span className="text-cyan-400 flex-shrink-0">→</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-[#B4B4B4] text-lg leading-relaxed">
+            Fitnivo brings these pieces together in one fitness app, combining AI workout guidance, workout tracking, calorie and macro tracking, meal planning, and AI coaching.
+          </p>
         </div>
       </section>
 
-      {/* Section 3: Feature Translation (Answering the "What Ifs") */}
-      <section className="py-24 border-b border-[#1f1f1f] bg-black">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16 max-w-2xl mx-auto">
-            <span className="text-xs uppercase tracking-widest text-[#00f2fe] font-mono block mb-2">Adaptive Mechanics</span>
-            <h2 className="text-3xl md:text-4xl font-bold font-mono mb-4">
-              What Happens If You Miss a Workout or Hit a Plateau?
-            </h2>
-            <p className="text-[#A1A1A6]">
-              Life happens. A traditional plan fails the moment you miss a day, but an AI personal trainer adapts instantly.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="border border-[#1f1f1f] bg-[#050505] p-6 rounded-none shadow-none flex flex-col justify-between">
-              <div>
-                <div className="text-[#00f2fe] mb-4 font-mono text-xs uppercase font-semibold">01 / RE-CALCULATE</div>
-                <h3 className="text-xl font-bold text-white mb-3 font-mono">Instant Routine Recalculation</h3>
-                <p className="text-sm text-[#A1A1A6] leading-relaxed">
-                  If you miss a Tuesday workout, the AI instantly shifts your split. It recalculates your weekly volume so you never skip a muscle group, ensuring your progress stays strictly on track without overtraining.
-                </p>
+      {/* More Than an AI Workout Generator */}
+      <section className="py-20 border-b border-[#1f1f1f]">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">More Than an AI Workout Generator</h2>
+          <p className="text-[#B4B4B4] text-lg leading-relaxed mb-10 max-w-3xl">
+            A workout generator can give you a routine. An AI fitness coach should help you understand what to do next. With Fitnivo, your workouts are built around factors such as:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { t: 'Your goal', b: 'Muscle gain, fat loss, strength, general fitness, or improving consistency.' },
+              { t: 'Your experience', b: 'Your training history and current ability influence the workouts you follow.' },
+              { t: 'Your equipment', b: 'Train at a gym, at home, or with limited equipment.' },
+              { t: 'Your workout history', b: 'Your logged sets, reps, weights, and completed workouts provide context.' },
+              { t: 'Your progress', b: 'As your training changes, your plan can change with it.' },
+            ].map((x) => (
+              <div key={x.t} className="border border-[#1f1f1f] bg-[#050505] p-6">
+                <h3 className="text-white font-bold mb-2">{x.t}</h3>
+                <p className="text-sm text-[#B4B4B4] leading-relaxed">{x.b}</p>
               </div>
-            </div>
-
-            <div className="border border-[#1f1f1f] bg-[#050505] p-6 rounded-none shadow-none flex flex-col justify-between">
-              <div>
-                <div className="text-[#00f2fe] mb-4 font-mono text-xs uppercase font-semibold">02 / INTER-SET ADJUST</div>
-                <h3 className="text-xl font-bold text-white mb-3 font-mono">Set-by-Set Progression</h3>
-                <p className="text-sm text-[#A1A1A6] leading-relaxed">
-                  Struggling with a weight? Log it. The AI reads your performance and immediately lowers the target weight for your next set, protecting you from injury while maximizing your time under tension.
-                </p>
-              </div>
-            </div>
-
-            <div className="border border-[#1f1f1f] bg-[#050505] p-6 rounded-none shadow-none flex flex-col justify-between">
-              <div>
-                <div className="text-[#00f2fe] mb-4 font-mono text-xs uppercase font-semibold">03 / LOCAL SYNC</div>
-                <h3 className="text-xl font-bold text-white mb-3 font-mono">Offline Mode Synchronization</h3>
-                <p className="text-sm text-[#A1A1A6] leading-relaxed">
-                  Training in a basement gym with no signal? Fitnivo’s core tracking works entirely offline. Log your workout, and the AI will sync the data and recalculate your next session the second you reconnect.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="max-w-3xl mx-auto border border-[#1f1f1f] bg-[#050505] p-8 mt-12">
-            <h4 className="text-lg font-bold text-cyan-400 mb-6 font-mono uppercase tracking-wider">
-              🛡️ Core Coaching Entities & Safety Features
-            </h4>
-            <ul className="space-y-4 text-[#A1A1A6] text-sm">
-              <li className="flex items-start gap-3">
-                <span className="text-[#00f2fe] font-bold">✓</span>
-                <p className="leading-relaxed">
-                  <strong>Injury Modification & Safety:</strong> Log any tweaks or injuries, and your personal AI trainer instantly swaps out dangerous exercises for safer alternatives while maintaining your target muscle volume.
-                </p>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[#00f2fe] font-bold">✓</span>
-                <p className="leading-relaxed">
-                  <strong>Apple Watch & Wearable Syncing:</strong> Seamlessly sync your heart rate and recovery metrics to adjust your daily training load directly from your wrist.
-                </p>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[#00f2fe] font-bold">✓</span>
-                <p className="leading-relaxed">
-                  <strong>Real-Time Form Analysis:</strong> Get instant feedback and visual 3D guides to ensure perfect form and prevent injury on heavy lifts.
-                </p>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[#00f2fe] font-bold">✓</span>
-                <p className="leading-relaxed">
-                  <strong>Visual Guidance & Hypertrophy:</strong> Follow along with detailed exercise visualizations. Your AI fitness coach provides step-by-step form guides to maximize muscle hypertrophy and prevent injury.
-                </p>
-              </li>
-            </ul>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Section 4: Cost Comparison */}
-      <section className="py-24 bg-black border-b border-[#1f1f1f]">
+      {/* How It Works (5 steps) */}
+      <section id="how-it-works" className="py-20 border-b border-[#1f1f1f]">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Your Personal AI Trainer, Built Around Your Goals</h2>
+          <p className="text-[#B4B4B4] text-lg mb-12 max-w-3xl">
+            Five steps from download to your first fully personalized workout.
+          </p>
+          <div className="space-y-6">
+            {steps.map((s) => (
+              <div key={s.n} className="border border-[#1f1f1f] bg-[#050505] p-6 flex gap-6 items-start">
+                <div className="text-cyan-400 font-mono text-xl font-bold w-12 flex-shrink-0">{s.n}</div>
+                <div>
+                  <h3 className="text-white font-bold text-lg mb-2">{s.title}</h3>
+                  <p className="text-[#B4B4B4]">{s.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ecosystem: More than workouts */}
+      <section className="py-20 border-b border-[#1f1f1f]">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Context */}
-            <div className="lg:col-span-6">
-              <span className="text-xs uppercase tracking-widest text-[#00f2fe] font-mono block mb-2">Cost & Accessibility</span>
-              <h2 className="text-3xl md:text-4xl font-bold font-mono leading-tight mb-6">
-                How Much Does an AI Personal Trainer App Cost?
-              </h2>
-              <p className="text-[#A1A1A6] text-base leading-relaxed mb-4">
-                Traditional personal trainers in the US and UK cost an average of <strong>$100 to $300 (£80 to £240+) per month</strong> for just a few sessions a week.
-              </p>
-              <p className="text-[#A1A1A6] text-base leading-relaxed mb-8">
-                The Fitnivo AI Fitness Coach delivers 24/7, unlimited workout programming and meal planning for just <PricingBadge type="inline" />. Get the exact math, progressive overload tracking, and dietary alignment of a premium coach for a fraction of the price.
-              </p>
-              
-              <a
-                href="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-cyan-400 text-black font-semibold uppercase tracking-wider font-mono hover:bg-cyan-300 transition-colors"
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Your AI Fitness Coach Covers More Than Workouts</h2>
+          <p className="text-[#B4B4B4] text-lg mb-12 max-w-3xl">
+            Fitnivo differentiates from workout-only AI apps by pairing training with nutrition, food scanning, and coaching in one place.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {ecosystemFeatures.map((f) => (
+              <Link
+                key={f.title}
+                href={f.href}
+                className="border border-[#1f1f1f] bg-[#050505] p-6 hover:border-cyan-400 transition-colors group"
               >
-                Upgrade to Fitnivo Premium Today
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </div>
-
-            {/* Flat Pricing Grid */}
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="border border-[#1f1f1f] bg-[#050505] p-6 rounded-none shadow-none flex flex-col justify-between">
-                <div>
-                  <h4 className="text-[#A1A1A6] font-mono text-xs uppercase mb-2">TRADITIONAL TRAINER</h4>
-                  <div className="text-2xl font-bold text-white font-mono mb-4">$100–$300<span className="text-xs font-normal"> / mo</span></div>
-                  <ul className="space-y-2 text-xs text-[#A1A1A6] font-mono">
-                    <li>• Limited scheduled hours</li>
-                    <li>• Manual tracking logs</li>
-                    <li>• High recurring overhead</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="border border-cyan-400 bg-black p-6 rounded-none shadow-none flex flex-col justify-between">
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="text-cyan-400 font-mono text-xs uppercase">FITNIVO AI</h4>
-                    <span className="text-[9px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-2 py-0.5 uppercase font-mono">Best Value</span>
-                  </div>
-                  <div className="text-2xl font-bold text-white font-mono mb-4">
-                    <PricingBadge type="text" />
-                  </div>
-                  <ul className="space-y-2 text-xs text-white font-mono">
-                    <li>• 24/7 Instant Recalculation</li>
-                    <li>• Direct Meal Synchronization</li>
-                    <li>• No scheduling bottlenecks</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
+                <div className="text-3xl mb-4">{f.icon}</div>
+                <h3 className="text-white font-bold mb-2 group-hover:text-cyan-400 transition-colors">{f.title}</h3>
+                <p className="text-sm text-[#B4B4B4] leading-relaxed">{f.body}</p>
+              </Link>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* AI Personal Trainer */}
+      <section className="py-20 border-b border-[#1f1f1f]">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">AI Personal Trainer Without the Gym Appointment</h2>
+          <p className="text-[#B4B4B4] text-lg leading-relaxed mb-6">
+            A traditional personal trainer works with you during scheduled sessions. An AI personal trainer gives you access to fitness guidance whenever you need it. With Fitnivo you can:
+          </p>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[#B4B4B4]">
+            {['Plan your workout', 'Track your training', 'Review your progress', 'Get exercise guidance', 'Track nutrition', 'Ask fitness questions', 'Adjust your routine around your schedule'].map((x) => (
+              <li key={x} className="flex gap-3">
+                <span className="text-cyan-400">✓</span>
+                <span>{x}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-[#B4B4B4] text-lg leading-relaxed mt-6">
+            Your coach doesn&apos;t disappear when your workout ends.
+          </p>
+        </div>
+      </section>
+
+      {/* AI Gym Trainer */}
+      <section className="py-20 border-b border-[#1f1f1f]">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Your AI Gym Trainer</h2>
+          <p className="text-[#B4B4B4] text-lg leading-relaxed mb-4">
+            Whether you&apos;re training at a commercial gym or working out at home, Fitnivo can help you build a routine around the equipment available to you.
+          </p>
+          <p className="text-[#B4B4B4] text-lg leading-relaxed mb-4">
+            Instead of wondering &quot;what should I train today?&quot;, use Fitnivo to create a structured session based on your goal and training history — then log your performance and build from there.
+          </p>
+          <div className="mt-8">
+            <Image
+              src="/images/mockup/equipment-aware-gym-workout-logger.webp"
+              alt="Fitnivo equipment-aware gym workout logger showing exercises, sets, and reps"
+              width={800}
+              height={450}
+              className="w-full h-auto rounded-xl border border-[#262626]"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Goals */}
+      <section className="py-20 border-b border-[#1f1f1f]">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">An AI Coach for Your Fitness Goals</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {goals.map((g) => (
+              <div key={g.title} className="border border-[#1f1f1f] bg-[#050505] p-6">
+                <h3 className="text-white font-bold text-lg mb-2">{g.title}</h3>
+                <p className="text-sm text-[#B4B4B4] leading-relaxed">{g.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Personalization (inputs → AI → next action) */}
+      <section className="py-20 border-b border-[#1f1f1f]">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">How Fitnivo Personalizes Your Fitness Coaching</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="border border-[#1f1f1f] bg-[#050505] p-6">
+              <div className="text-xs uppercase tracking-widest text-cyan-400 mb-3">Inputs</div>
+              <ul className="text-sm text-[#B4B4B4] space-y-2">
+                <li>Fitness goal</li>
+                <li>Training experience</li>
+                <li>Available equipment</li>
+                <li>Workout history</li>
+                <li>Sets, reps, and weight</li>
+                <li>Nutrition data</li>
+                <li>Training preferences</li>
+              </ul>
+            </div>
+            <div className="border border-cyan-400 bg-cyan-950/10 p-6">
+              <div className="text-xs uppercase tracking-widest text-cyan-400 mb-3">AI Coaching</div>
+              <p className="text-sm text-[#B4B4B4] leading-relaxed">
+                Fitnivo uses your information to provide personalized recommendations that reflect your current goal and progress.
+              </p>
+            </div>
+            <div className="border border-[#1f1f1f] bg-[#050505] p-6">
+              <div className="text-xs uppercase tracking-widest text-cyan-400 mb-3">Your Next Action</div>
+              <p className="text-sm text-[#B4B4B4] leading-relaxed">
+                You get a workout, nutrition guidance, or coaching recommendation that is relevant to your current goal.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison table */}
+      <section className="py-20 border-b border-[#1f1f1f]">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">AI Fitness Coach vs Traditional Personal Trainer</h2>
+          <p className="text-[#B4B4B4] mb-8 max-w-3xl">
+            An AI coach is a convenient digital alternative for people who want structured guidance without paying for ongoing one-to-one training. Both have their place.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border border-[#1f1f1f] text-sm">
+              <thead>
+                <tr className="bg-[#0a0a0a] border-b border-[#1f1f1f]">
+                  <th className="p-4 font-bold">&nbsp;</th>
+                  <th className="p-4 font-bold text-cyan-400">AI Fitness Coach</th>
+                  <th className="p-4 font-bold">Traditional Personal Trainer</th>
+                </tr>
+              </thead>
+              <tbody className="text-[#B4B4B4]">
+                {[
+                  ['Available', 'Anytime', 'Scheduled sessions'],
+                  ['Personalized workouts', 'Yes', 'Yes'],
+                  ['Workout tracking', 'Yes', 'Depends'],
+                  ['Nutrition tracking', 'Yes', 'Depends'],
+                  ['Progress history', 'Yes', 'Depends'],
+                  ['Cost', 'Lower', 'Usually higher'],
+                  ['Human interaction', 'AI', 'Human'],
+                ].map((row, i) => (
+                  <tr key={row[0]} className={i % 2 ? 'bg-[#050505]' : ''}>
+                    <td className="p-4 font-semibold text-white border-t border-[#1f1f1f]">{row[0]}</td>
+                    <td className="p-4 border-t border-[#1f1f1f] text-cyan-400">{row[1]}</td>
+                    <td className="p-4 border-t border-[#1f1f1f]">{row[2]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 border-b border-[#1f1f1f]">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">Frequently Asked Questions</h2>
+          <div className="space-y-6">
+            {faqs.map((f) => (
+              <details key={f.q} className="border border-[#1f1f1f] bg-[#050505] p-6 group">
+                <summary className="cursor-pointer font-bold text-white flex items-center justify-between">
+                  <span>{f.q}</span>
+                  <span className="text-cyan-400 group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p className="text-[#B4B4B4] mt-4 leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 bg-gradient-to-br from-cyan-950/20 to-black">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to Train With Your AI Fitness Coach?</h2>
+          <p className="text-[#B4B4B4] text-lg mb-8">Your workouts. Your nutrition. Your progress. One AI fitness coach.</p>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en"
+            className="inline-block px-10 py-4 bg-cyan-400 text-black font-semibold uppercase tracking-wider hover:bg-cyan-300 transition-colors"
+          >
+            Start Training With Fitnivo
+          </a>
         </div>
       </section>
 
@@ -352,5 +532,3 @@ export default function AIFitnessCoachPage() {
     </main>
   );
 }
-
-// force rebuild

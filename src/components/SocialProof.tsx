@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, CheckCircle, Quote, Flame } from 'lucide-react';
+import { CheckCircle, Quote, Flame } from 'lucide-react';
 
 interface Review {
   id: string;
@@ -57,13 +57,10 @@ export default function SocialProof() {
           
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-1.5">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-amber-400 stroke-amber-400" />
-              ))}
-              <span className="text-xs font-bold text-white ml-2 font-mono tracking-wider">4.9/5 RATING</span>
+              <span className="text-xs font-bold text-white font-mono tracking-wider uppercase">What early users say</span>
             </div>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-950/40 text-emerald-400 text-[10px] font-semibold tracking-wider font-mono border border-emerald-500/20">
-              <CheckCircle className="w-3.5 h-3.5" /> VERIFIED TRAINER VERDICT
+              <CheckCircle className="w-3.5 h-3.5" /> Early access
             </div>
           </div>
 
@@ -136,16 +133,13 @@ export default function SocialProof() {
                   referrerPolicy="no-referrer"
                 />
               ))}
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#33F4FF] to-[#007AFF] flex items-center justify-center border-2 border-[#0B0B0F] text-[10px] font-bold text-white shadow-sm font-mono">
-                +15K
-              </div>
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
-                <span className="text-sm font-bold text-white">150,000+ members</span>
+                <span className="text-sm font-bold text-white">Join the early community</span>
                 <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
               </div>
-              <span className="text-xs text-slate-400 font-medium">Tracking workouts & active stats</span>
+              <span className="text-xs text-slate-400 font-medium">Tracking workouts, meals, and progress with Fitnivo</span>
             </div>
           </div>
 

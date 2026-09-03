@@ -23,6 +23,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/nutrition-intelligence',
+        destination: '/ai-nutrition-coach',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
