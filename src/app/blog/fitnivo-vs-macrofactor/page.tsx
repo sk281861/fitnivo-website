@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo/generateSchema';
@@ -15,13 +16,14 @@ export const metadata: Metadata = {
     description: 'MacroFactor vs Fitnivo for AI nutrition coaching.',
     url: 'https://fitnivo.in/blog/fitnivo-vs-macrofactor',
     type: 'article',
+    images: [{ url: 'https://fitnivo.in/images/blog/nutrition/fitnivo-vs-macrofactor.webp', width: 1200, height: 630 }],
   },
 };
 
 const articleSchema = generateArticleSchema({
   headline: 'Fitnivo vs MacroFactor (2026) — Which Nutrition Coach Wins?',
   description: 'Side-by-side comparison of Fitnivo and MacroFactor for adaptive macro coaching, food scanning, and workouts.',
-  image: 'https://fitnivo.in/images/mockup/nutrition-stats-bmi-tracking-dashboard.webp',
+  image: 'https://fitnivo.in/images/blog/nutrition/fitnivo-vs-macrofactor.webp',
   url: 'https://fitnivo.in/blog/fitnivo-vs-macrofactor',
   datePublished: '2026-09-04T00:00:00Z',
   dateModified: '2026-09-04T00:00:00Z',
@@ -75,6 +77,17 @@ export default function Page() {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
           Fitnivo vs MacroFactor (2026) — Which Nutrition Coach Wins?
         </h1>
+
+        <div className="relative w-full aspect-[1.9/1] mb-10 overflow-hidden rounded-lg">
+          <Image
+            src="/images/blog/nutrition/fitnivo-vs-macrofactor.webp"
+            alt="Fitnivo vs MacroFactor nutrition coach comparison 2026"
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 896px) 100vw, 896px"
+          />
+        </div>
 
         <div className="bg-cyan-950/20 border border-cyan-400/30 p-6 mb-10">
           <p className="text-white font-semibold leading-relaxed">

@@ -22,13 +22,14 @@ export const metadata: Metadata = {
     description: 'Top AI fitness apps of 2026 compared side-by-side.',
     url: 'https://fitnivo.in/blog/best-ai-fitness-apps-2026',
     type: 'article',
+    images: [{ url: 'https://fitnivo.in/images/blog/ai-coaching/best-ai-fitness-apps-2026.webp', width: 1200, height: 630 }],
   },
 };
 
 const articleSchema = generateArticleSchema({
   headline: 'Best AI Fitness Apps in 2026 (Tested & Compared)',
   description: 'Top AI fitness apps of 2026 compared side-by-side.',
-  image: 'https://fitnivo.in/images/mockup/ai-fitness-coach-chat-workout-planner.webp',
+  image: 'https://fitnivo.in/images/blog/ai-coaching/best-ai-fitness-apps-2026.webp',
   url: 'https://fitnivo.in/blog/best-ai-fitness-apps-2026',
   datePublished: '2026-09-03T00:00:00Z',
   dateModified: '2026-09-03T00:00:00Z',
@@ -174,6 +175,17 @@ export default function Page() {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
           Best AI Fitness Apps in 2026 (Tested &amp; Compared)
         </h1>
+
+        <div className="relative w-full aspect-[1.9/1] mb-10 overflow-hidden rounded-lg">
+          <Image
+            src="/images/blog/ai-coaching/best-ai-fitness-apps-2026.webp"
+            alt="Best AI fitness apps of 2026 compared side by side"
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 896px) 100vw, 896px"
+          />
+        </div>
 
         <div className="bg-cyan-950/20 border border-cyan-400/30 p-6 mb-10">
           <p className="text-white font-semibold leading-relaxed">

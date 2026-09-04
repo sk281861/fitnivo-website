@@ -12,7 +12,7 @@ const articleSchema = generateArticleSchema({
   headline: 'The 5 Best Fitbod Alternatives in 2026 (Free & Premium Options)',
   description:
     'Looking for the best Fitbod alternatives in 2026? Read our detailed review of Fitnivo, Hevy, Strong, and others to find the best all-in-one fitness app.',
-  image: 'https://fitnivo.in/images/blog/best-fitbod-alternatives-hero.webp',
+  image: 'https://fitnivo.in/images/blog/ai-coaching/best-fitbod-alternatives.webp',
   url: 'https://fitnivo.in/blog/best-fitbod-alternatives',
   datePublished: '2026-07-01T00:00:00Z',
   dateModified: '2026-07-01T00:00:00Z',
@@ -153,6 +153,17 @@ export default function BestFitbodAlternativesPage() {
               (Free & Premium Options)
             </span>
           </h1>
+
+          <div className="relative w-full aspect-[1.9/1] mb-10 overflow-hidden rounded-lg">
+            <Image
+              src="/images/blog/ai-coaching/best-fitbod-alternatives.webp"
+              alt="Best Fitbod alternatives in 2026 compared side by side"
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 896px) 100vw, 896px"
+            />
+          </div>
 
           {/* AEO Quick Answer Block */}
           <div className="bg-indigo-950/20 border border-indigo-500/20 p-6 rounded-2xl mb-8">

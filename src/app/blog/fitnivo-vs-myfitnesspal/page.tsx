@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo/generateSchema';
@@ -15,13 +16,14 @@ export const metadata: Metadata = {
     description: 'AI calorie tracking compared: Fitnivo vs MyFitnessPal.',
     url: 'https://fitnivo.in/blog/fitnivo-vs-myfitnesspal',
     type: 'article',
+    images: [{ url: 'https://fitnivo.in/images/blog/nutrition/fitnivo-vs-myfitnesspal.webp', width: 1200, height: 630 }],
   },
 };
 
 const articleSchema = generateArticleSchema({
   headline: 'Fitnivo vs MyFitnessPal (2026) — AI Food Logging Compared',
   description: 'Side-by-side comparison of Fitnivo and MyFitnessPal for calorie tracking, AI food scanning, and workouts.',
-  image: 'https://fitnivo.in/images/mockup/ai-food-scanner-calorie-macro-tracker.webp',
+  image: 'https://fitnivo.in/images/blog/nutrition/fitnivo-vs-myfitnesspal.webp',
   url: 'https://fitnivo.in/blog/fitnivo-vs-myfitnesspal',
   datePublished: '2026-09-04T00:00:00Z',
   dateModified: '2026-09-04T00:00:00Z',
@@ -75,6 +77,17 @@ export default function Page() {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
           Fitnivo vs MyFitnessPal (2026) — AI Food Logging Compared
         </h1>
+
+        <div className="relative w-full aspect-[1.9/1] mb-10 overflow-hidden rounded-lg">
+          <Image
+            src="/images/blog/nutrition/fitnivo-vs-myfitnesspal.webp"
+            alt="Fitnivo vs MyFitnessPal AI food logging comparison 2026"
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 896px) 100vw, 896px"
+          />
+        </div>
 
         <div className="bg-cyan-950/20 border border-cyan-400/30 p-6 mb-10">
           <p className="text-white font-semibold leading-relaxed">

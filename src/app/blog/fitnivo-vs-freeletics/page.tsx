@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo/generateSchema';
@@ -15,13 +16,14 @@ export const metadata: Metadata = {
     description: 'AI coaching compared: Fitnivo vs Freeletics.',
     url: 'https://fitnivo.in/blog/fitnivo-vs-freeletics',
     type: 'article',
+    images: [{ url: 'https://fitnivo.in/images/blog/ai-coaching/fitnivo-vs-freeletics.webp', width: 1200, height: 630 }],
   },
 };
 
 const articleSchema = generateArticleSchema({
   headline: 'Fitnivo vs Freeletics (2026) — Which AI Coach Wins?',
   description: 'Side-by-side comparison of Fitnivo and Freeletics for AI coaching, bodyweight training, and nutrition.',
-  image: 'https://fitnivo.in/images/mockup/personal-ai-trainer-custom-workout-routine.webp',
+  image: 'https://fitnivo.in/images/blog/ai-coaching/fitnivo-vs-freeletics.webp',
   url: 'https://fitnivo.in/blog/fitnivo-vs-freeletics',
   datePublished: '2026-09-04T00:00:00Z',
   dateModified: '2026-09-04T00:00:00Z',
@@ -75,6 +77,17 @@ export default function Page() {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
           Fitnivo vs Freeletics (2026) — Which AI Coach Wins?
         </h1>
+
+        <div className="relative w-full aspect-[1.9/1] mb-10 overflow-hidden rounded-lg">
+          <Image
+            src="/images/blog/ai-coaching/fitnivo-vs-freeletics.webp"
+            alt="Fitnivo vs Freeletics AI coach comparison 2026"
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 896px) 100vw, 896px"
+          />
+        </div>
 
         <div className="bg-cyan-950/20 border border-cyan-400/30 p-6 mb-10">
           <p className="text-white font-semibold leading-relaxed">

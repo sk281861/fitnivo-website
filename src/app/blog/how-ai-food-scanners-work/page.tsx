@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo/generateSchema';
@@ -15,13 +16,14 @@ export const metadata: Metadata = {
     description: 'A plain-English guide to AI food scanners — computer vision, portion estimation, and macro calculation.',
     url: 'https://fitnivo.in/blog/how-ai-food-scanners-work',
     type: 'article',
+    images: [{ url: 'https://fitnivo.in/images/blog/nutrition/how-ai-food-scanners-work.webp', width: 1200, height: 630 }],
   },
 };
 
 const articleSchema = generateArticleSchema({
   headline: 'How AI Food Scanners Work (2026 Guide)',
   description: 'A plain-English guide to AI food scanners — computer vision, portion estimation, and macro calculation.',
-  image: 'https://fitnivo.in/images/mockup/ai-food-scanner-calorie-macro-tracker.webp',
+  image: 'https://fitnivo.in/images/blog/nutrition/how-ai-food-scanners-work.webp',
   url: 'https://fitnivo.in/blog/how-ai-food-scanners-work',
   datePublished: '2026-09-04T00:00:00Z',
   dateModified: '2026-09-04T00:00:00Z',
@@ -75,6 +77,17 @@ export default function Page() {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
           How AI Food Scanners Work
         </h1>
+
+        <div className="relative w-full aspect-[1.9/1] mb-10 overflow-hidden rounded-lg">
+          <Image
+            src="/images/blog/nutrition/how-ai-food-scanners-work.webp"
+            alt="How AI food scanners recognize food and calculate calories from a photo"
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 896px) 100vw, 896px"
+          />
+        </div>
 
         <div className="bg-cyan-950/20 border border-cyan-400/30 p-6 mb-10">
           <p className="text-white font-semibold leading-relaxed">

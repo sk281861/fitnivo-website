@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo/generateSchema';
@@ -20,13 +21,14 @@ export const metadata: Metadata = {
     description: 'A plain-English guide to AI fitness coaches — what they do, how they work, and who they help.',
     url: 'https://fitnivo.in/blog/what-is-an-ai-fitness-coach',
     type: 'article',
+    images: [{ url: 'https://fitnivo.in/images/blog/ai-coaching/what-is-an-ai-fitness-coach.webp', width: 1200, height: 630 }],
   },
 };
 
 const articleSchema = generateArticleSchema({
   headline: 'What Is an AI Fitness Coach? (2026 Beginner’s Guide)',
   description: 'A plain-English guide to AI fitness coaches — what they do, how they work, and when to use one.',
-  image: 'https://fitnivo.in/images/mockup/ai-fitness-coach-chat-workout-planner.webp',
+  image: 'https://fitnivo.in/images/blog/ai-coaching/what-is-an-ai-fitness-coach.webp',
   url: 'https://fitnivo.in/blog/what-is-an-ai-fitness-coach',
   datePublished: '2026-09-03T00:00:00Z',
   dateModified: '2026-09-03T00:00:00Z',
@@ -81,6 +83,17 @@ export default function Page() {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
           What Is an AI Fitness Coach?
         </h1>
+
+        <div className="relative w-full aspect-[1.9/1] mb-10 overflow-hidden rounded-lg">
+          <Image
+            src="/images/blog/ai-coaching/what-is-an-ai-fitness-coach.webp"
+            alt="What is an AI fitness coach — a plain-English explainer"
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 896px) 100vw, 896px"
+          />
+        </div>
 
         <div className="bg-cyan-950/20 border border-cyan-400/30 p-6 mb-10">
           <p className="text-white font-semibold leading-relaxed">

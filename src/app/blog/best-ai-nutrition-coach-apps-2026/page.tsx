@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo/generateSchema';
@@ -21,13 +22,14 @@ export const metadata: Metadata = {
     description: 'Top AI nutrition coach apps of 2026 compared side-by-side.',
     url: 'https://fitnivo.in/blog/best-ai-nutrition-coach-apps-2026',
     type: 'article',
+    images: [{ url: 'https://fitnivo.in/images/blog/nutrition/best-ai-nutrition-coach-apps-2026.webp', width: 1200, height: 630 }],
   },
 };
 
 const articleSchema = generateArticleSchema({
   headline: 'Best AI Nutrition Coach Apps in 2026 (8 Apps Ranked)',
   description: 'Top AI nutrition coach apps of 2026 compared side-by-side.',
-  image: 'https://fitnivo.in/images/mockup/personalized-ai-meal-plan-dashboard.webp',
+  image: 'https://fitnivo.in/images/blog/nutrition/best-ai-nutrition-coach-apps-2026.webp',
   url: 'https://fitnivo.in/blog/best-ai-nutrition-coach-apps-2026',
   datePublished: '2026-09-04T00:00:00Z',
   dateModified: '2026-09-04T00:00:00Z',
@@ -92,6 +94,17 @@ export default function Page() {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
           Best AI Nutrition Coach Apps in 2026
         </h1>
+
+        <div className="relative w-full aspect-[1.9/1] mb-10 overflow-hidden rounded-lg">
+          <Image
+            src="/images/blog/nutrition/best-ai-nutrition-coach-apps-2026.webp"
+            alt="Best AI nutrition coach apps of 2026 compared side by side"
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 896px) 100vw, 896px"
+          />
+        </div>
 
         <div className="bg-cyan-950/20 border border-cyan-400/30 p-6 mb-10">
           <p className="text-white font-semibold leading-relaxed">
