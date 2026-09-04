@@ -207,6 +207,7 @@ const faqs = [
   { q: 'Can an AI fitness coach help me lose weight?', a: 'An AI fitness app can help you structure workouts and monitor calories, macros, and progress. Sustainable weight management also depends on nutrition, activity, sleep, and other individual factors.' },
   { q: 'Can an AI fitness coach help build muscle?', a: 'Yes. Fitnivo can help you follow structured resistance training, track your workouts, and monitor progression over time.' },
   { q: 'What makes Fitnivo different from an AI workout generator?', a: 'An AI workout generator primarily creates a workout. Fitnivo combines workout generation with workout tracking, nutrition tracking, meal planning, and ongoing AI fitness guidance.' },
+  { q: 'Does Fitnivo apply progressive overload automatically?', a: 'Yes. Fitnivo reads your logged sets, reps, and perceived effort to decide whether to increase weight or volume, hold the load, or add a deload week — adapting your plan to how you actually train.' },
 ];
 
 export default function AIFitnessCoachPage() {
@@ -341,6 +342,32 @@ export default function AIFitnessCoachPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Progressive Overload */}
+      <section className="py-20 border-b border-[#1f1f1f]">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Automatic Progressive Overload</h2>
+          <p className="text-[#B4B4B4] text-lg leading-relaxed mb-10 max-w-3xl">
+            Fitnivo watches how you train and adapts the next session automatically. You don&apos;t need to calculate your own progressions — the AI reads your logged sets, reps, and perceived effort, then decides what changes.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { icon: '⬆️', t: 'Progress when ready', b: 'Clear your target reps with good form? Next session adds weight or volume.' },
+              { icon: '↔️', t: 'Hold when needed', b: 'Miss reps or log a hard session? Load stays the same while you adapt.' },
+              { icon: '⬇️', t: 'Deload automatically', b: 'Accumulated fatigue detected from your history? A deload week is added before it becomes a problem.' },
+            ].map((x) => (
+              <div key={x.t} className="border border-[#1f1f1f] bg-[#050505] p-6">
+                <div className="text-3xl mb-4">{x.icon}</div>
+                <h3 className="text-white font-bold mb-2">{x.t}</h3>
+                <p className="text-sm text-[#B4B4B4] leading-relaxed">{x.b}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-[#B4B4B4] mt-6 text-sm">
+            The result: your training style becomes your training plan. Fitnivo adapts to how <em>you</em> actually train — not the average user.
+          </p>
         </div>
       </section>
 

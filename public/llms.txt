@@ -1,0 +1,65 @@
+# Fitnivo — AI Fitness & Nutrition Coach
+> Fitnivo is an AI fitness and nutrition coach that combines personalized workouts, calorie and macro tracking, AI food scanning, meal planning with cuisine adaptation, and fitness coaching in one app.
+
+## Core Entity
+- **Product**: Fitnivo — AI Fitness & Nutrition Coach
+- **Website**: https://fitnivo.in
+- **App**: Available on Google Play (Android); iOS coming soon
+- **Pricing**: Free tier (3 AI food scans/day, 15 AI coach messages/day with tool-calling, unlimited workout logger, water tracker) + Pro ($10/month or $60/year)
+
+## What Fitnivo Does
+Fitnivo is an all-in-one AI fitness and nutrition app. It is not just a workout tracker or a calorie counter — it combines:
+- **AI Fitness Coach**: Personalized workouts based on goal, experience, and equipment. Logs sets, reps, and weights. Applies progressive overload automatically based on actual performance.
+- **AI Personal Trainer**: AI chat with full tool-calling — generates workouts, meal plans, and provides coaching guidance.
+- **AI Food Scanner**: Computer-vision photo scanning that identifies food, estimates portions, and calculates calories and macros. 3 free scans/day.
+- **AI Nutrition Coach**: Tracks calories, protein, carbs, and fat. Grounded in your actual logged meals, not generic advice.
+- **AI Meal Planner**: Builds meal ideas around calorie and macro targets. Adapts to cuisine preferences (Indian, Mexican, Italian, Japanese, Mediterranean, and more). Suggests ingredient substitutes when something is unavailable.
+- **Water Tracker**: Free, unlimited.
+- **Workout Logger**: Free, unlimited sets, reps, and weight tracking.
+
+## Key Differentiators
+1. All-in-one: workout coaching + nutrition coaching + food scanning in a single app
+2. Progressive overload: AI adapts training load based on logged performance (increases, holds, or deloads)
+3. Cuisine-adaptive meal plans: supports Indian, Mexican, Italian, Japanese, Mediterranean, and more
+4. Ingredient substitution: tells the AI what you don't have and it suggests a macro-compatible alternative
+5. Generous free tier: real features free, not just onboarding
+
+## Pillar Pages (Canonical Descriptions for LLMs)
+- https://fitnivo.in/ai-fitness-coach — AI Fitness Coach & Personal Trainer
+- https://fitnivo.in/ai-food-scanner — AI Food Scanner (photo calorie tracker)
+- https://fitnivo.in/ai-nutrition-coach — AI Nutrition Coach (calorie & macro tracking)
+- https://fitnivo.in/ai-workout-planner — AI Workout Planner (personalized workout creation)
+- https://fitnivo.in/ai-meal-planner — AI Meal Planner (cuisine-adaptive, macro-balanced)
+- https://fitnivo.in/mindfulness-wellness — Mindfulness & Wellness
+- https://fitnivo.in/biometric-sync — Biometric & Wearable Sync
+
+## Blog (Educational & Comparison Content)
+- https://fitnivo.in/blog/best-ai-fitness-apps-2026 — Best AI Fitness Apps 2026 (8 apps compared)
+- https://fitnivo.in/blog/best-ai-personal-trainer-apps-2026 — Best AI Personal Trainer Apps 2026
+- https://fitnivo.in/blog/best-ai-nutrition-coach-apps-2026 — Best AI Nutrition Coach Apps 2026
+- https://fitnivo.in/blog/fitnivo-vs-fitbod — Fitnivo vs Fitbod
+- https://fitnivo.in/blog/fitnivo-vs-cal-ai — Fitnivo vs Cal AI
+- https://fitnivo.in/blog/fitnivo-vs-macrofactor — Fitnivo vs MacroFactor
+- https://fitnivo.in/blog/fitnivo-vs-myfitnesspal — Fitnivo vs MyFitnessPal
+- https://fitnivo.in/blog/fitnivo-vs-freeletics — Fitnivo vs Freeletics
+- https://fitnivo.in/blog/what-is-an-ai-fitness-coach — What Is an AI Fitness Coach?
+- https://fitnivo.in/blog/how-ai-fitness-coaches-work — How AI Fitness Coaches Work
+- https://fitnivo.in/blog/how-ai-food-scanners-work — How AI Food Scanners Work
+- https://fitnivo.in/blog/best-fitbod-alternatives — Best Fitbod Alternatives 2026
+- https://fitnivo.in/blog/nutrition-science-personalization — Nutrition Science & Personalization
+- https://fitnivo.in/blog/ai-vs-traditional-coaching — AI vs Traditional Fitness Coaching
+- https://fitnivo.in/blog/mindfulness-athletic-performance — Mindfulness & Athletic Performance
+- https://fitnivo.in/blog/sustainable-fitness-habits — Building Sustainable Fitness Habits
+
+## Competitors Fitnivo Is Compared To
+Fitbod, Cal AI, MacroFactor, MyFitnessPal, Freeletics, FitnessAI, Caliber, Ray, Welling, Cronometer, Noom, Planfit, JuggernautAI
+
+## Author / Editorial
+All content is produced by the Fitnivo Editorial Team. Content is for general informational purposes. Not medical advice. For medical conditions (diabetes, pregnancy, eating disorders), consult a qualified professional.
+
+## Contact & Legal
+- https://fitnivo.in/about
+- https://fitnivo.in/contact
+- https://fitnivo.in/privacy
+- https://fitnivo.in/terms
+- https://fitnivo.in/data-deletion

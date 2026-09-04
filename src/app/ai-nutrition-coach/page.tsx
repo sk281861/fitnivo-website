@@ -216,6 +216,25 @@ export default function AINutritionCoachPage() {
 
       <section className="py-20 border-b border-[#1f1f1f]">
         <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Eats Like You Do — Any Cuisine</h2>
+          <p className="text-[#B4B4B4] text-lg leading-relaxed mb-8 max-w-3xl">
+            Fitnivo&apos;s AI nutrition coach adapts meal suggestions to your cuisine preference. Whether you eat Indian, Mexican, Japanese, Italian, or any mix — it builds macro-balanced plans around the food you actually cook and enjoy.
+          </p>
+          <div className="flex flex-wrap gap-3 mb-6">
+            {['Indian 🇮🇳', 'Mexican 🇲🇽', 'Italian 🇮🇹', 'Japanese 🇯🇵', 'Mediterranean 🫒', 'Chinese 🇨🇳', 'Middle Eastern 🥙', 'American 🇺🇸'].map((c) => (
+              <span key={c} className="border border-[#262626] bg-[#050505] px-4 py-2 text-sm text-white">
+                {c}
+              </span>
+            ))}
+          </div>
+          <p className="text-[#B4B4B4] text-sm">
+            Missing an ingredient? Tell the AI coach and it suggests a macro-compatible substitute — updating your plan automatically.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-20 border-b border-[#1f1f1f]">
+        <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">One App for Nutrition and Training</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link href="/ai-food-scanner" className="border border-[#1f1f1f] bg-[#050505] p-6 hover:border-cyan-400 group">

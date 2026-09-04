@@ -8,7 +8,7 @@ import { generateBreadcrumbSchema } from '@/lib/seo/generateSchema';
 export const metadata: Metadata = {
   title: 'AI Meal Planner — Personalized Plans by Calories & Macros | Fitnivo',
   description:
-    "Fitnivo's AI meal planner builds meal ideas around your calorie and macro targets. Vegetarian, high-protein, cutting, bulking — personalized to you.",
+    "Fitnivo's AI meal planner builds meal plans around your calorie and macro targets. Adapts to your cuisine style — Indian, Mexican, Italian, Japanese, and more. Suggests ingredient swaps when you're missing something.",
   keywords: [
     'AI meal planner',
     'AI meal planning app',
@@ -50,7 +50,9 @@ const faqSchema = {
     { '@type': 'Question', name: 'What is an AI meal planner?', acceptedAnswer: { '@type': 'Answer', text: 'An AI meal planner generates meal suggestions built around your calorie and macronutrient targets, taking your diet preferences and goals into account.' } },
     { '@type': 'Question', name: 'Does Fitnivo support vegetarian and vegan diets?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. You can set diet preferences (vegetarian, vegan, non-veg, and more) and Fitnivo builds meals that match.' } },
     { '@type': 'Question', name: 'Can I use it for weight loss or muscle gain?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Set your goal — cutting, bulking, or maintaining — and Fitnivo suggests meals that align with your calorie and protein targets.' } },
-    { '@type': 'Question', name: 'How does the meal planner connect to the food scanner?', acceptedAnswer: { '@type': 'Answer', text: 'When you log a scanned meal, it counts toward the day’s calorie and macro totals, and future meal suggestions adjust accordingly.' } },
+    { '@type': 'Question', name: 'How does the meal planner connect to the food scanner?', acceptedAnswer: { '@type': 'Answer', text: "When you log a scanned meal, it counts toward the day's calorie and macro totals, and future meal suggestions adjust accordingly." } },
+    { '@type': 'Question', name: 'Can Fitnivo suggest meals from my preferred cuisine?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Set your cuisine preference — Indian, Mexican, Italian, Japanese, Mediterranean, and more — and Fitnivo adapts meal suggestions to your food culture.' } },
+    { '@type': 'Question', name: "What if I don't have an ingredient?", acceptedAnswer: { '@type': 'Answer', text: "Tell Fitnivo's AI coach what you're missing and it suggests a substitute with a similar macro profile, then updates your custom meal plan automatically." } },
   ],
 };
 
@@ -66,6 +68,17 @@ const goals = [
   { t: 'Cutting', b: 'Lower calorie meals that keep protein high to preserve muscle.' },
   { t: 'Bulking', b: 'Slightly higher calories with meals built to fuel training.' },
   { t: 'Maintenance', b: 'Balanced meals around your maintenance calorie target.' },
+];
+
+const cuisines = [
+  { name: 'Indian', emoji: '🇮🇳' },
+  { name: 'Mexican', emoji: '🇲🇽' },
+  { name: 'Italian', emoji: '🇮🇹' },
+  { name: 'Japanese', emoji: '🇯🇵' },
+  { name: 'Mediterranean', emoji: '🫒' },
+  { name: 'Chinese', emoji: '🇨🇳' },
+  { name: 'American', emoji: '🇺🇸' },
+  { name: 'Middle Eastern', emoji: '🥙' },
 ];
 
 const faqs = [
@@ -160,6 +173,40 @@ export default function AIMealPlannerPage() {
                 {d}
               </span>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 border-b border-[#1f1f1f]">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Cuisine-Adaptive Meal Plans</h2>
+          <p className="text-[#B4B4B4] mb-8 leading-relaxed max-w-3xl">
+            Fitnivo adapts to your food culture, not the other way around. Set your cuisine preference and your AI coach builds meals using flavors and ingredients you actually enjoy — hitting your macro targets while matching your taste.
+          </p>
+          <div className="flex flex-wrap gap-3 mb-8">
+            {cuisines.map((c) => (
+              <span key={c.name} className="border border-[#262626] bg-[#050505] px-4 py-2 text-sm text-white flex items-center gap-2">
+                <span>{c.emoji}</span> {c.name}
+              </span>
+            ))}
+          </div>
+          <p className="text-[#B4B4B4] text-sm">
+            Prefer a mix? Tell the AI coach exactly what you want — e.g., &quot;I want Indian breakfast, Japanese lunch, and Italian dinner&quot; — and it builds a plan that fits your macros.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-20 border-b border-[#1f1f1f]">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ingredient Substitution</h2>
+          <p className="text-[#B4B4B4] leading-relaxed mb-6">
+            Missing an ingredient? Tell Fitnivo and it suggests a swap with a similar macro profile — then automatically updates your custom meal plan. No app-switching, no re-calculating. Just tell the coach what you have and it adapts the recipe.
+          </p>
+          <div className="border border-cyan-400/30 bg-cyan-950/10 p-6">
+            <p className="text-white text-sm font-mono leading-relaxed">
+              <span className="text-cyan-400 font-bold">You:</span> &quot;I don&apos;t have salmon, can I use chicken instead?&quot;<br />
+              <span className="text-cyan-400 font-bold mt-3 block">Fitnivo:</span> &quot;Sure — swap 150g salmon (31g protein, 13g fat) for 160g chicken breast (37g protein, 4g fat). Your protein stays on track and fat drops a bit for the day. Updated your plan.&quot;
+            </p>
           </div>
         </div>
       </section>
