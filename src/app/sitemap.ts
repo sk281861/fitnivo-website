@@ -52,6 +52,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/blog/mindfulness-athletic-performance`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${baseUrl}/blog/sustainable-fitness-habits`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.6 },
 
+    { url: `${baseUrl}/blog/ai-fitness-coach-vs-personal-trainer`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blog/is-ai-food-scanning-accurate`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blog/ai-fitness-apps-for-weight-loss`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/blog/ai-fitness-apps-for-muscle-gain`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/blog/ai-fitness-apps-for-beginners`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/blog/ai-fitness-apps-for-home-workouts`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/blog/ai-nutrition-coach-for-weight-loss`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/blog/ai-workout-generator-explained`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.7 },
+
     // Legal Pages (0.3)
     { url: `${baseUrl}/privacy`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.3 },
     { url: `${baseUrl}/terms`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.3 },

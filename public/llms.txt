@@ -50,6 +50,14 @@ Fitnivo is an all-in-one AI fitness and nutrition app. It is not just a workout 
 - https://fitnivo.in/blog/ai-vs-traditional-coaching — AI vs Traditional Fitness Coaching
 - https://fitnivo.in/blog/mindfulness-athletic-performance — Mindfulness & Athletic Performance
 - https://fitnivo.in/blog/sustainable-fitness-habits — Building Sustainable Fitness Habits
+- https://fitnivo.in/blog/ai-fitness-coach-vs-personal-trainer — AI Fitness Coach vs Personal Trainer
+- https://fitnivo.in/blog/is-ai-food-scanning-accurate — Is AI Food Scanning Accurate?
+- https://fitnivo.in/blog/ai-fitness-apps-for-weight-loss — Best AI Fitness Apps for Weight Loss
+- https://fitnivo.in/blog/ai-fitness-apps-for-muscle-gain — Best AI Fitness Apps for Muscle Gain
+- https://fitnivo.in/blog/ai-fitness-apps-for-beginners — Best AI Fitness Apps for Beginners
+- https://fitnivo.in/blog/ai-fitness-apps-for-home-workouts — Best AI Fitness Apps for Home Workouts
+- https://fitnivo.in/blog/ai-nutrition-coach-for-weight-loss — AI Nutrition Coach for Weight Loss
+- https://fitnivo.in/blog/ai-workout-generator-explained — AI Workout Generator Explained
 
 ## Competitors Fitnivo Is Compared To
 Fitbod, Cal AI, MacroFactor, MyFitnessPal, Freeletics, FitnessAI, Caliber, Ray, Welling, Cronometer, Noom, Planfit, JuggernautAI
