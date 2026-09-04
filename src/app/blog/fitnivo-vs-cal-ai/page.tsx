@@ -43,7 +43,7 @@ const faqSchema = {
     { '@type': 'Question', name: 'Is Cal AI better than Fitnivo for calorie tracking?', acceptedAnswer: { '@type': 'Answer', text: 'Cal AI is a focused AI calorie-tracker. Fitnivo also has an AI food scanner but combines it with workouts, meal planning, and nutrition coaching in one app.' } },
     { '@type': 'Question', name: 'Is Cal AI accurate?', acceptedAnswer: { '@type': 'Answer', text: 'Cal AI provides estimates. Accuracy is good for clear, single-item foods and lower for mixed dishes with hidden ingredients — the same is true of any AI food scanner today, including Fitnivo.' } },
     { '@type': 'Question', name: 'Does Cal AI have workouts?', acceptedAnswer: { '@type': 'Answer', text: 'No. Cal AI is a nutrition-only app. If you also want workouts, you would pair Cal AI with a separate app, or use an all-in-one like Fitnivo.' } },
-    { '@type': 'Question', name: 'Which is cheaper?', acceptedAnswer: { '@type': 'Answer', text: 'Fitnivo has a free tier. Cal AI has a paid subscription. Combined nutrition + workout tracking through Fitnivo is often more cost-effective than paying for Cal AI plus a separate workout app.' } },
+    { '@type': 'Question', name: 'Which is cheaper?', acceptedAnswer: { '@type': 'Answer', text: 'Fitnivo has a real free tier (3 AI food scans/day, 15 AI coach messages/day, unlimited workout logger). Pro is $10/month or $60/year. Cal AI is nutrition-only, so a fair comparison adds a workout app on top — which almost always exceeds Fitnivo Pro.' } },
   ],
 };
 
@@ -78,7 +78,7 @@ export default function Page() {
 
         <div className="bg-cyan-950/20 border border-cyan-400/30 p-6 mb-10">
           <p className="text-white font-semibold leading-relaxed">
-            <strong>Short answer:</strong> Cal AI is an excellent single-purpose AI calorie tracker. Fitnivo has the same photo-scanning core, plus workouts, meal planning, and nutrition coaching in one app. If nutrition-only is enough, Cal AI is a fine pick. If you want an all-in-one AI fitness and nutrition coach, choose Fitnivo.
+            <strong>Short answer:</strong> Cal AI is an excellent single-purpose AI calorie tracker. Fitnivo has the same photo-scanning core plus workouts, meal planning, and nutrition coaching in one app — with a free tier (3 AI food scans/day, 15 AI coach messages/day, unlimited workout logger). Fitnivo Pro is $10/month or $60/year for unlimited.
           </p>
         </div>
 
@@ -106,7 +106,8 @@ export default function Page() {
                 ['Meal planner', 'Yes', 'No'],
                 ['AI workouts', 'Yes', 'No'],
                 ['Workout tracking', 'Yes', 'No'],
-                ['Free tier', 'Yes', 'Limited trial'],
+                ['Free tier', 'Yes (3 scans/day + 15 AI messages/day + workout logger)', 'Limited trial only'],
+                ['Pro annual price', '$60/yr ($5/mo effective)', 'Higher — see Cal AI pricing'],
                 ['Best for', 'All-in-one fitness + nutrition', 'Focused calorie tracking by photo'],
               ].map((row, i) => (
                 <tr key={row[0]} className={i % 2 ? 'bg-[#050505]' : ''}>
@@ -150,7 +151,7 @@ export default function Page() {
               <li>You want food scanning + workouts + coaching in one app</li>
               <li>You&apos;re trying to lose fat or gain muscle (nutrition + training)</li>
               <li>You want meal planning around your macro targets</li>
-              <li>You want to start free</li>
+              <li>You want a real free tier to start (unlimited workout logger + daily AI usage), and a single $10/mo (or $60/yr) Pro plan instead of paying for both a calorie app and a workout app</li>
             </ul>
           </div>
         </div>
@@ -171,13 +172,13 @@ export default function Page() {
           </div>
           <div className="border-t border-[#1f1f1f] pt-6">
             <h4 className="text-lg font-bold text-white mb-2">Which is cheaper overall?</h4>
-            <p className="text-[#B4B4B4]">Fitnivo has a free tier. Combined nutrition + workout tracking through Fitnivo is often more cost-effective than Cal AI plus a separate workout subscription.</p>
+            <p className="text-[#B4B4B4]">Fitnivo has a free tier with real daily usage (3 AI food scans/day, 15 AI coach messages/day, unlimited workout logger). Fitnivo Pro is $10/month or $60/year (effectively $5/month on annual). Cal AI is nutrition-only, so the fair comparison is Cal AI + a workout app subscription — which almost always exceeds Fitnivo Pro.</p>
           </div>
         </div>
 
         <div className="border border-cyan-400 bg-cyan-950/10 p-8 mb-12">
-          <h3 className="text-2xl font-bold mb-3">Try Fitnivo&apos;s AI food scanner free</h3>
-          <p className="text-[#B4B4B4] mb-4">Snap meals, hit your macros, and let the AI coach handle the math — plus workouts in the same app.</p>
+          <h3 className="text-2xl font-bold mb-3">Try Fitnivo free</h3>
+          <p className="text-[#B4B4B4] mb-4">3 AI food scans/day, 15 AI coach messages/day, unlimited workout logger — all free. Pro is $10/month or $60/year for unlimited.</p>
           <a href="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en" className="inline-block px-6 py-3 bg-cyan-400 text-black font-semibold uppercase tracking-wider hover:bg-cyan-300">
             Download Fitnivo
           </a>

@@ -36,7 +36,11 @@ const softwareAppSchema = {
   description:
     'AI meal planner that builds meal ideas around your calorie and macro targets. Supports weight loss, muscle gain, and multiple diet types.',
   url: 'https://fitnivo.in/ai-meal-planner',
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  offers: [
+    { '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free tier' },
+    { '@type': 'Offer', price: '10', priceCurrency: 'USD', name: 'Monthly Pro' },
+    { '@type': 'Offer', price: '60', priceCurrency: 'USD', name: 'Annual Pro' },
+  ],
 };
 
 const faqSchema = {

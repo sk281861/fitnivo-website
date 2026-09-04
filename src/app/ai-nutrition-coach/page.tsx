@@ -37,7 +37,11 @@ const softwareAppSchema = {
   description:
     'AI nutrition coach for calorie and macro tracking, meal planning, and personalized nutrition guidance grounded in your actual food-tracking data.',
   url: 'https://fitnivo.in/ai-nutrition-coach',
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  offers: [
+    { '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free tier' },
+    { '@type': 'Offer', price: '10', priceCurrency: 'USD', name: 'Monthly Pro' },
+    { '@type': 'Offer', price: '60', priceCurrency: 'USD', name: 'Annual Pro' },
+  ],
 };
 
 const faqSchema = {

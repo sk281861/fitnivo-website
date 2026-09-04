@@ -16,8 +16,8 @@ const articleSchema = generateArticleSchema({
   url: 'https://fitnivo.in/blog/best-fitbod-alternatives',
   datePublished: '2026-07-01T00:00:00Z',
   dateModified: '2026-07-01T00:00:00Z',
-  authorName: 'Marcus Vance, CSCS',
-  authorUrl: 'https://fitnivo.in/blog',
+  authorName: 'Fitnivo Editorial Team',
+  authorUrl: 'https://fitnivo.in/about',
   wordCount: 1350,
 });
 
@@ -169,14 +169,14 @@ export default function BestFitbodAlternativesPage() {
           <div className="flex items-center gap-4 mb-10">
             <Image
               src="/images/fitbuu.webp"
-              alt="Marcus Vance, CSCS — Behavioral Fitness Specialist and Chief Analytics Officer at Fitnivo"
+              alt="Fitnivo Editorial Team"
               width={48}
               height={48}
               className="rounded-full ring-2 ring-indigo-500/40"
             />
             <div>
-              <p className="text-white font-semibold text-sm">Marcus Vance, CSCS</p>
-              <p className="text-white/50 text-xs">Behavioral Fitness Specialist · MSc Applied Psychology</p>
+              <p className="text-white font-semibold text-sm">Fitnivo Editorial Team</p>
+              <p className="text-white/50 text-xs">Research &amp; analysis · Fitnivo</p>
             </div>
           </div>
         </div>

@@ -13,8 +13,8 @@ const articleSchema = generateArticleSchema({
   url: 'https://fitnivo.in/blog/ai-vs-traditional-coaching',
   datePublished: '2026-06-02T00:00:00Z',
   dateModified: '2026-06-02T00:00:00Z',
-  authorName: 'James Okafor, CSCS',
-  authorUrl: 'https://fitnivo.in/blog',
+  authorName: 'Fitnivo Editorial Team',
+  authorUrl: 'https://fitnivo.in/about',
   wordCount: 2200,
 });
 
@@ -249,14 +249,14 @@ export default function AIvsTraditionalCoachingPage() {
           <div className="flex items-center gap-4 mb-10">
             <Image
               src="/images/fitbuu.webp"
-              alt="James Okafor CSCS — Strength Coach and AI Performance Researcher at Fitnivo"
+              alt="Fitnivo Editorial Team"
               width={48}
               height={48}
               className="rounded-full ring-2 ring-indigo-500/40"
             />
             <div>
-              <p className="text-white font-semibold text-sm">James Okafor, CSCS</p>
-              <p className="text-white/50 text-xs">Certified Strength & Conditioning Specialist · AI Performance Researcher</p>
+              <p className="text-white font-semibold text-sm">Fitnivo Editorial Team</p>
+              <p className="text-white/50 text-xs">Research &amp; analysis · Fitnivo</p>
             </div>
           </div>
         </div>
@@ -333,7 +333,7 @@ export default function AIvsTraditionalCoachingPage() {
               </p>
 
               <p className="text-white/75 leading-relaxed mb-6">
-                Fitnivo's internal cohort analysis of 87,000 users over 12 months found that users on AI-guided programs improved their primary fitness metric (VO2 max, strength, body composition) by an average of <strong className="text-white">34% more than users following generic trainer-provided programs.</strong> That number deserves scrutiny — not uncritical acceptance — which is exactly why this comparison exists.
+                Independent studies on adaptive digital coaching (Journal of Medical Internet Research, 2023–2024) suggest AI-guided programs can improve primary fitness metrics faster than generic templates for most users. Individual results vary — the value of an AI coach comes from continuous personalization, not from any single guaranteed number.
               </p>
 
               {/* PAA snippet */}
@@ -1009,30 +1009,20 @@ export default function AIvsTraditionalCoachingPage() {
               >
                 <Image
                   src="/images/fitbuu.webp"
-                  alt="James Okafor CSCS — Certified Strength and Conditioning Specialist and AI performance researcher"
+                  alt="Fitnivo Editorial Team"
                   width={72}
                   height={72}
                   className="rounded-full flex-shrink-0 ring-2 ring-indigo-500/40"
                 />
                 <div>
                   <div className="flex items-center gap-3 mb-1 flex-wrap">
-                    <h3 className="text-white font-bold">James Okafor, CSCS</h3>
-                    <span
-                      className="text-xs px-2 py-0.5 rounded-full"
-                      style={{
-                        background: 'rgba(52,211,153,0.1)',
-                        color: '#34d399',
-                        border: '1px solid rgba(52,211,153,0.25)',
-                      }}
-                    >
-                      Verified Expert
-                    </span>
+                    <h3 className="text-white font-bold">Fitnivo Editorial Team</h3>
                   </div>
                   <p className="text-indigo-400 text-sm mb-2">
-                    Certified Strength & Conditioning Specialist · AI Performance Researcher · MSc Exercise Science
+                    Research &amp; analysis at Fitnivo
                   </p>
                   <p className="text-white/60 text-sm leading-relaxed">
-                    James is Fitnivo&apos;s lead performance scientist with 15 years of experience coaching Olympic-level athletes, professional team sports players, and high-performance executives. His research focuses on the intersection of AI-driven periodization and human behavioral coaching psychology. He has published work on adaptive training systems in the Journal of Strength and Conditioning Research.
+                    The Fitnivo Editorial Team publishes practical, source-cited guides on AI fitness, nutrition tracking, and behavior change. We review claims against the current published literature and clearly separate our product opinions from third-party evidence. Have feedback? <Link href="/contact" className="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">Get in touch</Link>.
                   </p>
                 </div>
               </div>
@@ -1170,9 +1160,9 @@ export default function AIvsTraditionalCoachingPage() {
                 <ul className="space-y-3">
                   {[
                     { label: '🤖 AI Fitness Coach', href: '/ai-fitness-coach' },
-                    { label: '🥗 Nutrition Intelligence', href: '/nutrition-intelligence' },
-                    { label: '🧘 Mindfulness & Wellness', href: '/mindfulness-wellness' },
-                    { label: '📊 Biometric Sync', href: '/biometric-sync' },
+                    { label: '🥗 AI Nutrition Coach', href: '/ai-nutrition-coach' },
+                    { label: '📷 AI Food Scanner', href: '/ai-food-scanner' },
+                    { label: '🏋️ AI Workout Planner', href: '/ai-workout-planner' },
                   ].map((item) => (
                     <li key={item.href}>
                       <Link

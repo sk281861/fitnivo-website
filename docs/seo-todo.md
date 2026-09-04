@@ -1,6 +1,6 @@
 # Fitnivo SEO To-Do — 2026 Roadmap
 
-**Owner:** Sandeep · **Last updated:** 2026-09-03 · **Target markets:** US 🇺🇸 · UK 🇬🇧 · CA 🇨🇦 · AU 🇦🇺 · IN 🇮🇳
+**Owner:** Sandeep · **Last updated:** 2026-09-04 · **Target markets:** US 🇺🇸 · UK 🇬🇧 · CA 🇨🇦 · AU 🇦🇺 · IN 🇮🇳
 **Canonical entity:** *Fitnivo — AI Fitness & Nutrition Coach that combines personalized workouts, calorie & macro tracking, AI food scanning, meal planning, and fitness coaching in one app.*
 
 ---
@@ -27,37 +27,52 @@
 - ✅ Real mockup screenshots wired into hero images (from `public/images/mockup/`)
 - ✅ `npm run build` — passes, 26 static pages generated
 
+**Shipped 2026-09-04 (batch 2, build passing — 33 static pages):**
+
+*Trust cleanup — existing blog posts (done):*
+- ✅ `/blog/ai-vs-traditional-coaching` — fake author `James Okafor CSCS` → Fitnivo Editorial Team, "87,000 user cohort" claim removed, sidebar links updated
+- ✅ `/blog/nutrition-science-personalization` — fake author `Dr. Priya Sharma RD` → Fitnivo Editorial Team, "50,000+ users" and "31% lean mass" claims removed, all `/nutrition-intelligence` links redirected to `/ai-nutrition-coach`
+- ✅ `/blog/best-fitbod-alternatives` — fake author `Marcus Vance CSCS` → Fitnivo Editorial Team
+
+*New blogs (7 shipped, all with real free-tier + $10/mo Pro pricing):*
+- ✅ `/blog/best-ai-personal-trainer-apps-2026`
+- ✅ `/blog/best-ai-nutrition-coach-apps-2026`
+- ✅ `/blog/fitnivo-vs-macrofactor`
+- ✅ `/blog/fitnivo-vs-myfitnesspal`
+- ✅ `/blog/fitnivo-vs-freeletics`
+- ✅ `/blog/how-ai-fitness-coaches-work`
+- ✅ `/blog/how-ai-food-scanners-work`
+
+*Pricing sync (real Fitnivo pricing baked in everywhere):*
+- ✅ Free tier: 3 AI food scans/day, 15 AI coach messages/day (with tool-calling for workouts, templates, meal plans), unlimited workout logger, water tracking
+- ✅ Pro: $10/month or $60/year (annual works out to $5/month)
+- ✅ Every SoftwareApplication schema has Free + Monthly Pro + Annual Pro offers
+- ✅ All CTAs, comparison tables, FAQ answers use the correct story
+
+*Site hygiene:*
+- ✅ Google Search Console verification wired (`IeEXdW…`)
+- ✅ Deleted dead `/nutrition-intelligence/page.tsx` (301 in `next.config.mjs` handles the redirect)
+- ✅ Sitemap now includes all 8 new blogs + 4 pillars + priorities
+- ✅ Blog index (`/blog`) features 8 new posts at the top
+
 **Still TODO (follow-up work):**
 
-*Trust cleanup — existing blog posts (need to review file-by-file):*
-- ⏳ `/blog/ai-vs-traditional-coaching` — remove "87,000 user cohort analysis", "34% improvement", author `Marcus Vance CSCS` and Dr. personas
-- ⏳ `/blog/nutrition-science-personalization` — remove "50,000+ users" internal-data claims, replace fake author with Fitnivo Editorial Team
-- ⏳ `/blog/best-fitbod-alternatives` — swap `Marcus Vance CSCS` author for Fitnivo Editorial Team; keep the good content
+*Additional blog content — Tier 2:*
+- ⏳ `/blog/ai-fitness-coach-vs-personal-trainer` (cousin to `ai-vs-traditional-coaching`, more search-language-friendly)
+- ⏳ `/blog/is-ai-food-scanning-accurate` (competitor silence = easy featured snippet)
+- ⏳ Goal/audience blogs (weight loss, muscle gain, beginners, home, gym, over-40, women)
 
-*Additional blog content (per §4):*
-- ⏳ `/blog/best-ai-personal-trainer-apps-2026`
-- ⏳ `/blog/best-ai-nutrition-coach-apps-2026`
-- ⏳ `/blog/fitnivo-vs-macrofactor`
-- ⏳ `/blog/fitnivo-vs-myfitnesspal`
-- ⏳ `/blog/fitnivo-vs-freeletics`
-- ⏳ `/blog/how-ai-food-scanners-work`
-- ⏳ `/blog/how-ai-fitness-coaches-work`
-- ⏳ `/blog/ai-fitness-coach-vs-personal-trainer`
-- ⏳ `/blog/is-ai-food-scanning-accurate`
-- ⏳ Goal/audience blogs (weight loss, muscle gain, beginners, home, gym)
-
-*External / off-page (not code — manual):*
-- ⏳ Google verification string in `layout.tsx` (currently placeholder `YOUR_GOOGLE_VERIFICATION_STRING_HERE`)
+*External / off-page (manual work — not code):*
 - ⏳ Product Hunt launch prep + submission
 - ⏳ AlternativeTo, G2, Capterra, Toolify, Futurepedia, TAAFT profiles
-- ⏳ Play Store / App Store description sync to canonical entity
-- ⏳ 10 external mentions target
-- ⏳ Delete unused `_components` under `/ai-fitness-coach/` (FlatAppDemo, DeviceSlider, PricingBadge etc.) — no longer imported after redesign
+- ⏳ Play Store / App Store description sync to canonical entity + real pricing
+- ⏳ 10 external mentions target (Reddit, YouTube, fitness bloggers, podcast pitches)
 
-*Nice-to-have polish:*
-- ⏳ `robots.txt` and `llms.txt` files (check `public/`)
-- ⏳ Delete `src/app/nutrition-intelligence/page.tsx` (redirect works, but file is dead code)
-- ⏳ Homepage `<meta description>` — make sure it uses new canonical description (currently uses `layout.tsx` default which is fine)
+*Optional polish:*
+- ⏳ `robots.txt` file in `public/` (currently not present — Next.js serves default, but explicit is better)
+- ⏳ `llms.txt` refresh — add new URLs
+- ⏳ Consider dropping `/mindfulness-wellness` and `/biometric-sync` if they dilute entity focus (or keep but de-emphasize in nav)
+- ⏳ Real Fitnivo testimonials on homepage (SocialProof.tsx still uses stock reviewer content)
 
 
 > This file is the single source of truth for what to build, in what order, with the exact title / meta / H1 / sections / keywords / schema / internal-linking / competitor benchmarks. It merges the audit + live SERP research pulled from US/UK first-page competitors (Sept 2026).

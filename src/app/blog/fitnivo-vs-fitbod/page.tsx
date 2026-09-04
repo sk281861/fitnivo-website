@@ -42,7 +42,7 @@ const faqSchema = {
   mainEntity: [
     { '@type': 'Question', name: 'Is Fitbod better than Fitnivo?', acceptedAnswer: { '@type': 'Answer', text: 'Fitbod is stronger for pure strength-workout generation with a deep exercise library. Fitnivo is stronger when you also want calorie & macro tracking, AI food scanning, and meal planning in the same app.' } },
     { '@type': 'Question', name: 'Does Fitbod track macros?', acceptedAnswer: { '@type': 'Answer', text: 'No. Fitbod is strictly a workout app. If you want nutrition tracking you need a second app.' } },
-    { '@type': 'Question', name: 'Is Fitnivo cheaper than Fitbod?', acceptedAnswer: { '@type': 'Answer', text: 'Fitnivo has a free tier. Fitbod costs roughly $12.99/month. Pricing may vary by region and promo.' } },
+    { '@type': 'Question', name: 'Is Fitnivo cheaper than Fitbod?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Fitnivo has a free tier with unlimited workout logging and daily AI usage (3 food scans, 15 AI coach messages). Pro is $10/month or $60/year (effectively $5/month on annual). Fitbod is around $12.99/month or $79.99/year. And Fitnivo includes nutrition — Fitbod does not.' } },
     { '@type': 'Question', name: 'Which is better for beginners?', acceptedAnswer: { '@type': 'Answer', text: 'Both are beginner-friendly. Fitnivo edges ahead if you also want help with nutrition, which most beginners need alongside their training.' } },
   ],
 };
@@ -78,7 +78,7 @@ export default function Page() {
 
         <div className="bg-cyan-950/20 border border-cyan-400/30 p-6 mb-10">
           <p className="text-white font-semibold leading-relaxed">
-            <strong>Short answer:</strong> Choose <strong>Fitbod</strong> if your only priority is strength-workout generation and you already use another app for calories. Choose <strong>Fitnivo</strong> if you want workouts, calorie & macro tracking, AI food scanning, and meal planning in one app.
+            <strong>Short answer:</strong> Choose <strong>Fitbod</strong> if your only priority is strength-workout generation and you already use another app for calories. Choose <strong>Fitnivo</strong> if you want workouts, calorie &amp; macro tracking, AI food scanning, and meal planning in one app. Fitnivo has a free tier that&apos;s actually usable daily (3 AI scans/day, 15 AI coach messages/day, unlimited workout logger); Pro unlocks unlimited at $10/month or $60/year.
           </p>
         </div>
 
@@ -107,8 +107,8 @@ export default function Page() {
                 ['Calorie & macro tracking', 'Yes', 'No'],
                 ['AI food scanner', 'Yes', 'No'],
                 ['Meal planner', 'Yes', 'No'],
-                ['Free tier', 'Yes', 'Limited trial'],
-                ['Typical price', 'Free / paid tiers', '~$12.99/mo'],
+                ['Free tier', 'Yes (unlimited workout logger + water + 3 scans/day + 15 AI messages/day)', 'Limited trial only'],
+                ['Pro price', '$10/mo · $60/yr ($5/mo effective on annual)', '~$12.99/mo · ~$79.99/yr'],
                 ['Platforms', 'Android, iOS', 'iOS, Android'],
               ].map((row, i) => (
                 <tr key={row[0]} className={i % 2 ? 'bg-[#050505]' : ''}>
@@ -135,7 +135,7 @@ export default function Page() {
           <li><strong className="text-white">Nutrition in the same app:</strong> Calorie and macro tracking sit next to your workouts. No second subscription, no context-switching.</li>
           <li><strong className="text-white">AI food scanner:</strong> Snap a photo of your meal and get calorie/macro estimates in seconds. Fitbod has no equivalent.</li>
           <li><strong className="text-white">Meal planner:</strong> Meals suggested around your daily calorie and protein targets.</li>
-          <li><strong className="text-white">Free tier:</strong> Start free before paying anything.</li>
+          <li><strong className="text-white">Real free tier:</strong> Unlimited workout logging, water tracking, plus daily AI usage (3 food scans, 15 AI coach messages/day). Pro unlocks unlimited for $10/mo or $60/yr.</li>
           <li><strong className="text-white">Better for fat loss:</strong> Fat loss is 80% nutrition. A workout-only app can&apos;t close that loop; Fitnivo can.</li>
         </ul>
 
@@ -158,7 +158,7 @@ export default function Page() {
               <li>You&apos;re trying to lose fat or gain lean mass</li>
               <li>You want to log meals by photo, not database search</li>
               <li>You want meal planning built around your macros</li>
-              <li>You want to try free before committing to a subscription</li>
+              <li>You want a real free tier to try before paying — Pro is $10/mo or $60/yr</li>
             </ul>
           </div>
         </div>
@@ -176,7 +176,7 @@ export default function Page() {
           </div>
           <div className="border-t border-[#1f1f1f] pt-6">
             <h4 className="text-lg font-bold text-white mb-2">Is Fitnivo cheaper than Fitbod?</h4>
-            <p className="text-[#B4B4B4]">Fitnivo has a free tier. Fitbod is a paid subscription. When you add a separate calorie-tracker subscription on top of Fitbod, the combined cost is usually higher than Fitnivo.</p>
+            <p className="text-[#B4B4B4]">Yes. Fitnivo has a real free tier (unlimited workout logger + water + 3 AI food scans/day + 15 AI coach messages/day). Fitnivo Pro is $10/month or $60/year (effectively $5/month on annual); Fitbod is around $12.99/month or $79.99/year. When you add a separate calorie-tracker subscription on top of Fitbod, the combined cost is significantly higher than Fitnivo Pro alone.</p>
           </div>
           <div className="border-t border-[#1f1f1f] pt-6">
             <h4 className="text-lg font-bold text-white mb-2">Which is better for beginners?</h4>
@@ -191,7 +191,7 @@ export default function Page() {
         {/* CTA */}
         <div className="border border-cyan-400 bg-cyan-950/10 p-8 mb-12">
           <h3 className="text-2xl font-bold mb-3">Try Fitnivo free</h3>
-          <p className="text-[#B4B4B4] mb-4">AI workouts, calorie & macro tracking, food scanner, and meal planning in one app.</p>
+          <p className="text-[#B4B4B4] mb-4">Unlimited workout logger, water tracking, 3 AI food scans/day, and 15 AI coach messages/day — free. Pro is $10/month or $60/year for unlimited.</p>
           <a href="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en" className="inline-block px-6 py-3 bg-cyan-400 text-black font-semibold uppercase tracking-wider hover:bg-cyan-300">
             Download Fitnivo
           </a>

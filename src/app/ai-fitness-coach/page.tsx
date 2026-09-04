@@ -8,7 +8,7 @@ import { generateBreadcrumbSchema } from '@/lib/seo/generateSchema';
 export const metadata: Metadata = {
   title: 'AI Fitness Coach & Personal Trainer | Fitnivo',
   description:
-    'Get a personalized AI fitness coach that creates workouts around your goals, tracks progress, plans nutrition, and adapts as you improve. Free to start.',
+    'Get a personalized AI fitness coach that creates workouts around your goals, tracks progress, plans nutrition, and adapts as you improve. Free tier with 3 AI food scans/day and 15 AI coach messages/day; Pro is $10/month or $60/year.',
   keywords: [
     'AI fitness coach',
     'AI personal trainer',
@@ -40,11 +40,11 @@ const softwareAppSchema = {
   description:
     'AI fitness coach and personal trainer that creates personalized workouts, tracks calories and macros, scans meals with AI, and adapts as you progress.',
   url: 'https://fitnivo.in/ai-fitness-coach',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-  },
+  offers: [
+    { '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free tier' },
+    { '@type': 'Offer', price: '10', priceCurrency: 'USD', name: 'Monthly Pro' },
+    { '@type': 'Offer', price: '60', priceCurrency: 'USD', name: 'Annual Pro' },
+  ],
 };
 
 const faqSchema = {

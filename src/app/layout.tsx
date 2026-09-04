@@ -83,11 +83,11 @@ export default function RootLayout({
       "name": "Fitnivo",
       "operatingSystem": "Android, iOS",
       "applicationCategory": "HealthApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
+      "offers": [
+        { "@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "Free tier" },
+        { "@type": "Offer", "price": "10", "priceCurrency": "USD", "name": "Monthly Pro" },
+        { "@type": "Offer", "price": "60", "priceCurrency": "USD", "name": "Annual Pro" }
+      ],
       "description": "Fitnivo is an AI fitness and nutrition coach that combines personalized workouts, calorie and macro tracking, AI food scanning, meal planning, and fitness coaching in one app."
     }
   ];

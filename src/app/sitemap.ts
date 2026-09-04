@@ -28,15 +28,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/contact`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${baseUrl}/blog`, lastModified: currentDate, changeFrequency: 'daily', priority: 0.7 },
 
-    // NEW: Category / "best-of" blogs (0.8, monthly) — high commercial intent
+    // Category / "best-of" blogs (0.8, monthly) — high commercial intent
     { url: `${baseUrl}/blog/best-ai-fitness-apps-2026`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/blog/best-ai-personal-trainer-apps-2026`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/blog/best-ai-nutrition-coach-apps-2026`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.8 },
 
-    // NEW: Comparison blogs (0.7)
+    // Comparison blogs (0.7)
     { url: `${baseUrl}/blog/fitnivo-vs-fitbod`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/blog/fitnivo-vs-cal-ai`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blog/fitnivo-vs-macrofactor`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blog/fitnivo-vs-myfitnesspal`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blog/fitnivo-vs-freeletics`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.7 },
 
-    // NEW: Educational / PAA blogs (0.7)
+    // Educational / PAA blogs (0.7)
     { url: `${baseUrl}/blog/what-is-an-ai-fitness-coach`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blog/how-ai-fitness-coaches-work`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blog/how-ai-food-scanners-work`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.7 },
 
     // Existing Blog Posts (0.6, monthly)
     { url: `${baseUrl}/blog/nutrition-science-personalization`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.6 },

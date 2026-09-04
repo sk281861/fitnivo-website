@@ -13,8 +13,8 @@ const articleSchema = generateArticleSchema({
   url: 'https://fitnivo.in/blog/nutrition-science-personalization',
   datePublished: '2026-06-02T00:00:00Z',
   dateModified: '2026-06-02T00:00:00Z',
-  authorName: 'Dr. Priya Sharma, RD',
-  authorUrl: 'https://fitnivo.in/blog',
+  authorName: 'Fitnivo Editorial Team',
+  authorUrl: 'https://fitnivo.in/about',
   wordCount: 2100,
 });
 
@@ -128,14 +128,14 @@ export default function NutritionSciencePersonalizationPage() {
           <div className="flex items-center gap-4 mb-10">
             <Image
               src="/images/fitbuu.webp"
-              alt="Dr. Priya Sharma, Registered Dietitian at Fitnivo"
+              alt="Fitnivo Editorial Team"
               width={48}
               height={48}
               className="rounded-full ring-2 ring-indigo-500/40"
             />
             <div>
-              <p className="text-white font-semibold text-sm">Dr. Priya Sharma, RD</p>
-              <p className="text-white/50 text-xs">Registered Dietitian · Sports Nutrition Specialist</p>
+              <p className="text-white font-semibold text-sm">Fitnivo Editorial Team</p>
+              <p className="text-white/50 text-xs">Research &amp; analysis · Fitnivo</p>
             </div>
           </div>
         </div>
@@ -203,7 +203,7 @@ export default function NutritionSciencePersonalizationPage() {
               </p>
 
               <p className="text-white/75 leading-relaxed mb-6">
-                Fitnivo's internal data from 50,000+ users shows that body composition changes stall not from eating too many calories, but from miscalibrated macro ratios relative to each person's training volume, stress levels, and hormonal baseline — factors that change week to week.
+                Research on individual metabolic response (see the PREDICT study, Nature Medicine 2020) shows that body composition changes often stall not from eating too many calories, but from miscalibrated macro ratios relative to each person&apos;s training volume, stress, and hormonal baseline — factors that change week to week.
               </p>
 
               {/* Macros Infographic */}
@@ -271,7 +271,7 @@ export default function NutritionSciencePersonalizationPage() {
               <div className="rounded-xl p-5 mb-4 flex gap-4" style={{ background: 'rgba(129,140,248,0.08)', border: '1px solid rgba(129,140,248,0.2)' }}>
                 <span className="text-2xl flex-shrink-0">💡</span>
                 <p className="text-white/80 text-sm leading-relaxed">
-                  <strong className="text-white">Fitnivo Insight:</strong> Our AI nutrition model found that users who hit their protein targets consistently for 8 weeks showed 31% better lean mass retention during a caloric deficit compared to those who under-consumed protein — even when total calories were the same.
+                  <strong className="text-white">Why this matters:</strong> Randomized trials on protein intake during a caloric deficit (Longland et al., 2016; Helms et al., 2014) consistently show that higher protein intake preserves more lean mass than lower protein intake at the same calorie level — a simple, well-supported lever most people miss.
                 </p>
               </div>
 
@@ -422,7 +422,7 @@ export default function NutritionSciencePersonalizationPage() {
               </p>
 
               <p className="text-white/75 leading-relaxed mb-6">
-                This is the science that makes <Link href="/nutrition-intelligence" className="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">AI-powered nutrition intelligence</Link> a genuine paradigm shift — not marketing hype. A system that continuously reads your biometric outputs and adjusts macro targets accordingly will outperform any static diet plan, regardless of how well-designed that plan is.
+                This is the science that makes <Link href="/ai-nutrition-coach" className="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">AI-powered nutrition intelligence</Link> a genuine paradigm shift — not marketing hype. A system that continuously reads your biometric outputs and adjusts macro targets accordingly will outperform any static diet plan, regardless of how well-designed that plan is.
               </p>
 
               {/* AI Nutrition image */}
@@ -547,7 +547,7 @@ export default function NutritionSciencePersonalizationPage() {
               </p>
 
               <p className="text-white/75 leading-relaxed mb-6">
-                The system integrates data from <Link href="/biometric-sync" className="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">biometric wearables</Link>, workout completion rates, sleep quality scores, and subjective energy ratings to build a model of your individual nutritional response — a model that improves with every data point. After 30 days, users report an average 67% improvement in dietary adherence because the plan actually fits their life and physiology.
+                The system integrates data from workout completion, logged meals, and sleep/activity signals (when available from a wearable) to build a picture of your individual nutritional response — one that improves with every data point. The core value is honest: a plan that adjusts to what you actually do beats a static plan you eventually stop following.
               </p>
 
               {/* Gut microbiome image */}
@@ -621,7 +621,7 @@ export default function NutritionSciencePersonalizationPage() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
-                      href="/nutrition-intelligence"
+                      href="/ai-nutrition-coach"
                       className="px-8 py-3 bg-white text-indigo-700 font-bold rounded-xl hover:bg-indigo-50 transition-all duration-200 shadow-lg"
                     >
                       Explore Nutrition Intelligence →
@@ -645,7 +645,7 @@ export default function NutritionSciencePersonalizationPage() {
                 style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <Image
                   src="/images/fitbuu.webp"
-                  alt="Dr. Priya Sharma - Registered Dietitian and Sports Nutrition Specialist at Fitnivo"
+                  alt="Fitnivo Editorial Team"
                   width={72}
                   height={72}
                   className="rounded-full flex-shrink-0 ring-2"
@@ -653,15 +653,11 @@ export default function NutritionSciencePersonalizationPage() {
                 />
                 <div>
                   <div className="flex items-center gap-3 mb-1 flex-wrap">
-                    <h3 className="text-white font-bold">Dr. Priya Sharma, RD</h3>
-                    <span className="text-xs px-2 py-0.5 rounded-full"
-                      style={{ background: 'rgba(52,211,153,0.1)', color: '#34d399', border: '1px solid rgba(52,211,153,0.25)' }}>
-                      Verified Expert
-                    </span>
+                    <h3 className="text-white font-bold">Fitnivo Editorial Team</h3>
                   </div>
-                  <p className="text-indigo-400 text-sm mb-2">Registered Dietitian · Sports Nutrition Specialist · MSc Human Nutrition</p>
+                  <p className="text-indigo-400 text-sm mb-2">Research &amp; analysis at Fitnivo</p>
                   <p className="text-white/60 text-sm leading-relaxed">
-                    Dr. Sharma is Fitnivo's lead nutrition scientist with 12 years of clinical and applied sports nutrition experience. She has worked with Olympic athletes, elite CrossFit competitors, and thousands of everyday users through data-driven, evidence-based dietary interventions. Her research focuses on nutrient timing, gut microbiome modulation, and AI-assisted dietary personalization.
+                    The Fitnivo Editorial Team publishes practical, source-cited guides on AI fitness and nutrition. This article is general information and does not substitute for individual medical or dietetic advice — if you have a clinical condition, work with a qualified professional.
                   </p>
                 </div>
               </div>
@@ -736,7 +732,7 @@ export default function NutritionSciencePersonalizationPage() {
                   Get your personalized macro targets based on your biometrics.
                 </p>
                 <Link
-                  href="/nutrition-intelligence"
+                  href="/ai-nutrition-coach"
                   className="block w-full py-2.5 text-sm font-semibold rounded-xl text-white transition-all duration-200 hover:opacity-90"
                   style={{ background: 'linear-gradient(90deg, #4f46e5, #7c3aed)' }}
                 >
@@ -750,9 +746,9 @@ export default function NutritionSciencePersonalizationPage() {
                 <ul className="space-y-3">
                   {[
                     { label: '🤖 AI Fitness Coach', href: '/ai-fitness-coach' },
-                    { label: '🥗 Nutrition Intelligence', href: '/nutrition-intelligence' },
-                    { label: '🧘 Mindfulness & Wellness', href: '/mindfulness-wellness' },
-                    { label: '📊 Biometric Sync', href: '/biometric-sync' },
+                    { label: '🥗 AI Nutrition Coach', href: '/ai-nutrition-coach' },
+                    { label: '📷 AI Food Scanner', href: '/ai-food-scanner' },
+                    { label: '🍽️ AI Meal Planner', href: '/ai-meal-planner' },
                   ].map((item) => (
                     <li key={item.href}>
                       <Link

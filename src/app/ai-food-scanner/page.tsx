@@ -39,7 +39,11 @@ const softwareAppSchema = {
   description:
     'AI food scanner and calorie tracker. Snap a photo of your meal and Fitnivo estimates calories, protein, carbs, and fat.',
   url: 'https://fitnivo.in/ai-food-scanner',
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  offers: [
+    { '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free tier (3 scans/day)' },
+    { '@type': 'Offer', price: '10', priceCurrency: 'USD', name: 'Monthly Pro (unlimited)' },
+    { '@type': 'Offer', price: '60', priceCurrency: 'USD', name: 'Annual Pro (unlimited)' },
+  ],
 };
 
 const faqSchema = {
@@ -73,8 +77,8 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'Is Fitnivo free?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Fitnivo has a free download. Some advanced features may require a subscription — check the app for current pricing in your region.' },
+      name: 'How much does Fitnivo cost?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Fitnivo has a free tier that includes 3 AI food scans per day, 15 AI coach messages per day (with tool-calling for workouts, templates, and meal plans), workout logging, and water logging. Pro is $10/month or $60/year and unlocks unlimited scans, unlimited AI messages, and full features.' },
     },
   ],
 };
@@ -100,7 +104,7 @@ const faqs = [
   { q: 'Do I need internet to use the food scanner?', a: 'Yes. The AI food scanner processes images through a cloud model, so an internet connection is required.' },
   { q: 'Can I use the AI food scanner for restaurant food?', a: 'Yes. The scanner works on restaurant plates, home-cooked meals, and packaged food. For very specific branded products, search or barcode input is often more precise.' },
   { q: 'Does Fitnivo work for Indian, UK, and US foods?', a: 'Yes — the recognition model is trained on a wide range of global cuisines. If a specific regional dish is unfamiliar, you can search manually or adjust the estimate.' },
-  { q: 'Is Fitnivo free?', a: 'Fitnivo has a free download. Some advanced features may require a subscription — check the app for current pricing in your region.' },
+  { q: 'How much does Fitnivo cost?', a: 'Fitnivo has a free tier: 3 AI food scans/day, 15 AI coach messages/day (with full tool-calling for workouts, templates, and meal plans), workout logging, and water tracking. Pro is $10/month or $60/year and unlocks unlimited scans and messages.' },
   { q: 'Which apps compete with Fitnivo for AI food scanning?', a: 'Popular AI food scanners include Cal AI, Calorie Mama, SnapCalorie, and EatAI. Fitnivo combines a food scanner with workouts and nutrition coaching in one app.' },
 ];
 

@@ -37,7 +37,11 @@ const softwareAppSchema = {
   description:
     'AI workout planner and generator that creates personalized workouts based on your goal, experience, and available equipment, and adapts as you train.',
   url: 'https://fitnivo.in/ai-workout-planner',
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  offers: [
+    { '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free tier (workout logger free)' },
+    { '@type': 'Offer', price: '10', priceCurrency: 'USD', name: 'Monthly Pro' },
+    { '@type': 'Offer', price: '60', priceCurrency: 'USD', name: 'Annual Pro' },
+  ],
 };
 
 const faqSchema = {

@@ -64,10 +64,10 @@ const apps = [
     nutrition: '✓',
     foodScanner: '✓',
     coach: '✓',
-    price: 'Free / paid tiers',
+    price: 'Free · Pro $10/mo · $60/yr',
     url: '/ai-fitness-coach',
     internal: true,
-    body: 'Fitnivo combines an AI fitness coach with calorie & macro tracking, AI food scanning, and meal planning. Best if you want one app for both training and nutrition rather than juggling three.',
+    body: 'Fitnivo combines an AI fitness coach with calorie & macro tracking, AI food scanning, and meal planning. Free tier includes unlimited workout logging, water tracking, 3 AI food scans/day, and 15 AI coach messages/day (with tool-calling for workouts, templates, and meal plans). Pro at $10/month or $60/year unlocks unlimited scans and messages. Best if you want one app for both training and nutrition.',
   },
   {
     name: 'Fitbod',
@@ -290,14 +290,14 @@ export default function Page() {
           </div>
           <div className="border-t border-[#1f1f1f] pt-6">
             <h4 className="text-lg font-bold text-white mb-2">How much do AI fitness apps cost?</h4>
-            <p className="text-[#B4B4B4]">Most AI fitness apps cost roughly USD 10–30 per month, or an annual plan that works out cheaper. Some, like Fitnivo, have a free tier to start.</p>
+            <p className="text-[#B4B4B4]">Most AI fitness apps cost roughly USD 10–30 per month. Fitnivo has a free tier with real daily usage (3 AI scans/day, 15 AI messages/day, unlimited workout logging), and Pro unlocks unlimited for $10/month or $60/year — on the lower end of the range while covering both fitness and nutrition.</p>
           </div>
         </div>
 
         {/* CTA */}
         <div className="border border-cyan-400 bg-cyan-950/10 p-8 mb-12">
           <h3 className="text-2xl font-bold mb-3">Want workouts and nutrition in one app?</h3>
-          <p className="text-[#B4B4B4] mb-4">Fitnivo is free to start. Personalized workouts, calorie & macro tracking, AI food scanning, and meal planning.</p>
+          <p className="text-[#B4B4B4] mb-4">Free tier with 3 AI scans/day and 15 AI coach messages/day. Pro is $10/month or $60/year for unlimited.</p>
           <a href="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en" className="inline-block px-6 py-3 bg-cyan-400 text-black font-semibold uppercase tracking-wider hover:bg-cyan-300">
             Download Fitnivo
           </a>
