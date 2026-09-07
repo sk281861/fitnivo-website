@@ -18,6 +18,8 @@ type Props = {
   rows: CompRow[];
   title?: string;
   subtitle?: string;
+  pickColor?: 'orange' | 'emerald';
+  pickLabel?: string;
 };
 
 function Cell({ value }: { value: string }) {
@@ -65,7 +67,7 @@ const rowVariant = {
   show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
-export default function AppComparisonTable({ columns, rows, title = 'Quick Comparison', subtitle }: Props) {
+export default function AppComparisonTable({ columns, rows, title = 'Quick Comparison', subtitle, pickColor = 'orange', pickLabel = 'Our Pick' }: Props) {
   return (
     <motion.section
       initial="hidden"
@@ -110,7 +112,11 @@ export default function AppComparisonTable({ columns, rows, title = 'Quick Compa
             {rows.map((row, i) => {
               const pick = row.isOurPick;
               const stripe = i % 2 === 1 ? 'bg-white/[0.015]' : '';
-              const pickClass = pick
+              const isEmerald = pick && pickColor === 'emerald';
+              const isOrange = pick && pickColor === 'orange';
+              const pickClass = isEmerald
+                ? 'bg-emerald-500/[0.06] outline outline-1 outline-emerald-500/40 shadow-[inset_0_0_0_1px_rgba(34,197,94,0.12)]'
+                : isOrange
                 ? 'bg-[#FF6A00]/[0.06] outline outline-1 outline-[#FF6A00]/40 shadow-[inset_0_0_0_1px_rgba(255,106,0,0.12)]'
                 : stripe;
               return (
@@ -127,10 +133,16 @@ export default function AppComparisonTable({ columns, rows, title = 'Quick Compa
                       </span>
                       <div className="flex flex-col min-w-0 gap-1">
                         <span className={`font-semibold truncate ${pick ? 'text-white' : 'text-white/90'}`}>{row.name}</span>
-                        {pick && (
+                        {isEmerald && (
+                          <span className="inline-flex items-center gap-1 text-[9px] uppercase tracking-widest font-bold font-mono px-2 py-0.5 rounded-full bg-emerald-500 text-black whitespace-nowrap w-fit">
+                            <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                            {pickLabel}
+                          </span>
+                        )}
+                        {isOrange && (
                           <span className="inline-flex items-center gap-1 text-[9px] uppercase tracking-widest font-bold font-mono px-2 py-0.5 rounded-full bg-[#FF6A00] text-black whitespace-nowrap w-fit">
                             <span className="w-1 h-1 rounded-full bg-black" />
-                            Our Pick
+                            {pickLabel}
                           </span>
                         )}
                       </div>
@@ -142,7 +154,7 @@ export default function AppComparisonTable({ columns, rows, title = 'Quick Compa
                       <Cell value={row.values[c.key] ?? '—'} />
                     </td>
                   ))}
-                  <td className={`px-4 md:px-6 py-4 text-right font-mono text-xs align-middle whitespace-nowrap ${pick ? 'text-[#FF6A00] font-bold' : 'text-white/70'}`}>
+                  <td className={`px-4 md:px-6 py-4 text-right font-mono text-xs align-middle whitespace-nowrap ${isEmerald ? 'text-emerald-400 font-bold' : isOrange ? 'text-[#FF6A00] font-bold' : 'text-white/70'}`}>
                     {row.price}
                   </td>
                 </motion.tr>
