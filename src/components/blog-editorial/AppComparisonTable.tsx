@@ -125,10 +125,11 @@ export default function AppComparisonTable({ columns, rows, title = 'Quick Compa
                       <span className="transition-transform group-hover/row:scale-110 group-hover/row:rotate-[-4deg] shrink-0">
                         <AppIcon name={row.name} size="md" />
                       </span>
-                      <div className="flex items-center gap-2 min-w-0">
+                      <div className="flex flex-col min-w-0 gap-1">
                         <span className={`font-semibold truncate ${pick ? 'text-white' : 'text-white/90'}`}>{row.name}</span>
                         {pick && (
-                          <span className="text-[9px] uppercase tracking-wider font-bold font-mono px-2 py-0.5 rounded-full bg-[#FF6A00] text-black whitespace-nowrap shrink-0">
+                          <span className="inline-flex items-center gap-1 text-[9px] uppercase tracking-widest font-bold font-mono px-2 py-0.5 rounded-full bg-[#FF6A00] text-black whitespace-nowrap w-fit">
+                            <span className="w-1 h-1 rounded-full bg-black" />
                             Our Pick
                           </span>
                         )}

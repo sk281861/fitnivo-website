@@ -17,7 +17,7 @@ const SIZE_CLASS = {
 // Real logo files served from /public/images/logo/
 // Each entry: { src, bg (backdrop color), pad (inner padding class) }
 const LOGOS: Record<string, { src: string; bg: string; pad?: string; ring?: string }> = {
-  Fitnivo:      { src: '/images/logo/apple-touch-icon.png', bg: 'bg-[#FF6A00]', pad: 'p-1',   ring: 'ring-[#FF6A00]/60 shadow-[0_0_20px_-4px_rgba(255,106,0,0.5)]' },
+  Fitnivo:      { src: '/images/logo/fitnivo.png',          bg: 'bg-black',      pad: 'p-1',   ring: 'ring-[#FF6A00]/60 shadow-[0_0_20px_-4px_rgba(255,106,0,0.5)]' },
   Fitbod:       { src: '/images/logo/fitbod.webp',          bg: 'bg-white',      pad: 'p-0.5' },
   Freeletics:   { src: '/images/logo/freeletics.png',       bg: 'bg-black',      pad: 'p-1' },
   FitnessAI:    { src: '/images/logo/fitnessai.png',        bg: 'bg-black',      pad: 'p-0.5' },
