@@ -18,13 +18,13 @@ const SIZE_CLASS = {
 // Each entry: { src, bg (backdrop color), pad (inner padding class) }
 const LOGOS: Record<string, { src: string; bg: string; pad?: string; ring?: string }> = {
   Fitnivo:      { src: '/images/logo/apple-touch-icon.png', bg: 'bg-[#FF6A00]', pad: 'p-1',   ring: 'ring-[#FF6A00]/60 shadow-[0_0_20px_-4px_rgba(255,106,0,0.5)]' },
-  Fitbod:       { src: '/images/logo/FItbod.webp',          bg: 'bg-white',      pad: 'p-0.5' },
+  Fitbod:       { src: '/images/logo/fitbod.webp',          bg: 'bg-white',      pad: 'p-0.5' },
   Freeletics:   { src: '/images/logo/freeletics.png',       bg: 'bg-black',      pad: 'p-1' },
   FitnessAI:    { src: '/images/logo/fitnessai.png',        bg: 'bg-black',      pad: 'p-0.5' },
   Caliber:      { src: '/images/logo/caliber.png',          bg: 'bg-white',      pad: 'p-1' },
   Ray:          { src: '/images/logo/ray.png',              bg: 'bg-black',      pad: 'p-0.5' },
   SensAI:       { src: '/images/logo/sensai.png',           bg: 'bg-black',      pad: 'p-1' },
-  JuggernautAI: { src: '/images/logo/juggernautai.jfif',    bg: 'bg-black',      pad: 'p-0.5' },
+  JuggernautAI: { src: '/images/logo/juggernautai.jpg',     bg: 'bg-black',      pad: 'p-0.5' },
 };
 
 export default function AppIcon({ name, size = 'md', className = '' }: Props) {
@@ -45,7 +45,6 @@ export default function AppIcon({ name, size = 'md', className = '' }: Props) {
           width={px}
           height={px}
           className={`w-full h-full object-contain ${logo.pad ?? ''}`}
-          unoptimized={logo.src.endsWith('.jfif')}
         />
       </span>
     );
