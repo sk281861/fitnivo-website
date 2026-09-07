@@ -35,9 +35,21 @@ function Cell({ value }: { value: string }) {
     return <span className="text-white/25 font-mono">—</span>;
   }
   if (v.startsWith('✓')) {
-    return <span className="text-emerald-400 text-xs">{v}</span>;
+    // "✓ (human)" or "✓ (voice)" — pack ✓ badge + small annotation on ONE line
+    const annotation = v.slice(1).trim();
+    return (
+      <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500/15 border border-emerald-400/40 shrink-0">
+          <svg className="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+            <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+        <span className="text-emerald-400 text-[11px] font-mono">{annotation}</span>
+      </span>
+    );
   }
-  return <span className="text-white/70 text-xs">{v}</span>;
+  // "✓ (basic)" style handled above; plain text (rare) falls here.
+  return <span className="text-white/70 text-xs whitespace-nowrap">{v}</span>;
 }
 
 const container = {
@@ -73,14 +85,23 @@ export default function AppComparisonTable({ columns, rows, title = 'Quick Compa
       </header>
 
       <div className="overflow-x-auto">
-        <table className="w-full text-left text-sm min-w-[720px]">
+        <table className="w-full text-left text-sm min-w-[860px] table-fixed">
+          <colgroup>
+            <col style={{ width: '48px' }} />
+            <col style={{ width: '184px' }} />
+            <col style={{ width: '160px' }} />
+            {columns.map((c) => (
+              <col key={c.key} style={{ width: '96px' }} />
+            ))}
+            <col style={{ width: '168px' }} />
+          </colgroup>
           <thead>
             <tr className="text-[10px] uppercase tracking-widest text-white/40 font-mono">
-              <th className="px-4 md:px-6 py-4 font-normal w-10">#</th>
+              <th className="px-4 md:px-6 py-4 font-normal">#</th>
               <th className="px-4 py-4 font-normal">App</th>
               <th className="px-4 py-4 font-normal">Best For</th>
               {columns.map((c) => (
-                <th key={c.key} className="px-4 py-4 font-normal text-center">{c.label}</th>
+                <th key={c.key} className="px-3 py-4 font-normal text-center whitespace-nowrap">{c.label}</th>
               ))}
               <th className="px-4 md:px-6 py-4 font-normal text-right">Price</th>
             </tr>
@@ -98,29 +119,29 @@ export default function AppComparisonTable({ columns, rows, title = 'Quick Compa
                   variants={rowVariant}
                   className={`group/row border-t border-white/5 transition-colors hover:bg-white/[0.04] ${pickClass}`}
                 >
-                  <td className="px-4 md:px-6 py-4 text-white/40 font-mono text-xs group-hover/row:text-white/70 transition">{i + 1}</td>
-                  <td className="px-4 py-4">
-                    <div className="flex items-center gap-3">
-                      <span className="transition-transform group-hover/row:scale-110 group-hover/row:rotate-[-4deg]">
+                  <td className="px-4 md:px-6 py-4 text-white/40 font-mono text-xs group-hover/row:text-white/70 transition align-middle">{i + 1}</td>
+                  <td className="px-4 py-4 align-middle">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className="transition-transform group-hover/row:scale-110 group-hover/row:rotate-[-4deg] shrink-0">
                         <AppIcon name={row.name} size="md" />
                       </span>
-                      <div className="flex items-center gap-2">
-                        <span className={`font-semibold ${pick ? 'text-white' : 'text-white/90'}`}>{row.name}</span>
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className={`font-semibold truncate ${pick ? 'text-white' : 'text-white/90'}`}>{row.name}</span>
                         {pick && (
-                          <span className="text-[9px] uppercase tracking-wider font-bold font-mono px-2 py-0.5 rounded-full bg-[#FF6A00] text-black">
+                          <span className="text-[9px] uppercase tracking-wider font-bold font-mono px-2 py-0.5 rounded-full bg-[#FF6A00] text-black whitespace-nowrap shrink-0">
                             Our Pick
                           </span>
                         )}
                       </div>
                     </div>
                   </td>
-                  <td className="px-4 py-4 text-white/60 text-xs">{row.bestFor}</td>
+                  <td className="px-4 py-4 text-white/60 text-xs align-middle leading-snug">{row.bestFor}</td>
                   {columns.map((c) => (
-                    <td key={c.key} className="px-4 py-4 text-center">
+                    <td key={c.key} className="px-3 py-4 text-center align-middle">
                       <Cell value={row.values[c.key] ?? '—'} />
                     </td>
                   ))}
-                  <td className={`px-4 md:px-6 py-4 text-right font-mono text-xs whitespace-nowrap ${pick ? 'text-[#FF6A00] font-bold' : 'text-white/70'}`}>
+                  <td className={`px-4 md:px-6 py-4 text-right font-mono text-xs align-middle whitespace-nowrap ${pick ? 'text-[#FF6A00] font-bold' : 'text-white/70'}`}>
                     {row.price}
                   </td>
                 </motion.tr>
