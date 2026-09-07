@@ -5,7 +5,6 @@ import Footer from '@/components/Footer';
 import HeroSection from '@/components/landing/HeroSection';
 import FeatureGrid from '@/components/landing/FeatureGrid';
 import nextDynamic from 'next/dynamic';
-import TestimonialCarousel from '@/components/landing/TestimonialCarousel';
 import FAQAccordion from '@/components/landing/FAQAccordion';
 import CTASection from '@/components/landing/CTASection';
 import RelatedContent from '@/components/landing/RelatedContent';
@@ -51,29 +50,6 @@ const features = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: 'Seeing all my biometric data in one place has revolutionized how I train. I make smarter decisions every day.',
-    name: 'Tom Anderson',
-    role: 'Triathlon Coach',
-    avatar: '/images/fitbuu.webp',
-    company: 'Sports Academy',
-  },
-  {
-    quote: 'The recovery metrics are spot on. I know exactly when my body needs a rest day.',
-    name: 'Sarah Jenkins',
-    role: 'Amateur Runner',
-    avatar: '/images/fitbuu.webp',
-    company: 'Running Club',
-  },
-  {
-    quote: 'Easy integration and clean layout. It connects seamlessly with my Apple Watch.',
-    name: 'John Miller',
-    role: 'Fitness Enthusiast',
-    avatar: '/images/fitbuu.webp',
-    company: 'Tech Company',
-  },
-];
 
 const faqs = [
   {
@@ -206,9 +182,7 @@ export default function BiometricSyncPage() {
         </div>
       </section>
 
-      <TestimonialCarousel testimonials={testimonials} />
-
-      <FAQAccordion faqs={faqs} title="Frequently Asked Questions" />
+<FAQAccordion faqs={faqs} title="Frequently Asked Questions" />
 
       <CTASection
         headline="Unlock Your Biometric Potential"
