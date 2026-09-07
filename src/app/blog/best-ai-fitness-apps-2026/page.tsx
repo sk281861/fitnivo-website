@@ -122,7 +122,7 @@ const takeaways = [
 
 export default function Page() {
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="bg-black text-white min-h-screen" data-build="editorial-v2-2026-09-08">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson }} />
       <ReadingProgress />
       <Navbar />
