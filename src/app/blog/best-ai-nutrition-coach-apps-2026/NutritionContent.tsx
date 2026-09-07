@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import AppComparisonTable, { CompRow } from '@/components/blog-editorial/AppComparisonTable';
+import AppIcon from '@/components/blog-editorial/AppIcon';
 import TopPickCard from '@/components/blog-editorial/TopPickCard';
 import SmallPickCard from '@/components/blog-editorial/SmallPickCard';
 import BlogSidebar from '@/components/blog-editorial/BlogSidebar';
@@ -19,7 +20,7 @@ const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.08, delay
 
 const apps = [
   { name: 'Fitnivo',      bestFor: 'All-in-one AI fitness + nutrition', scanner: '✓', macros: '✓', adaptive: '✓', workouts: '✓',         price: 'Free · $10/mo',   url: '/ai-nutrition-coach',          internal: true,
-    body: 'Covers calorie & macro tracking, AI food scanning, meal planning, and workouts in one app. Free tier: 3 AI food scans/day, 15 AI coach messages/day, unlimited workout logging. Pro is $10/month or $60/year for unlimited everything.' },
+    body: 'Covers calorie & macro tracking, AI food scanning, meal planning, and workouts — and uniquely, a built-in calorie buffer so you can eat outside your plan without derailing it. FitBuu (the AI agent) suggests meals in your favourite cuisine with whatever ingredients you have on hand. Eat freely, log it, and FitBuu adapts the rest of your day. Free tier: 3 AI food scans/day, 15 AI coach messages/day, unlimited workout logging. Pro is $10/month or $60/year.' },
   { name: 'MacroFactor',  bestFor: 'Adaptive macro coaching',           scanner: '—', macros: '✓', adaptive: '✓', workouts: '—',         price: '~$11.99/mo',      url: 'https://macrofactor.com',
     body: 'Built by Stronger By Science. Uses your weight trend and intake data to calculate your actual TDEE, then updates targets weekly. Deepest macro-coaching engine on the market.' },
   { name: 'Welling',      bestFor: 'Conversational chat logging',       scanner: '✓', macros: '✓', adaptive: '—', workouts: '—',         price: 'Paid',            url: 'https://www.welling.ai',
@@ -124,7 +125,7 @@ export default function NutritionContent() {
           title="Quick Comparison"
           subtitle="8 AI nutrition coach apps compared side-by-side — 2026 edition."
           pickColor="emerald"
-          pickLabel="Best Pick"
+          pickLabel="My Pick"
         />
       </div>
 
@@ -132,21 +133,22 @@ export default function NutritionContent() {
       <TopPickCard
         rank={1}
         name="Fitnivo"
-        tagline="Best all-in-one AI nutrition + fitness app"
-        description="Fitnivo is the only AI nutrition app that also covers workouts — closing both sides of the energy equation in one free-to-try product. AI food scanner, adaptive macro coaching, meal planning, and a full workout coach."
+        tagline="My Pick — All-in-one AI nutrition + fitness with FitBuu"
+        description="Fitnivo is the only AI nutrition app with a built-in calorie buffer system — you can eat outside your plan in your favourite cuisine using whatever ingredients you have, and FitBuu (the AI agent) adapts the rest of your day around it. No other app does this."
         bullets={[
+          'Calorie buffer — eat freely, FitBuu rebalances the rest of your day',
+          'FitBuu suggests meals in your favourite cuisine with your ingredients',
           'AI food scanner — photograph any meal for instant macros',
           'Adaptive calorie & macro targets that update as you progress',
-          'AI nutrition coach with tool-calling for meal plans',
           'Workout programming + tracking alongside nutrition',
-          'Free tier: 3 scans/day · 15 coach messages/day',
+          'Free tier: 3 scans/day · 15 coach messages/day · unlimited workouts',
           'Pro: unlimited everything at $10/month or $60/year',
         ]}
         ctaHref="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en"
         ctaText="Try Fitnivo Free"
         mascotSrc="/images/mascot/female-standing-transparent.png"
-        quote="The only nutrition app where your food coach and workout coach actually talk to each other."
-        badge="Best Pick 2026"
+        quote="You don't have to adapt to the plan — FitBuu (the AI agent) adapts to you."
+        badge="My Pick 2026"
       />
 
       {/* Apps #2–5 grid */}
@@ -170,7 +172,12 @@ export default function NutritionContent() {
         {apps.slice(5).map((a, i) => (
           <motion.div key={a.name} variants={fadeUp}
             className="flex items-start gap-4 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5 hover:border-[#FF6A00]/30 hover:bg-white/[0.03] transition-all group">
-            <div className="shrink-0 w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center font-bold font-mono text-xs text-white/50 group-hover:text-[#FF6A00] transition">{i + 6}</div>
+            <div className="shrink-0 flex flex-col items-center gap-1.5">
+              <span className="text-[10px] font-mono text-white/30 group-hover:text-[#FF6A00] transition">#{i + 6}</span>
+              <span className="transition-transform group-hover:scale-110 group-hover:-rotate-3">
+                <AppIcon name={a.name} size="md" />
+              </span>
+            </div>
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-3 mb-1 flex-wrap">
                 <span className="font-bold text-white text-sm">{a.name}</span>

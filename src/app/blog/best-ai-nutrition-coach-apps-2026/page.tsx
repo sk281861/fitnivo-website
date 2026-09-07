@@ -82,9 +82,22 @@ export default function Page() {
           <time dateTime="2026-09-04">September 4, 2026</time>
         </div>
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-8 max-w-4xl">
-          Best AI Nutrition Coach Apps in 2026
-        </h1>
+        <div className="relative">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-8 max-w-4xl">
+            Best AI Nutrition Coach Apps in 2026
+          </h1>
+          {/* Floating mascot — absolute so it doesn't push layout on desktop */}
+          <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-56 pointer-events-none select-none" aria-hidden="true">
+            <Image
+              src="/images/mascot/male-pointing-transparent.png"
+              alt=""
+              width={224}
+              height={340}
+              className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(255,106,0,0.25)]"
+              style={{ animation: 'mascotFloat 4s ease-in-out infinite' }}
+            />
+          </div>
+        </div>
 
         <div className="relative w-full aspect-[1.9/1] mb-10 overflow-hidden rounded-2xl">
           <Image
