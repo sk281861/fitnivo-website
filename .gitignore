@@ -42,3 +42,7 @@ next-env.d.ts
 
 # swarm config and database
 .swarm/
+
+# remotion project build artifacts (source is committed, deps + renders are not)
+/remotion-project/node_modules/
+/remotion-project/out/
