@@ -138,8 +138,7 @@ export default function PageContent() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: copy */}
             <motion.div initial="hidden" animate="show" variants={stagger}>
-              <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-[#FF6A00]/40 bg-[#FF6A00]/10 px-4 py-1.5 mb-6">
-                <Ico d={I.sparkles} size={14} />
+              <motion.div variants={fadeUp} className="inline-flex items-center rounded-full border border-[#FF6A00]/40 bg-[#FF6A00]/10 px-4 py-1.5 mb-6">
                 <span className="text-[#FF6A00] text-xs font-bold font-mono tracking-widest uppercase">AI Fitness &amp; Nutrition Coach</span>
               </motion.div>
 
