@@ -4,6 +4,12 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo/generateSchema';
+import ReadingProgress from '@/components/blog-editorial/ReadingProgress';
+import AppComparisonTable, { CompRow } from '@/components/blog-editorial/AppComparisonTable';
+import TopPickCard from '@/components/blog-editorial/TopPickCard';
+import SmallPickCard from '@/components/blog-editorial/SmallPickCard';
+import BlogSidebar from '@/components/blog-editorial/BlogSidebar';
+import BlogCTABanner from '@/components/blog-editorial/BlogCTABanner';
 
 export const metadata: Metadata = {
   title: 'Best AI Fitness Apps for Weight Loss in 2026 (Ranked) | Fitnivo',
@@ -32,7 +38,7 @@ const articleSchema = generateArticleSchema({
   image: 'https://fitnivo.in/images/blog/ai-coaching/ai_performance_analytics.webp',
   url: 'https://fitnivo.in/blog/ai-fitness-apps-for-weight-loss',
   datePublished: '2026-09-04T00:00:00Z',
-  dateModified: '2026-09-04T00:00:00Z',
+  dateModified: '2026-09-07T00:00:00Z',
   authorName: 'Fitnivo Editorial Team',
   authorUrl: 'https://fitnivo.in/about',
   wordCount: 2200,
@@ -117,13 +123,123 @@ const faqSchema = {
 
 const schemaJson = JSON.stringify([articleSchema, breadcrumbSchema, faqSchema]);
 
+const apps = [
+  {
+    name: 'Fitnivo',
+    bestFor: 'All-in-one weight loss',
+    workouts: '✓',
+    calories: '✓',
+    scanner: '✓',
+    coaching: '✓',
+    price: 'Free · $10/mo',
+    url: '/ai-fitness-coach',
+    internal: true,
+    body: 'Fitnivo is the only app on this list that combines AI workout coaching, AI food scanning, and macro/calorie tracking in a single free-to-try product. The AI fitness coach builds personalized workout programs and adapts them based on your logged sessions. The AI food scanner lets you photograph meals and log calories without manual entry. Free tier: 3 AI food scans/day, 15 AI coach messages/day, unlimited workout logging. Pro: $10/month or $60/year.',
+  },
+  {
+    name: 'MyFitnessPal',
+    bestFor: 'Largest food database',
+    workouts: '✓ (basic)',
+    calories: '✓',
+    scanner: '✓ (barcode)',
+    coaching: '—',
+    price: 'Free · $19.99/mo',
+    url: 'https://www.myfitnesspal.com',
+    body: 'MyFitnessPal has the largest food database of any tracking app — over 14 million entries. Manual calorie tracking is fast because almost every food is already in the database. Best used as a calorie tracking companion alongside a dedicated workout app.',
+  },
+  {
+    name: 'Noom',
+    bestFor: 'Behavior & mindset change',
+    workouts: '—',
+    calories: '✓',
+    scanner: '—',
+    coaching: '✓ (human)',
+    price: '~$70/mo',
+    url: 'https://www.noom.com',
+    body: "Noom focuses on the psychology of eating habits through a color-coded food system and human coaching. No workout programming or AI food scanning. Best for people whose primary obstacle is habits and mindset rather than information.",
+  },
+  {
+    name: 'Lose It!',
+    bestFor: 'Calorie tracking',
+    workouts: '✓ (basic)',
+    calories: '✓',
+    scanner: '✓ (photo, pro)',
+    coaching: '—',
+    price: 'Free · $39.99/yr',
+    url: 'https://www.loseit.com',
+    body: 'Lose It! is a solid calorie tracker with a large food database. Photo scanning is available on the premium tier. Basic workout logging exists but no adaptive programming.',
+  },
+  {
+    name: 'Cal AI',
+    bestFor: 'Photo-first calorie logging',
+    workouts: '—',
+    calories: '✓',
+    scanner: '✓',
+    coaching: '—',
+    price: 'Free · ~$10/mo',
+    url: 'https://www.cal.ai',
+    body: 'Cal AI is built specifically around photo-based food scanning. Logging is fast: photograph your meal, review the estimate, done. No workout programming or AI coaching.',
+  },
+  {
+    name: 'MacroFactor',
+    bestFor: 'Adaptive macro coaching',
+    workouts: '—',
+    calories: '✓',
+    scanner: '—',
+    coaching: '✓ (macro)',
+    price: '$11.99/mo',
+    url: 'https://www.macrofactorapp.com',
+    body: 'MacroFactor calculates your actual metabolic rate from your weight trend and logged calories, then adjusts macro targets week by week. Sophisticated precision for nutrition-only tracking. No workout programming or food scanning.',
+  },
+];
+
+const compColumns = [
+  { key: 'workouts', label: 'Workouts' },
+  { key: 'calories', label: 'Calories' },
+  { key: 'scanner', label: 'Scanner' },
+  { key: 'coaching', label: 'Coaching' },
+];
+
+const compRows: CompRow[] = apps.map((a) => ({
+  name: a.name,
+  bestFor: a.bestFor,
+  price: a.price,
+  isOurPick: a.name === 'Fitnivo',
+  values: {
+    workouts: a.workouts,
+    calories: a.calories,
+    scanner: a.scanner,
+    coaching: a.coaching,
+  },
+}));
+
+const toc = [
+  { id: 'what-it-takes',      label: 'What it takes to lose weight with an app' },
+  { id: 'comparison',         label: 'Quick comparison' },
+  { id: 'detailed-reviews',   label: 'Top picks: all apps reviewed' },
+  { id: 'what-to-look-for',   label: 'What to look for' },
+  { id: 'how-ai-helps',       label: 'How AI helps specifically' },
+  { id: 'common-mistakes',    label: 'Common mistakes' },
+  { id: 'faq',                label: 'Frequently asked questions' },
+];
+
+const takeaways = [
+  'Weight loss needs both calorie tracking and workout programming — not just one.',
+  'Fitnivo is the only free app combining AI workouts + food scanning in one place.',
+  'Noom suits mindset change; MacroFactor suits precision macro tracking.',
+  'Food scanning reduces logging friction — the #1 reason people quit tracking.',
+  'Protein targets matter as much as total calories during a deficit.',
+];
+
 export default function Page() {
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="bg-black text-white min-h-screen" data-build="editorial-v2-2026-09-07">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson }} />
+      <ReadingProgress />
       <Navbar />
 
-      <article className="max-w-4xl mx-auto px-6 pt-32 pb-20">
+      <div className="max-w-[1200px] mx-auto px-6 pt-32 pb-20">
+        {/* ─── HERO ─── */}
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm mb-8">
           <Link href="/" className="text-cyan-400 hover:text-cyan-300">Home</Link>
           <span className="text-white/30">/</span>
@@ -140,11 +256,11 @@ export default function Page() {
           <time dateTime="2026-09-04">September 4, 2026</time>
         </div>
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6 max-w-4xl">
           Best AI Fitness Apps for Weight Loss in 2026
         </h1>
 
-        <div className="relative w-full aspect-[1.9/1] mb-10 overflow-hidden rounded-lg">
+        <div className="relative w-full aspect-[1.9/1] mb-10 overflow-hidden rounded-lg max-w-4xl">
           <Image
             src="/images/blog/ai-coaching/ai_performance_analytics.webp"
             alt="Best AI fitness apps for weight loss in 2026"
@@ -154,190 +270,209 @@ export default function Page() {
             sizes="(max-width: 896px) 100vw, 896px"
           />
         </div>
+        {/* ─── /HERO ─── */}
 
-        {/* TL;DR box */}
-        <div className="bg-cyan-950/20 border border-cyan-400/30 p-6 mb-10">
-          <p className="text-xs uppercase tracking-widest text-cyan-400 font-bold mb-2">TL;DR / Verdict</p>
-          <p className="text-white font-semibold leading-relaxed">
-            The best <strong>AI fitness app for weight loss</strong> combines workout tracking with calorie and macro logging — so both sides of the energy equation are covered in one place. Fitnivo, MyFitnessPal, and Noom each approach this differently. Fitnivo is the only one with an AI food scanner, AI workout coach, and nutrition coaching all free to try.
-          </p>
-        </div>
+        {/* Two-column layout: article + sidebar */}
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_300px] gap-10">
+          <article className="min-w-0">
 
-        <p className="text-[#B4B4B4] text-lg leading-relaxed mb-8">
-          Weight loss requires a calorie deficit. The best AI fitness apps for weight loss help on both sides: workout programming to build or preserve muscle and increase energy expenditure, and calorie tracking to manage intake. Apps that cover only exercise or only nutrition miss half the equation. This guide ranks apps that do both — or that do one side exceptionally well.
-        </p>
-
-        <p className="text-sm text-[#B4B4B4] mb-10">
-          Reviewed by the <Link href="/about" className="text-cyan-400 hover:underline">Fitnivo Editorial Team</Link>. This is general information, not medical advice.
-        </p>
-
-        {/* Section 1 */}
-        <h2 className="text-3xl font-bold mb-6 border-l-4 border-cyan-400 pl-4">What makes an AI app good for weight loss</h2>
-        <p className="text-[#B4B4B4] leading-relaxed mb-4">
-          Weight loss is a two-variable problem: energy in and energy out. An app that only tracks workouts leaves the intake side unmanaged. An app that only tracks calories leaves exercise programming to chance. The best AI weight loss apps close both loops.
-        </p>
-        <ul className="space-y-3 text-[#B4B4B4] mb-10 list-disc pl-6">
-          <li><strong className="text-white">Calorie and macro tracking</strong> — the intake side. Ideally with food scanning to reduce friction.</li>
-          <li><strong className="text-white">Workout programming</strong> — the expenditure side. Resistance training preserves muscle during a deficit, which matters for long-term body composition.</li>
-          <li><strong className="text-white">AI adaptation</strong> — adjusting targets and programming as your weight and capacity change over time.</li>
-          <li><strong className="text-white">Habit tracking and consistency</strong> — the most important variable is showing up. Apps with low friction get used more.</li>
-        </ul>
-
-        {/* Section 2: comparison table */}
-        <h2 className="text-3xl font-bold mb-6 border-l-4 border-cyan-400 pl-4">Quick comparison: top AI weight loss apps in 2026</h2>
-        <div className="overflow-x-auto mb-10">
-          <table className="w-full text-sm text-[#B4B4B4] border-collapse">
-            <thead>
-              <tr className="border-b border-white/10">
-                <th className="text-left py-3 pr-4 text-white font-semibold">App</th>
-                <th className="text-left py-3 pr-4 text-white font-semibold">Workouts</th>
-                <th className="text-left py-3 pr-4 text-white font-semibold">Calorie tracking</th>
-                <th className="text-left py-3 pr-4 text-white font-semibold">Food scanner</th>
-                <th className="text-left py-3 pr-4 text-white font-semibold">AI coaching</th>
-                <th className="text-left py-3 text-white font-semibold">Price</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-white/5">
-              <tr>
-                <td className="py-3 pr-4 font-medium text-cyan-400">Fitnivo</td>
-                <td className="py-3 pr-4">Yes</td>
-                <td className="py-3 pr-4">Yes</td>
-                <td className="py-3 pr-4">Yes (3/day free)</td>
-                <td className="py-3 pr-4">Yes</td>
-                <td className="py-3">Free / $10/mo</td>
-              </tr>
-              <tr>
-                <td className="py-3 pr-4 font-medium text-white">MyFitnessPal</td>
-                <td className="py-3 pr-4">Basic</td>
-                <td className="py-3 pr-4">Yes (large DB)</td>
-                <td className="py-3 pr-4">Barcode only (free)</td>
-                <td className="py-3 pr-4">Limited</td>
-                <td className="py-3">Free / $19.99/mo</td>
-              </tr>
-              <tr>
-                <td className="py-3 pr-4 font-medium text-white">Noom</td>
-                <td className="py-3 pr-4">Minimal</td>
-                <td className="py-3 pr-4">Yes (color system)</td>
-                <td className="py-3 pr-4">No</td>
-                <td className="py-3 pr-4">Behavior coaching</td>
-                <td className="py-3">~$70/mo</td>
-              </tr>
-              <tr>
-                <td className="py-3 pr-4 font-medium text-white">Lose It!</td>
-                <td className="py-3 pr-4">Basic logging</td>
-                <td className="py-3 pr-4">Yes</td>
-                <td className="py-3 pr-4">Photo scan (premium)</td>
-                <td className="py-3 pr-4">Limited</td>
-                <td className="py-3">Free / $39.99/yr</td>
-              </tr>
-              <tr>
-                <td className="py-3 pr-4 font-medium text-white">Cal AI</td>
-                <td className="py-3 pr-4">No</td>
-                <td className="py-3 pr-4">Yes (via scan)</td>
-                <td className="py-3 pr-4">Yes (photo-first)</td>
-                <td className="py-3 pr-4">No</td>
-                <td className="py-3">Free / ~$10/mo</td>
-              </tr>
-              <tr>
-                <td className="py-3 pr-4 font-medium text-white">MacroFactor</td>
-                <td className="py-3 pr-4">No</td>
-                <td className="py-3 pr-4">Yes (adaptive macros)</td>
-                <td className="py-3 pr-4">No</td>
-                <td className="py-3 pr-4">Macro coaching</td>
-                <td className="py-3">$11.99/mo</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        {/* Section 3: App write-ups */}
-        <h2 className="text-3xl font-bold mb-6 border-l-4 border-cyan-400 pl-4">Top picks: what each app does best</h2>
-
-        <h3 className="text-xl font-bold text-cyan-400 mb-3">Fitnivo — Best all-in-one AI weight loss app</h3>
-        <p className="text-[#B4B4B4] leading-relaxed mb-4">
-          Fitnivo is the only app on this list that combines AI workout coaching, AI food scanning, and macro/calorie tracking in a single free-to-try product. The <Link href="/ai-fitness-coach" className="text-cyan-400 hover:underline">AI fitness coach</Link> builds personalized workout programs and adapts them based on your logged sessions. The <Link href="/ai-food-scanner" className="text-cyan-400 hover:underline">AI food scanner</Link> lets you photograph meals and log calories without manual entry. The <Link href="/ai-nutrition-coach" className="text-cyan-400 hover:underline">AI nutrition coach</Link> interprets your food and training data together.
-        </p>
-        <p className="text-[#B4B4B4] leading-relaxed mb-8">
-          Free tier: 3 AI food scans/day, 15 AI coach messages/day, unlimited workout logging. Pro: $10/month or $60/year.
-        </p>
-
-        <h3 className="text-xl font-bold text-white mb-3">MyFitnessPal — Best food database</h3>
-        <p className="text-[#B4B4B4] leading-relaxed mb-8">
-          MyFitnessPal has the largest food database of any tracking app — over 14 million entries. Manual calorie tracking is fast because almost every food is already in the database. Workout tracking exists but is basic. There is no AI food scanner on the free tier and no adaptive programming. Best used as a calorie tracking companion alongside a dedicated workout app.
-        </p>
-
-        <h3 className="text-xl font-bold text-white mb-3">Noom — Best for behavior change</h3>
-        <p className="text-[#B4B4B4] leading-relaxed mb-8">
-          Noom does not approach weight loss through calorie math — it focuses on the psychology of eating habits. Food is color-coded (green/yellow/red) rather than precisely counted. Human coaches and a psychology curriculum are the core product. It does not include workout programming or AI food scanning. It is the most expensive option on this list and suits people whose primary obstacle is habits and mindset rather than information.
-        </p>
-
-        <h3 className="text-xl font-bold text-white mb-3">Cal AI — Best photo-first scanner</h3>
-        <p className="text-[#B4B4B4] leading-relaxed mb-8">
-          Cal AI is built specifically around photo-based food scanning. Logging is fast: photograph your meal, review the estimate, done. It does not include workout programming or AI coaching. Best for people who want photo calorie logging without the additional features of a full fitness app.
-        </p>
-
-        <h3 className="text-xl font-bold text-white mb-3">MacroFactor — Best adaptive macro tracking</h3>
-        <p className="text-[#B4B4B4] leading-relaxed mb-8">
-          MacroFactor calculates your actual metabolic rate from your weight trend and logged calories, then adjusts macro targets week by week. This adaptive calorie/macro approach is sophisticated and accurate for pure nutrition tracking. No workout programming, no food scanning, no AI coach. Strong for dieters who want precision macro coaching and already have a workout plan.
-        </p>
-
-        {/* Section 4 */}
-        <h2 className="text-3xl font-bold mb-6 border-l-4 border-cyan-400 pl-4">What to look for in an AI weight loss app</h2>
-        <ul className="space-y-3 text-[#B4B4B4] mb-10 list-disc pl-6">
-          <li><strong className="text-white">Calorie and macro tracking</strong> — without this you cannot manage the intake side of weight loss.</li>
-          <li><strong className="text-white">Food scanning</strong> — reduces friction, so you actually log every meal.</li>
-          <li><strong className="text-white">Workout integration</strong> — exercise burns calories and builds or preserves muscle during a deficit.</li>
-          <li><strong className="text-white">Progressive overload support</strong> — resistance training that gets harder over time preserves muscle mass, which matters for body composition and metabolic rate.</li>
-          <li><strong className="text-white">Macro breakdown</strong> — protein targets are especially important during weight loss to preserve muscle.</li>
-        </ul>
-
-        {/* Section 5 */}
-        <h2 className="text-3xl font-bold mb-6 border-l-4 border-cyan-400 pl-4">How AI specifically helps with weight loss</h2>
-        <p className="text-[#B4B4B4] leading-relaxed mb-4">
-          Beyond basic tracking, AI adds weight-loss-specific value in three ways. First, adaptive calorie targets: as you lose weight your maintenance calories decrease, and a good AI system adjusts your targets accordingly rather than keeping you on a fixed 1,500 calorie diet indefinitely. Second, food scanning removes logging friction — the biggest reason people stop tracking is that it feels too effortful. Third, workout programming maintains muscle mass during a deficit, which generic diet plans often ignore entirely.
-        </p>
-        <p className="text-[#B4B4B4] leading-relaxed mb-10">
-          The <Link href="/ai-meal-planner" className="text-cyan-400 hover:underline">AI meal planner</Link> and <Link href="/ai-workout-planner" className="text-cyan-400 hover:underline">AI workout planner</Link> work together in Fitnivo to address both variables in parallel.
-        </p>
-
-        {/* Section 6 */}
-        <h2 className="text-3xl font-bold mb-6 border-l-4 border-cyan-400 pl-4">Common mistakes with AI weight loss apps</h2>
-        <ul className="space-y-3 text-[#B4B4B4] mb-10 list-disc pl-6">
-          <li><strong className="text-white">Tracking only some meals.</strong> Missed meals are often the highest-calorie ones. Track everything, even on bad days.</li>
-          <li><strong className="text-white">Ignoring protein targets.</strong> Hitting calories but missing protein during a deficit leads to muscle loss. Protein tracking is as important as calorie tracking for body composition.</li>
-          <li><strong className="text-white">Skipping resistance training.</strong> Cardio alone during a deficit can lead to significant muscle loss. Programming resistance training preserves lean mass.</li>
-          <li><strong className="text-white">Not reviewing scan estimates.</strong> AI food scanners are estimates — reviewing and adjusting obvious errors before logging meaningfully improves accuracy over time.</li>
-        </ul>
-
-        {/* FAQ */}
-        <h2 className="text-3xl font-bold mb-6 border-l-4 border-cyan-400 pl-4">Frequently asked questions</h2>
-        <div className="space-y-6 mb-12">
-          {faqSchema.mainEntity.map((item, i) => (
-            <div key={i} className={i > 0 ? 'border-t border-[#1f1f1f] pt-6' : ''}>
-              <h4 className="text-lg font-bold text-white mb-2">{item.name}</h4>
-              <p className="text-[#B4B4B4]">{item.acceptedAnswer.text}</p>
+            {/* TL;DR */}
+            <div className="bg-[#FF6A00]/[0.06] border border-[#FF6A00]/30 p-6 mb-10 rounded-xl">
+              <p className="text-[10px] uppercase tracking-widest text-[#FF6A00] font-bold font-mono mb-2">TL;DR / Verdict</p>
+              <p className="text-white font-semibold leading-relaxed">
+                The best <strong>AI fitness app for weight loss</strong> combines workout tracking with calorie and macro logging — so both sides of the energy equation are covered in one place. Fitnivo is the only free-to-try option with an AI food scanner, AI workout coach, and nutrition coaching all in one app.
+              </p>
             </div>
-          ))}
-        </div>
 
-        {/* CTA */}
-        <div className="border border-cyan-400 bg-cyan-950/10 p-8 mb-12">
-          <h3 className="text-2xl font-bold mb-3">Start tracking workouts and nutrition together — free</h3>
-          <p className="text-[#B4B4B4] mb-4">AI food scanning, personalized workout programming, and macro tracking in one app. Free to start, no credit card needed.</p>
-          <a href="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en" className="inline-block px-6 py-3 bg-cyan-400 text-black font-semibold uppercase tracking-wider hover:bg-cyan-300">
-            Download Fitnivo
-          </a>
-        </div>
+            <p className="text-[#B4B4B4] text-lg leading-relaxed mb-6">
+              Weight loss requires a calorie deficit. The best AI fitness apps for weight loss help on both sides: workout programming to build or preserve muscle and increase energy expenditure, and calorie tracking to manage intake. Apps that cover only exercise or only nutrition miss half the equation.
+            </p>
+            <p className="text-[#B4B4B4] text-lg leading-relaxed mb-8">
+              This guide ranks apps that do both — or that do one side exceptionally well — and explains exactly what each is best for.
+            </p>
 
-        <h3 className="text-xl font-bold mb-4">Related</h3>
-        <ul className="text-cyan-400 space-y-2">
-          <li><Link href="/ai-fitness-coach" className="hover:underline">Fitnivo AI Fitness Coach</Link></li>
-          <li><Link href="/ai-food-scanner" className="hover:underline">Fitnivo AI Food Scanner</Link></li>
-          <li><Link href="/ai-nutrition-coach" className="hover:underline">Fitnivo AI Nutrition Coach</Link></li>
-          <li><Link href="/blog/best-ai-fitness-apps-2026" className="hover:underline">Best AI Fitness Apps in 2026</Link></li>
-          <li><Link href="/blog/best-ai-nutrition-coach-apps-2026" className="hover:underline">Best AI Nutrition Coach Apps in 2026</Link></li>
-        </ul>
-      </article>
+            <p className="text-xs text-white/40 mb-10 flex items-center gap-2">
+              <span className="inline-block w-1 h-1 rounded-full bg-white/40" />
+              Reviewed by the <Link href="/about" className="text-[#FF6A00] hover:underline">Fitnivo Editorial Team</Link>. General information only — not medical advice.
+            </p>
+
+            {/* What it takes */}
+            <section id="what-it-takes" className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 flex items-baseline gap-3">
+                <span className="text-[#FF6A00]">—</span>
+                What it takes to lose weight with an app
+              </h2>
+              <p className="text-[#B4B4B4] leading-relaxed mb-4">
+                Weight loss is a two-variable problem: energy in and energy out. An app that only tracks workouts leaves the intake side unmanaged. An app that only tracks calories leaves exercise programming to chance. The best AI weight loss apps close both loops.
+              </p>
+              <ul className="space-y-3 text-[#B4B4B4] mb-4">
+                {[
+                  ['Calorie and macro tracking', 'the intake side. Ideally with food scanning to reduce friction.'],
+                  ['Workout programming', 'the expenditure side. Resistance training preserves muscle during a deficit, which matters for long-term body composition.'],
+                  ['AI adaptation', 'adjusting targets and programming as your weight and capacity change over time.'],
+                  ['Low friction', 'the most important variable is consistency. Apps you actually use every day beat any app you quit.'],
+                ].map(([term, desc]) => (
+                  <li key={term} className="flex items-start gap-3">
+                    <span className="text-[#FF6A00] mt-1 shrink-0">◆</span>
+                    <span><strong className="text-white">{term}</strong> — {desc}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            {/* Comparison table */}
+            <div id="comparison">
+              <AppComparisonTable
+                columns={compColumns}
+                rows={compRows}
+                title="Quick Comparison"
+                subtitle="Top AI weight loss apps in 2026 — ranked by all-in-one coverage."
+              />
+            </div>
+
+            {/* Top pick */}
+            <TopPickCard
+              rank={1}
+              name="Fitnivo"
+              tagline="Best all-in-one AI weight loss app"
+              description="Fitnivo is the only app that combines AI workout coaching, AI food scanning, macro/calorie tracking, and nutrition coaching — all free to try. Build your deficit from both sides in one place."
+              bullets={[
+                'AI workout plans that adapt as you progress',
+                'AI food scanner — photograph meals to log (3/day free)',
+                'Calorie & macro tracking with protein targets',
+                'AI nutrition coach ties workouts + food together',
+                'Free tier: unlimited workouts, 15 coach messages/day',
+                'Pro: unlimited scans + messages at $10/month',
+              ]}
+              ctaHref="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en"
+              ctaText="Download Fitnivo"
+              mascotSrc="/images/mascot/female-standing-transparent.png"
+              quote="The only app where your workout coach and nutrition coach actually talk to each other."
+              badge="Our #1 Pick"
+            />
+
+            {/* Other picks grid */}
+            <div className="grid sm:grid-cols-2 gap-4 mb-16">
+              {apps.slice(1).map((a, i) => (
+                <SmallPickCard
+                  key={a.name}
+                  rank={i + 2}
+                  name={a.name}
+                  bestFor={a.bestFor}
+                  price={a.price}
+                  description={a.body}
+                  url={a.url}
+                  internal={a.internal}
+                />
+              ))}
+            </div>
+
+            {/* What to look for */}
+            <section id="what-to-look-for" className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 flex items-baseline gap-3">
+                <span className="text-[#FF6A00]">—</span>
+                What to look for in an AI weight loss app
+              </h2>
+              <ul className="space-y-3 text-[#B4B4B4]">
+                {[
+                  ['Calorie and macro tracking', 'without this you cannot manage the intake side of weight loss.'],
+                  ['Food scanning', 'reduces friction, so you actually log every meal instead of skipping inconvenient ones.'],
+                  ['Workout integration', 'exercise burns calories and builds or preserves muscle during a deficit.'],
+                  ['Progressive overload support', 'resistance training that gets harder over time preserves lean mass, which protects your metabolic rate.'],
+                  ['Macro breakdown', 'protein targets are especially important during weight loss to avoid muscle loss.'],
+                ].map(([term, desc]) => (
+                  <li key={term} className="flex items-start gap-3">
+                    <span className="text-[#FF6A00] mt-1 shrink-0">◆</span>
+                    <span><strong className="text-white">{term}</strong> — {desc}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            {/* How AI helps */}
+            <section id="how-ai-helps" className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 flex items-baseline gap-3">
+                <span className="text-[#FF6A00]">—</span>
+                How AI specifically helps with weight loss
+              </h2>
+              <p className="text-[#B4B4B4] leading-relaxed mb-4">
+                Beyond basic tracking, AI adds weight-loss-specific value in three ways. First, adaptive calorie targets: as you lose weight your maintenance calories decrease, and a good AI system adjusts your targets accordingly rather than keeping you on a fixed number indefinitely. Second, food scanning removes logging friction — the biggest reason people stop tracking is that it feels too effortful. Third, workout programming maintains muscle mass during a deficit, which generic diet plans ignore entirely.
+              </p>
+              <p className="text-[#B4B4B4] leading-relaxed">
+                The <Link href="/ai-meal-planner" className="text-[#FF6A00] hover:underline">AI meal planner</Link> and <Link href="/ai-workout-planner" className="text-[#FF6A00] hover:underline">AI workout planner</Link> work together in Fitnivo to address both variables in parallel — something no standalone diet app or workout app can match.
+              </p>
+            </section>
+
+            {/* Common mistakes */}
+            <section id="common-mistakes" className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 flex items-baseline gap-3">
+                <span className="text-[#FF6A00]">—</span>
+                Common mistakes with AI weight loss apps
+              </h2>
+              <ul className="space-y-3 text-[#B4B4B4]">
+                {[
+                  ['Tracking only some meals.', 'Missed meals are often the highest-calorie ones. Track everything, even on bad days.'],
+                  ['Ignoring protein targets.', 'Hitting calories but missing protein during a deficit leads to muscle loss. Protein tracking is as important as calorie tracking for body composition.'],
+                  ['Skipping resistance training.', 'Cardio alone during a deficit can lead to significant muscle loss. Programming resistance training preserves lean mass.'],
+                  ['Not reviewing scan estimates.', 'AI food scanners are estimates — reviewing and adjusting obvious errors before logging meaningfully improves accuracy over time.'],
+                ].map(([term, desc]) => (
+                  <li key={term} className="flex items-start gap-3">
+                    <span className="text-[#FF6A00] mt-1 shrink-0">◆</span>
+                    <span><strong className="text-white">{term}</strong> {desc}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            {/* FAQ */}
+            <section id="faq" className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-baseline gap-3">
+                <span className="text-[#FF6A00]">—</span>
+                Frequently asked questions
+              </h2>
+              <div className="space-y-0 divide-y divide-white/[0.06]">
+                {faqSchema.mainEntity.map((item, i) => (
+                  <div key={i} className="py-6">
+                    <h3 className="text-base font-bold text-white mb-2">{item.name}</h3>
+                    <p className="text-[#B4B4B4] text-sm leading-relaxed">{item.acceptedAnswer.text}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* CTA Banner */}
+            <BlogCTABanner
+              headline="Track Workouts and Nutrition Together — Free"
+              subheading="AI food scanning, adaptive workout programming, and macro tracking in one app. Free to start, no credit card needed."
+              primaryHref="https://play.google.com/store/apps/details?id=com.fitnivo.app&hl=en"
+              primaryText="Download Fitnivo"
+            />
+
+            {/* Related */}
+            <div className="mt-10">
+              <h3 className="text-sm uppercase tracking-widest font-mono text-white/40 mb-4">Related</h3>
+              <ul className="space-y-2 text-sm">
+                {[
+                  ['/ai-fitness-coach', 'Fitnivo AI Fitness Coach'],
+                  ['/ai-food-scanner', 'Fitnivo AI Food Scanner'],
+                  ['/ai-nutrition-coach', 'Fitnivo AI Nutrition Coach'],
+                  ['/blog/best-ai-fitness-apps-2026', 'Best AI Fitness Apps in 2026'],
+                  ['/blog/best-ai-nutrition-coach-apps-2026', 'Best AI Nutrition Coach Apps in 2026'],
+                ].map(([href, label]) => (
+                  <li key={href}>
+                    <Link href={href} className="text-[#FF6A00] hover:text-[#FF8524] hover:underline transition inline-flex items-center gap-1">
+                      {label} <span>→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+
+          {/* Sidebar */}
+          <BlogSidebar toc={toc} takeaways={takeaways} faqHref="#faq" />
+        </div>
+      </div>
 
       <Footer />
     </main>
