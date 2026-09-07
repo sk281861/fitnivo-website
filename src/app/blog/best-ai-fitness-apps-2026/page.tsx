@@ -192,10 +192,7 @@ export default function Page() {
                   10-second demo · auto-plays on view
                 </span>
               </div>
-              <HeroVideo
-                src="/videos/fitnivo-demo.mp4"
-                poster="/videos/fitnivo-demo-poster.jpg"
-              />
+              <HeroVideo src="/videos/fitnivo-demo.mp4" />
             </div>
 
             {/* Comparison table */}
