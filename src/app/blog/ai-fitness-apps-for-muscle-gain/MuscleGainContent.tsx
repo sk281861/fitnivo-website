@@ -130,6 +130,7 @@ const faqs = [
 
 export default function MuscleGainContent() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openReview, setOpenReview] = useState<number | null>(null);
 
   return (
     <>
@@ -253,6 +254,41 @@ export default function MuscleGainContent() {
           </motion.div>
         ))}
       </motion.div>
+
+      <section id="detailed-reviews" className="mb-14">
+        <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+          className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-baseline gap-3">
+          <span className="text-[#FF6A00]">—</span> App Reviews In Full
+        </motion.h2>
+        <div className="space-y-2">
+          {apps.map((app, i) => (
+            <div key={app.name}
+              className={`rounded-2xl border overflow-hidden transition-colors ${openReview === i ? 'border-[#FF6A00]/40 bg-[#FF6A00]/[0.04]' : 'border-white/[0.08] bg-white/[0.02]'}`}>
+              <button onClick={() => setOpenReview(openReview === i ? null : i)}
+                className="w-full flex items-center gap-3 p-5 text-left">
+                <AppIcon name={app.name} size="sm" />
+                <div className="flex-1 min-w-0">
+                  <span className="font-semibold text-white text-sm">{app.name}</span>
+                  <span className="ml-2 text-xs text-white/40 font-mono hidden sm:inline">— {app.bestFor}</span>
+                </div>
+                <span className={`shrink-0 w-6 h-6 rounded-full border flex items-center justify-center transition-all font-mono text-base ${openReview === i ? 'border-[#FF6A00] text-[#FF6A00] rotate-45' : 'border-white/20 text-white/40'}`}>+</span>
+              </button>
+              <AnimatePresence initial={false}>
+                {openReview === i && (
+                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}>
+                    <div className="px-5 pb-5 space-y-3 border-t border-white/[0.06]">
+                      {app.body.split('\n\n').map((para, j) => (
+                        <p key={j} className="text-sm text-white/65 leading-relaxed">{para}</p>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Picks by goal */}
       <section id="picks-by-goal" className="mb-14">

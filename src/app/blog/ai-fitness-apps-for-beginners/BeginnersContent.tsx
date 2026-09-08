@@ -116,8 +116,51 @@ const faqs = [
 
 const tldr = 'The best AI fitness apps for beginners handle all the decisions you don\'t know how to make yet. Fitnivo is the most complete free-to-try option — workouts and nutrition in one app, with FitBuu to answer your questions along the way.';
 
+const fullReviews = [
+  {
+    name: 'Fitnivo',
+    bestFor: 'Beginners who want workouts + nutrition together',
+    paragraphs: [
+      'Fitnivo onboards you with goal, experience level, equipment, and schedule — then generates a structured weekly workout program. The AI fitness coach applies progressive overload automatically based on what you log: if you hit your targets, the next session increases the load. You do not need to know when to add weight.',
+      'The addition of calorie and macro tracking in the same app means beginners can address both sides of the equation without juggling multiple subscriptions. The free tier gives you unlimited workout logging, 3 AI food scans per day, and 15 AI coach messages per day — enough to genuinely test the product before spending anything.',
+      'Weakness for beginners: No video demonstrations built in. Exercise descriptions and the AI coach fill the gap, but if you need to see the movement, you will need to look it up externally.',
+    ],
+  },
+  {
+    name: 'Freeletics',
+    bestFor: 'Beginners who want bodyweight workouts with coach guidance',
+    paragraphs: [
+      'Freeletics has a genuine beginner track with bodyweight workouts that scale down to easy movements. The AI Coach collects feedback after every session (how hard was it, how did you feel) and adjusts the next workout accordingly. This makes it good for beginners who are not sure how to pace themselves.',
+      'Weakness: No gym-equipment programs on the free tier. Nutrition tracking is basic. Pricing is higher than some alternatives.',
+    ],
+  },
+  {
+    name: 'FitnessAI',
+    bestFor: 'Beginners going to a gym who want simple strength progression',
+    paragraphs: [
+      'FitnessAI is clean and focused — it gives you a workout with specific weights to use and tells you when to increase. For beginners who just want to show up and follow instructions at the gym without thinking too much, this works well. It does not overwhelm with options.',
+      'Weakness: No nutrition, limited exercise explanations, gym equipment required.',
+    ],
+  },
+  {
+    name: 'Nike Training Club',
+    bestFor: 'Beginners who want free guided video workouts',
+    paragraphs: [
+      'Nike Training Club is the best free option for beginners who want to see the movements. Videos are professionally produced. There is a beginner program with a sensible progression. The limitation is that NTC does not track sets and reps in detail or apply personalized progressive overload — it is more of a video library with some structure than a true AI workout system.',
+    ],
+  },
+  {
+    name: 'Fitbod',
+    bestFor: 'Gym beginners who want variety in their programs',
+    paragraphs: [
+      'Fitbod generates each workout session fresh based on what you last trained and what equipment is available. For beginners, this can mean a lot of variety — which is both good (staying interested) and bad (lack of a consistent program to build habits around). It is better once you have a few months of experience and want more exercise diversity.',
+    ],
+  },
+];
+
 export default function BeginnersContent() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openReview, setOpenReview] = useState<number | null>(null);
 
   return (
     <>
@@ -191,6 +234,41 @@ export default function BeginnersContent() {
           />
         ))}
       </div>
+
+      <section id="detailed-reviews" className="mb-14">
+        <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+          className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-baseline gap-3">
+          <span className="text-[#FF6A00]">—</span> App Reviews In Full
+        </motion.h2>
+        <div className="space-y-2">
+          {fullReviews.map((review, i) => (
+            <div key={review.name}
+              className={`rounded-2xl border overflow-hidden transition-colors ${openReview === i ? 'border-[#FF6A00]/40 bg-[#FF6A00]/[0.04]' : 'border-white/[0.08] bg-white/[0.02]'}`}>
+              <button onClick={() => setOpenReview(openReview === i ? null : i)}
+                className="w-full flex items-center gap-3 p-5 text-left">
+                <AppIcon name={review.name} size="sm" />
+                <div className="flex-1 min-w-0">
+                  <span className="font-semibold text-white text-sm">{review.name}</span>
+                  <span className="ml-2 text-xs text-white/40 font-mono hidden sm:inline">— {review.bestFor}</span>
+                </div>
+                <span className={`shrink-0 w-6 h-6 rounded-full border flex items-center justify-center transition-all font-mono text-base ${openReview === i ? 'border-[#FF6A00] text-[#FF6A00] rotate-45' : 'border-white/20 text-white/40'}`}>+</span>
+              </button>
+              <AnimatePresence initial={false}>
+                {openReview === i && (
+                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}>
+                    <div className="px-5 pb-5 space-y-3 border-t border-white/[0.06]">
+                      {review.paragraphs.map((para, j) => (
+                        <p key={j} className="text-sm text-white/65 leading-relaxed">{para}</p>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section id="what-beginners-need" className="mb-14">
         <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
