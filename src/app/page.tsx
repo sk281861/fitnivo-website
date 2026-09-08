@@ -1,9 +1,6 @@
-export const dynamic = 'force-dynamic';
-
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import nextDynamic from "next/dynamic";
-import { generateOrganizationSchema } from "@/lib/seo/generateSchema";
 
 // Dynamically import below-the-fold components
 const SocialProof = nextDynamic(() => import("@/components/SocialProof"), { ssr: true });
@@ -26,15 +23,8 @@ const BlogPreviewSection = nextDynamic(() => import("@/components/BlogPreviewSec
 const Footer = nextDynamic(() => import("@/components/Footer"), { ssr: true });
 
 export default function Home() {
-  const organizationSchema = generateOrganizationSchema();
-  const schemaJson = JSON.stringify(organizationSchema);
-
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: schemaJson }}
-      />
       <Navbar />
       <Hero />
       <ScrollStory />
@@ -43,9 +33,7 @@ export default function Home() {
       <ScrollStoryConsistency />
       <SocialProof />
       <FeaturesGrid />
-      <div className="sr-only">
-        <PillarsSection />
-      </div>
+      <PillarsSection />
       <AiCoach />
       <MindfulnessSection />
       <AppPreview />

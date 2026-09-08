@@ -31,25 +31,6 @@ export function generateProductSchema(props: ProductSchemaProps) {
       price: '0',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
-      shippingDetails: {
-        '@type': 'OfferShippingDetails',
-        shippingRate: {
-          '@type': 'MonetaryAmount',
-          value: '0',
-          currency: 'USD',
-        },
-        shippingDestination: {
-          '@type': 'DefinedRegion',
-          addressCountry: 'US',
-        },
-      },
-      hasMerchantReturnPolicy: {
-        '@type': 'MerchantReturnPolicy',
-        applicableCountry: 'US',
-        returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-        merchantReturnDays: 0,
-        returnFees: 'https://schema.org/FreeReturn',
-      },
     },
   };
 }
@@ -80,7 +61,8 @@ export function generateOrganizationSchema() {
     url: 'https://fitnivo.in',
     logo: 'https://fitnivo.in/favicon.webp',
     sameAs: [
-      'https://www.instagram.com/fitnivo.app/'
+      'https://www.instagram.com/fitnivo.app/',
+      'https://play.google.com/store/apps/details?id=com.fitnivo.app'
     ]
   };
 }
@@ -100,7 +82,7 @@ export interface ArticleSchemaProps {
 export function generateArticleSchema(props: ArticleSchemaProps) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: props.headline,
     description: props.description,
     image: props.image,
@@ -109,7 +91,7 @@ export function generateArticleSchema(props: ArticleSchemaProps) {
     dateModified: props.dateModified,
     ...(props.wordCount && { wordCount: props.wordCount }),
     author: {
-      '@type': 'Person',
+      '@type': 'Organization',
       name: props.authorName,
       ...(props.authorUrl && { url: props.authorUrl }),
     },

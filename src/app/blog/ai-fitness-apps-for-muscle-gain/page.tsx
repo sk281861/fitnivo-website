@@ -33,7 +33,7 @@ const articleSchema = generateArticleSchema({
   image: 'https://fitnivo.in/images/blog/ai-coaching/ai_coaching_comparison_chart.webp',
   url: 'https://fitnivo.in/blog/ai-fitness-apps-for-muscle-gain',
   datePublished: '2026-09-04T00:00:00Z',
-  dateModified: '2026-09-04T00:00:00Z',
+  dateModified: '2026-09-09T00:00:00Z',
   authorName: 'Fitnivo Editorial Team',
   authorUrl: 'https://fitnivo.in/about',
   wordCount: 2300,

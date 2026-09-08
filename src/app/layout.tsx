@@ -24,12 +24,14 @@ export const metadata: Metadata = {
     title: 'Fitnivo — AI Fitness & Nutrition Coach',
     description:
       'Personalized AI workouts, calorie & macro tracking, AI food scanning, and meal planning in one app.',
+    images: [{ url: 'https://fitnivo.in/images/hero/Fitnivo_hero_section.webp', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Fitnivo — AI Fitness & Nutrition Coach',
     description:
       'Personalized AI workouts, calorie & macro tracking, AI food scanning, and meal planning in one app.',
+    images: ['https://fitnivo.in/images/hero/Fitnivo_hero_section.webp'],
   },
   verification: {
     google: 'IeEXdWHYshLJYhyG80USropVWT-3gAw7dc4YtgQi7xI',

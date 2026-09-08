@@ -39,7 +39,7 @@ const articleSchema = generateArticleSchema({
   image: 'https://fitnivo.in/images/blog/ai-coaching/best-ai-fitness-apps-2026.webp',
   url: 'https://fitnivo.in/blog/best-ai-fitness-apps-2026',
   datePublished: '2026-09-03T00:00:00Z',
-  dateModified: '2026-09-03T00:00:00Z',
+  dateModified: '2026-09-09T00:00:00Z',
   authorName: 'Fitnivo Editorial Team',
   authorUrl: 'https://fitnivo.in/about',
   wordCount: 2400,
@@ -130,15 +130,15 @@ export default function Page() {
       <div className="max-w-[1200px] mx-auto px-6 pt-32 pb-20">
         {/* ─── HERO (unchanged) ─── */}
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm mb-8">
-          <Link href="/" className="text-cyan-400 hover:text-cyan-300">Home</Link>
+          <Link href="/" className="text-[#FF6A00] hover:text-[#FF6A00]/80">Home</Link>
           <span className="text-white/30">/</span>
-          <Link href="/blog" className="text-cyan-400 hover:text-cyan-300">Blog</Link>
+          <Link href="/blog" className="text-[#FF6A00] hover:text-[#FF6A00]/80">Blog</Link>
           <span className="text-white/30">/</span>
           <span className="text-white/60">Best AI Fitness Apps 2026</span>
         </nav>
 
         <div className="mb-6 flex items-center gap-3 text-sm text-[#B4B4B4]">
-          <span className="uppercase tracking-widest text-cyan-400 text-xs font-bold">Best-of</span>
+          <span className="uppercase tracking-widest text-[#FF6A00] text-xs font-bold">Best-of</span>
           <span>·</span>
           <span>12 min read</span>
           <span>·</span>
@@ -164,7 +164,7 @@ export default function Page() {
         {/* Two-column layout: article + sidebar */}
         <div className="grid lg:grid-cols-[minmax(0,1fr)_300px] gap-10">
           <article className="min-w-0">
-            <div className="bg-cyan-950/20 border border-cyan-400/30 p-6 mb-10 rounded-xl">
+            <div className="bg-[#FF6A00]/[0.05] border border-[#FF6A00]/30 p-6 mb-10 rounded-xl">
               <p className="text-white font-semibold leading-relaxed">
                 <strong>Quick verdict:</strong> No single AI fitness app is best for everyone. Fitbod leads pure strength programming, Freeletics owns bodyweight, Ray is unmatched for voice-guided real-time coaching, SensAI wins for recovery-aware training, and Fitnivo is the best if you want workouts + nutrition + food scanning in one app.
               </p>

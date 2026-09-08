@@ -24,20 +24,20 @@ const LOGOS: Record<string, { src: string; bg: string; pad?: string; ring?: stri
   Caliber:      { src: '/images/logo/caliber.png',          bg: 'bg-white',      pad: 'p-1' },
   Ray:          { src: '/images/logo/ray.png',              bg: 'bg-black',      pad: 'p-0.5' },
   SensAI:       { src: '/images/logo/sensai.png',           bg: 'bg-black',      pad: 'p-1' },
-  JuggernautAI: { src: '/images/logo/juggernautai.jpg',     bg: 'bg-black',      pad: 'p-0.5' },
+  JuggernautAI: { src: '/images/logo/juggernautai.webp',     bg: 'bg-black',      pad: 'p-0.5' },
   // Home/beginner/personal-trainer comparison apps
-  'Nike Training Club': { src: '/images/logo/niketrainingclub.jpg', bg: 'bg-black', pad: 'p-0' },
-  Hevy:                 { src: '/images/logo/hevy.jpg',             bg: 'bg-black', pad: 'p-0' },
-  Planfit:              { src: '/images/logo/planfit.jpg',          bg: 'bg-black', pad: 'p-0' },
+  'Nike Training Club': { src: '/images/logo/niketrainingclub.webp', bg: 'bg-black', pad: 'p-0' },
+  Hevy:                 { src: '/images/logo/hevy.webp',             bg: 'bg-black', pad: 'p-0' },
+  Planfit:              { src: '/images/logo/planfit.webp',          bg: 'bg-black', pad: 'p-0' },
   // Weight-loss & nutrition comparison apps
-  MyFitnessPal: { src: '/images/logo/myfitnesspal.jpg',     bg: 'bg-black',      pad: 'p-0' },
-  Noom:         { src: '/images/logo/noom.jpg',             bg: 'bg-black',      pad: 'p-0' },
-  'Lose It!':   { src: '/images/logo/loseit.jpg',           bg: 'bg-black',      pad: 'p-0' },
-  'Cal AI':     { src: '/images/logo/calai.jpg',            bg: 'bg-black',      pad: 'p-0' },
-  MacroFactor:  { src: '/images/logo/macrofactor.jpg',      bg: 'bg-black',      pad: 'p-0' },
-  Welling:      { src: '/images/logo/welling.jpg',          bg: 'bg-black',      pad: 'p-0' },
-  Cronometer:   { src: '/images/logo/cronometer.jpg',       bg: 'bg-black',      pad: 'p-0' },
-  Nutrola:      { src: '/images/logo/nutrola.jpg',          bg: 'bg-black',      pad: 'p-0' },
+  MyFitnessPal: { src: '/images/logo/myfitnesspal.webp',     bg: 'bg-black',      pad: 'p-0' },
+  Noom:         { src: '/images/logo/noom.webp',             bg: 'bg-black',      pad: 'p-0' },
+  'Lose It!':   { src: '/images/logo/loseit.webp',           bg: 'bg-black',      pad: 'p-0' },
+  'Cal AI':     { src: '/images/logo/calai.webp',            bg: 'bg-black',      pad: 'p-0' },
+  MacroFactor:  { src: '/images/logo/macrofactor.webp',      bg: 'bg-black',      pad: 'p-0' },
+  Welling:      { src: '/images/logo/welling.webp',          bg: 'bg-black',      pad: 'p-0' },
+  Cronometer:   { src: '/images/logo/cronometer.webp',       bg: 'bg-black',      pad: 'p-0' },
+  Nutrola:      { src: '/images/logo/nutrola.webp',          bg: 'bg-black',      pad: 'p-0' },
 };
 
 export default function AppIcon({ name, size = 'md', className = '' }: Props) {

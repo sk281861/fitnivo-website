@@ -60,6 +60,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/blog/ai-fitness-apps-for-home-workouts`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${baseUrl}/blog/ai-nutrition-coach-for-weight-loss`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${baseUrl}/blog/ai-workout-generator-explained`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blog/biometric-optimization-science`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/blog/recovery-optimization-sleep-stress`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/blog/how-we-review-ai-fitness-apps`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.5 },
 
     // Legal Pages (0.3)
     { url: `${baseUrl}/privacy`, lastModified: currentDate, changeFrequency: 'monthly', priority: 0.3 },

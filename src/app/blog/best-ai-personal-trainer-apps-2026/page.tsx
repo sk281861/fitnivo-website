@@ -33,7 +33,7 @@ const articleSchema = generateArticleSchema({
   image: 'https://fitnivo.in/images/blog/ai-coaching/best-ai-personal-trainer-apps-2026.webp',
   url: 'https://fitnivo.in/blog/best-ai-personal-trainer-apps-2026',
   datePublished: '2026-09-04T00:00:00Z',
-  dateModified: '2026-09-04T00:00:00Z',
+  dateModified: '2026-09-09T00:00:00Z',
   authorName: 'Fitnivo Editorial Team',
   authorUrl: 'https://fitnivo.in/about',
   wordCount: 2200,
