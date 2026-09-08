@@ -202,6 +202,8 @@ export default function Page() {
                 rows={compRows}
                 title="Quick Comparison"
                 subtitle="A side-by-side look at the top AI fitness apps in 2026."
+                pickColor="emerald"
+                pickLabel="My Pick"
               />
             </div>
 

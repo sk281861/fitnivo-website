@@ -25,6 +25,10 @@ const LOGOS: Record<string, { src: string; bg: string; pad?: string; ring?: stri
   Ray:          { src: '/images/logo/ray.png',              bg: 'bg-black',      pad: 'p-0.5' },
   SensAI:       { src: '/images/logo/sensai.png',           bg: 'bg-black',      pad: 'p-1' },
   JuggernautAI: { src: '/images/logo/juggernautai.jpg',     bg: 'bg-black',      pad: 'p-0.5' },
+  // Home/beginner/personal-trainer comparison apps
+  'Nike Training Club': { src: '/images/logo/niketrainingclub.jpg', bg: 'bg-black', pad: 'p-0' },
+  Hevy:                 { src: '/images/logo/hevy.jpg',             bg: 'bg-black', pad: 'p-0' },
+  Planfit:              { src: '/images/logo/planfit.jpg',          bg: 'bg-black', pad: 'p-0' },
   // Weight-loss & nutrition comparison apps
   MyFitnessPal: { src: '/images/logo/myfitnesspal.jpg',     bg: 'bg-black',      pad: 'p-0' },
   Noom:         { src: '/images/logo/noom.jpg',             bg: 'bg-black',      pad: 'p-0' },
